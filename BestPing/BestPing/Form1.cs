@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -29,14 +30,7 @@ namespace BestPing
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string s = "C:/Users/cupps/Desktop/TestBestPing/testgames.xml";
-            XMLReader x = new XMLReader();
-            gg = x.ReadXmlFiles(s);
-
-            foreach(Game g in gg)
-            {
-                comboBox1.Items.Add(g.Name);
-            }
+            
         }
 
         private void listView1_MouseClick(object sender, MouseEventArgs e)
@@ -101,6 +95,34 @@ namespace BestPing
             objectListView1.ClearObjects();
             listView1.Items.Clear();
             comboBox2.SelectedIndex = 0;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog()
+            {
+                Filter = "XML Files (*.xml)|*xml",
+                Multiselect = false,
+                Title = "Select XML File"
+            };
+
+            if(ofd.ShowDialog() == DialogResult.OK)
+            {
+                label5.Text = ofd.SafeFileName;
+
+                string s = ofd.FileName;
+                XMLReader x = new XMLReader();
+                gg = x.ReadXmlFiles(s);
+
+                comboBox1.Items.Clear();
+                foreach (Game g in gg)
+                {
+                    comboBox1.Items.Add(g.Name);
+                }
+
+                comboBox1.Text = "<Options>";
+                ResetForm();
+            }
         }
     }
 }
