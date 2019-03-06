@@ -1,11 +1,9 @@
-﻿using System;
+﻿using BrightIdeasSoftware;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BestPing
@@ -20,7 +18,7 @@ namespace BestPing
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            clearItems();
+            ResetForm();
             string selectedGame = comboBox1.Text;
             List<Region> r = gg.Find(x => x.Name == selectedGame).Regions;
             foreach(Region region in r)
@@ -31,7 +29,7 @@ namespace BestPing
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string s = "C:/Users/cupps/Desktop/ping-realms-project/testgames.xml";
+            string s = "C:/Users/cupps/Desktop/TestBestPing/testgames.xml";
             XMLReader x = new XMLReader();
             gg = x.ReadXmlFiles(s);
 
@@ -39,11 +37,6 @@ namespace BestPing
             {
                 comboBox1.Items.Add(g.Name);
             }
-
-            comboBox2.Items.Add("1 - Fast");
-            comboBox2.Items.Add("5 - Moderate");
-            comboBox2.Items.Add("10 - Thorough");
-            comboBox2.Items.Add("Custom");
         }
 
         private void listView1_MouseClick(object sender, MouseEventArgs e)
@@ -74,8 +67,25 @@ namespace BestPing
 
                 label3.Text = "Progress: " + pingProgressionCount + "/" + totalServers;
                 label3.Refresh();
+
+                objectListView1.AddObject(server); 
             }
-            objectListView1.SetObjects(serv);
+
+            Status.ImageGetter = delegate (object rowObject)
+            {
+                Server s = (Server)rowObject;
+                int p = Convert.ToInt32(s.Ping);
+                if (p < 50)
+                    return Properties.Resources.GreenDot;
+                if (p > 50 && p < 101)
+                    return Properties.Resources.YellowDot;
+                if (p > 100 && p < 201)
+                    return Properties.Resources.OrangeDot;
+
+                return Properties.Resources.RedDot;
+            };
+
+            objectListView1.RebuildColumns();
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,10 +96,11 @@ namespace BestPing
                 textBox1.Enabled = false;
         }
 
-        private void clearItems()
+        private void ResetForm()
         {
             objectListView1.ClearObjects();
             listView1.Items.Clear();
+            comboBox2.SelectedIndex = 0;
         }
     }
 }

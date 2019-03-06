@@ -10,7 +10,7 @@ namespace BestPing
     {
         private string name;
         private string ip;
-        private string ping;
+        private int ping;
 
         public string Name
         {
@@ -35,7 +35,7 @@ namespace BestPing
                 ip = value;
             }
         }
-        public string Ping
+        public int Ping
         {
             get
             {

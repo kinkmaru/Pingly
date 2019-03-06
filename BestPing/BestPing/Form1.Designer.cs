@@ -35,7 +35,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label3 = new System.Windows.Forms.Label();
             this.objectListView1 = new BrightIdeasSoftware.ObjectListView();
-            this.olvColumn1 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.Status = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.Server = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.Ping = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -56,7 +56,7 @@
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(27, 103);
+            this.listView1.Location = new System.Drawing.Point(27, 94);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(297, 30);
             this.listView1.TabIndex = 2;
@@ -75,7 +75,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 87);
+            this.label2.Location = new System.Drawing.Point(24, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 5;
@@ -83,7 +83,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(130, 327);
+            this.progressBar1.Location = new System.Drawing.Point(130, 318);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(194, 23);
             this.progressBar1.TabIndex = 7;
@@ -94,7 +94,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(24, 327);
+            this.label3.Location = new System.Drawing.Point(32, 322);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 15);
             this.label3.TabIndex = 8;
@@ -103,17 +103,18 @@
             // 
             // objectListView1
             // 
-            this.objectListView1.AllColumns.Add(this.olvColumn1);
+            this.objectListView1.AllColumns.Add(this.Status);
             this.objectListView1.AllColumns.Add(this.Server);
             this.objectListView1.AllColumns.Add(this.Ping);
+            this.objectListView1.BackColor = System.Drawing.SystemColors.Window;
             this.objectListView1.CellEditUseWholeCell = false;
             this.objectListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.olvColumn1,
+            this.Status,
             this.Server,
             this.Ping});
             this.objectListView1.Cursor = System.Windows.Forms.Cursors.Default;
             this.objectListView1.HasCollapsibleGroups = false;
-            this.objectListView1.Location = new System.Drawing.Point(27, 139);
+            this.objectListView1.Location = new System.Drawing.Point(27, 130);
             this.objectListView1.Name = "objectListView1";
             this.objectListView1.ShowGroups = false;
             this.objectListView1.Size = new System.Drawing.Size(297, 182);
@@ -122,9 +123,10 @@
             this.objectListView1.UseCompatibleStateImageBehavior = false;
             this.objectListView1.View = System.Windows.Forms.View.Details;
             // 
-            // olvColumn1
+            // Status
             // 
-            this.olvColumn1.Text = "";
+            this.Status.Text = "Status";
+            this.Status.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Server
             // 
@@ -141,19 +143,24 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "1 - Fast",
+            "5 - Moderate",
+            "10 - Thorough",
+            "Custom"});
             this.comboBox2.Location = new System.Drawing.Point(118, 42);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 10;
-            this.comboBox2.Text = "<Options>";
+            this.comboBox2.Text = "1 - Fast";
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // textBox1
             // 
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(118, 69);
+            this.textBox1.Location = new System.Drawing.Point(245, 43);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
+            this.textBox1.Size = new System.Drawing.Size(59, 20);
             this.textBox1.TabIndex = 11;
             // 
             // label4
@@ -169,7 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 475);
+            this.ClientSize = new System.Drawing.Size(355, 371);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox2);
@@ -198,7 +205,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label3;
         private BrightIdeasSoftware.ObjectListView objectListView1;
-        private BrightIdeasSoftware.OLVColumn olvColumn1;
+        private BrightIdeasSoftware.OLVColumn Status;
         private BrightIdeasSoftware.OLVColumn Server;
         private BrightIdeasSoftware.OLVColumn Ping;
         private System.Windows.Forms.ComboBox comboBox2;
