@@ -109,7 +109,7 @@
             this.objectListView1.AllColumns.Add(this.Status);
             this.objectListView1.AllColumns.Add(this.Server);
             this.objectListView1.AllColumns.Add(this.Ping);
-            this.objectListView1.BackColor = System.Drawing.SystemColors.Window;
+            this.objectListView1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.objectListView1.CellEditUseWholeCell = false;
             this.objectListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Status,
