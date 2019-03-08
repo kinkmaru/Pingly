@@ -10,3 +10,15 @@ C:\Users\cupps\Desktop\ping-realms-project\BestPing\BestPing\obj\Debug\BestPing.
 C:\Users\cupps\Desktop\ping-realms-project\BestPing\BestPing\bin\Debug\ObjectListView.pdb
 C:\Users\cupps\Desktop\ping-realms-project\BestPing\BestPing\bin\Debug\ObjectListView.xml
 C:\Users\cupps\Desktop\ping-realms-project\BestPing\BestPing\obj\Debug\BestPing.csprojResolveAssemblyReference.cache
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\bin\Debug\BestPing.exe.config
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\bin\Debug\BestPing.exe
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\bin\Debug\BestPing.pdb
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\bin\Debug\ObjectListView.pdb
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\bin\Debug\ObjectListView.xml
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.csprojResolveAssemblyReference.cache
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.Form1.resources
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.Properties.Resources.resources
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.csproj.GenerateResource.Cache
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.csproj.CoreCompileInputs.cache
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.exe
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.pdb

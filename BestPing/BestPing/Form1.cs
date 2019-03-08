@@ -46,8 +46,8 @@ namespace BestPing
             label3.Refresh();
 
             int timesToPing;
-            if(textBox1.Enabled)
-                timesToPing = Convert.ToInt32(new String(textBox1.Text.Where(Char.IsDigit).ToArray()));
+            if(numericUpDown1.Enabled)
+                timesToPing = Convert.ToInt32(numericUpDown1.Value);
             else
                 timesToPing = Convert.ToInt32(new String(comboBox2.Text.Where(Char.IsDigit).ToArray()));
 
@@ -85,9 +85,9 @@ namespace BestPing
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox2.Text == "Custom")
-                textBox1.Enabled = true;
+                numericUpDown1.Enabled = true;
             else
-                textBox1.Enabled = false;
+                numericUpDown1.Enabled = false;
         }
 
         private void ResetForm()
