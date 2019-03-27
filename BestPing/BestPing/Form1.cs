@@ -12,9 +12,11 @@ namespace BestPing
     public partial class Form1 : Form
     {
         List<Game> gg = new List<Game>();
+        int progressSet;
         public Form1()
         {
             InitializeComponent();
+            progressSet = label3.Left;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -38,34 +40,19 @@ namespace BestPing
         private void listView1_MouseClick(object sender, MouseEventArgs e)
         {
             objectListView1.ClearObjects();
+            label3.Left = progressSet;
             string selectedServer = listView1.SelectedItems[0].Text;
-            List<Server> serv = gg.Find(x => x.Name == comboBox1.Text).Regions.Find(x => x.Name == selectedServer).Servers;
-            Pinging ping = new Pinging();
-
-            double totalServers = serv.Count();
-            double pingProgressionCount = 0;
-            label3.Text = "Progress: " + pingProgressionCount + "/" + totalServers;
-            label3.Refresh();
+            List<Server> serverList = gg.Find(x => x.Name == comboBox1.Text).Regions.Find(x => x.Name == selectedServer).Servers;
 
             int timesToPing;
-            if(numericUpDown1.Enabled)
+            if (numericUpDown1.Enabled)
                 timesToPing = Convert.ToInt32(numericUpDown1.Value);
             else
                 timesToPing = Convert.ToInt32(new String(comboBox2.Text.Where(Char.IsDigit).ToArray()));
 
-            foreach (Server server in serv)
-            {
-                server.Ping = ping.getAveragePing(server, timesToPing);
-                int pingCompare = Convert.ToInt32((server.Ping));
+            Tuple<List<Server>, int> serverListItems = Tuple.Create(serverList, timesToPing);
 
-                pingProgressionCount++;
-                progressBar1.Value = Convert.ToInt32(Math.Floor(((pingProgressionCount / totalServers) * 100)));
-
-                label3.Text = "Progress: " + pingProgressionCount + "/" + totalServers;
-                label3.Refresh();
-
-                objectListView1.AddObject(server); 
-            }
+            backgroundWorker1.RunWorkerAsync(argument: serverListItems);
 
             Status.ImageGetter = delegate (object rowObject)
             {
@@ -104,6 +91,7 @@ namespace BestPing
             comboBox1.Enabled = false;
             comboBox2.Enabled = false;
             listView1.Enabled = false;
+            label3.Left = 80;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -134,6 +122,47 @@ namespace BestPing
                 comboBox1.Enabled = true;
                 ResetForm();
             }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            Tuple<List<Server>, int> list = (Tuple<List<Server>, int>) e.Argument;
+            List<Server> serverList = list.Item1;
+            int timesToPing = list.Item2;
+
+            Pinging ping = new Pinging();
+
+            double totalServers = serverList.Count();
+            double pingProgressionCount = 0;
+
+            foreach (Server server in serverList)
+            {
+                server.Ping = ping.getAveragePing(server, timesToPing);
+                int pingCompare = Convert.ToInt32((server.Ping));
+
+                pingProgressionCount++;
+                int value = Convert.ToInt32(Math.Floor(((pingProgressionCount / totalServers) * 100)));
+
+                Tuple<double, double> progressTextItems = Tuple.Create(pingProgressionCount, totalServers);
+
+                backgroundWorker1.ReportProgress(value, progressTextItems);
+                objectListView1.AddObject(server);
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+
+            Tuple<double, double> list = (Tuple<double, double>) e.UserState;
+            label3.Text = list.Item1 + "/" + list.Item2;
+            label3.Left += Convert.ToInt32(progressBar1.Size.Width / list.Item2);
+            label3.Refresh();
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            string s = "ok";
         }
     }
 }

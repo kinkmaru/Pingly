@@ -22,3 +22,5 @@ C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPi
 C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.csproj.CoreCompileInputs.cache
 C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.exe
 C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.pdb
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\bin\Debug\System.ValueTuple.dll
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\bin\Debug\System.ValueTuple.xml
