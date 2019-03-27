@@ -26,11 +26,13 @@ namespace BestPing
             {
                 listView1.Items.Add(region.Name);
             }
+            comboBox2.Enabled = true;
+            listView1.Enabled = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            DisableAll();
         }
 
         private void listView1_MouseClick(object sender, MouseEventArgs e)
@@ -97,6 +99,13 @@ namespace BestPing
             comboBox2.SelectedIndex = 0;
         }
 
+        private void DisableAll()
+        {
+            comboBox1.Enabled = false;
+            comboBox2.Enabled = false;
+            listView1.Enabled = false;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog()
@@ -121,6 +130,8 @@ namespace BestPing
                 }
 
                 comboBox1.Text = "<Options>";
+                DisableAll();
+                comboBox1.Enabled = true;
                 ResetForm();
             }
         }

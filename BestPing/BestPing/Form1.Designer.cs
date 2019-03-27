@@ -171,17 +171,17 @@
             // 
             this.button1.Location = new System.Drawing.Point(39, 13);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 23);
+            this.button1.Size = new System.Drawing.Size(133, 23);
             this.button1.TabIndex = 13;
-            this.button1.Text = "Select XML File";
+            this.button1.Text = "Choose Game List (XML)";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(147, 18);
+            this.label5.Location = new System.Drawing.Point(174, 13);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(150, 13);
+            this.label5.Size = new System.Drawing.Size(130, 23);
             this.label5.TabIndex = 14;
             // 
             // numericUpDown1
@@ -189,7 +189,7 @@
             this.numericUpDown1.Enabled = false;
             this.numericUpDown1.Location = new System.Drawing.Point(245, 73);
             this.numericUpDown1.Maximum = new decimal(new int[] {
-            200,
+            50,
             0,
             0,
             0});
