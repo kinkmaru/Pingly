@@ -111,16 +111,21 @@
             this.objectListView1.AllColumns.Add(this.Status);
             this.objectListView1.AllColumns.Add(this.Server);
             this.objectListView1.AllColumns.Add(this.Ping);
-            this.objectListView1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.objectListView1.AlternateRowBackColor = System.Drawing.Color.Silver;
+            this.objectListView1.BackColor = System.Drawing.SystemColors.Control;
             this.objectListView1.CellEditUseWholeCell = false;
             this.objectListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Status,
             this.Server,
             this.Ping});
             this.objectListView1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.objectListView1.FullRowSelect = true;
             this.objectListView1.HasCollapsibleGroups = false;
+            this.objectListView1.HideSelection = false;
             this.objectListView1.Location = new System.Drawing.Point(27, 160);
             this.objectListView1.Name = "objectListView1";
+            this.objectListView1.SelectedBackColor = System.Drawing.Color.White;
+            this.objectListView1.SelectedForeColor = System.Drawing.Color.Black;
             this.objectListView1.ShowGroups = false;
             this.objectListView1.Size = new System.Drawing.Size(297, 182);
             this.objectListView1.SortGroupItemsByPrimaryColumn = false;
@@ -143,6 +148,7 @@
             // 
             this.Ping.AspectName = "Ping";
             this.Ping.Text = "Ping (m/s)";
+            this.Ping.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Ping.Width = 77;
             // 
             // comboBox2
@@ -185,6 +191,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(130, 23);
             this.label5.TabIndex = 14;
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // numericUpDown1
             // 
@@ -234,7 +241,7 @@
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.comboBox1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Ping Game Servers";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

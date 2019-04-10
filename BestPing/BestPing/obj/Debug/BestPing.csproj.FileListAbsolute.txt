@@ -24,3 +24,8 @@ C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPi
 C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.pdb
 C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\bin\Debug\System.ValueTuple.dll
 C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\bin\Debug\System.ValueTuple.xml
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.Form2.resources
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.Form3.resources
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.AddGame.resources
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.AddRegion.resources
+C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.AddServer.resources

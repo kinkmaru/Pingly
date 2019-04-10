@@ -13,6 +13,7 @@ namespace BestPing
     {
         List<Game> gg = new List<Game>();
         int progressSet;
+
         public Form1()
         {
             InitializeComponent();
@@ -41,6 +42,8 @@ namespace BestPing
         {
             objectListView1.ClearObjects();
             label3.Left = progressSet;
+            label3.Text = "0 / 0";
+
             string selectedServer = listView1.SelectedItems[0].Text;
             List<Server> serverList = gg.Find(x => x.Name == comboBox1.Text).Regions.Find(x => x.Name == selectedServer).Servers;
 
@@ -91,7 +94,7 @@ namespace BestPing
             comboBox1.Enabled = false;
             comboBox2.Enabled = false;
             listView1.Enabled = false;
-            label3.Left = 80;
+            label3.Left = progressSet;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -99,7 +102,7 @@ namespace BestPing
             OpenFileDialog ofd = new OpenFileDialog()
             {
                 Filter = "XML Files (*.xml)|*xml",
-                Multiselect = false,
+                Multiselect = true,
                 Title = "Select XML File"
             };
 
@@ -108,8 +111,8 @@ namespace BestPing
                 label5.Text = ofd.SafeFileName;
 
                 string s = ofd.FileName;
-                XMLReader x = new XMLReader();
-                gg = x.ReadXmlFiles(s);
+                XMLManipulation x = new XMLManipulation();
+                gg = x.ReadXmlFile(s);
 
                 comboBox1.Items.Clear();
                 foreach (Game g in gg)
@@ -117,7 +120,9 @@ namespace BestPing
                     comboBox1.Items.Add(g.Name);
                 }
 
+                comboBox1.Sorted = true;
                 comboBox1.Text = "<Options>";
+
                 DisableAll();
                 comboBox1.Enabled = true;
                 ResetForm();
@@ -162,7 +167,6 @@ namespace BestPing
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
-            string s = "ok";
         }
     }
 }
