@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace BestPing
 {
-    public partial class Form3 : Form
+    public partial class HomePage : Form
     {
-        private static Form1 form1;
-        private static Form2 form2;
-        public Form3()
+        private static PingServersForm form1;
+        private static ConfigureGamesListForm form2;
+        public HomePage()
         {
             InitializeComponent();
         }
@@ -22,7 +22,7 @@ namespace BestPing
         private void pingServersButton_Click(object sender, EventArgs e)
         {
             if(form1 == null || form1.IsDisposed)
-                form1 = new Form1();
+                form1 = new PingServersForm();
 
             form1.Show();
             form1.Focus();
@@ -31,7 +31,7 @@ namespace BestPing
         private void editGameListButton_Click(object sender, EventArgs e)
         {
             if (form2 == null || form2.IsDisposed)
-                form2 = new Form2();
+                form2 = new ConfigureGamesListForm();
 
             form2.Show();
             form2.Focus();

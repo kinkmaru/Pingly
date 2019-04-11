@@ -53,42 +53,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddRegion.cs">
+    <Compile Include="Forms\AddRegion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddRegion.Designer.cs">
+    <Compile Include="Forms\AddRegion.Designer.cs">
       <DependentUpon>AddRegion.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddServer.cs">
+    <Compile Include="Forms\AddServer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddServer.Designer.cs">
+    <Compile Include="Forms\AddServer.Designer.cs">
       <DependentUpon>AddServer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="Forms\ConfigureGamesListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="Forms\ConfigureGamesListForm.Designer.cs">
+      <DependentUpon>ConfigureGamesListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="Forms\HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="Forms\HomePage.Designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddGame.cs">
+    <Compile Include="Forms\AddGame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddGame.Designer.cs">
+    <Compile Include="Forms\AddGame.Designer.cs">
       <DependentUpon>AddGame.cs</DependentUpon>
     </Compile>
     <Compile Include="Game.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\PingServersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\PingServersForm.Designer.cs">
+      <DependentUpon>PingServersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Pinging.cs" />
     <Compile Include="Program.cs" />
@@ -96,23 +96,23 @@
     <Compile Include="Region.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="XMLManipulation.cs" />
-    <EmbeddedResource Include="AddGame.resx">
+    <EmbeddedResource Include="Forms\AddGame.resx">
       <DependentUpon>AddGame.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddRegion.resx">
+    <EmbeddedResource Include="Forms\AddRegion.resx">
       <DependentUpon>AddRegion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddServer.resx">
+    <EmbeddedResource Include="Forms\AddServer.resx">
       <DependentUpon>AddServer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\PingServersForm.resx">
+      <DependentUpon>PingServersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ConfigureGamesListForm.resx">
+      <DependentUpon>ConfigureGamesListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

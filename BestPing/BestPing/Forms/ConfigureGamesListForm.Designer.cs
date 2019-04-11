@@ -1,6 +1,6 @@
 ﻿namespace BestPing
 {
-    partial class Form2
+    partial class ConfigureGamesListForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,18 +31,18 @@
             this.selectFileButton = new System.Windows.Forms.Button();
             this.selectedFileLabel = new System.Windows.Forms.Label();
             this.gamesOLV = new BrightIdeasSoftware.ObjectListView();
-            this.Name = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.olvColumn1 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.gamesListNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.gamesListActionsColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.regionsOLV = new BrightIdeasSoftware.ObjectListView();
-            this.olvColumn3 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.olvColumn4 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.regionsListNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.regionsListActionsColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.serversOLV = new BrightIdeasSoftware.ObjectListView();
-            this.olvColumn5 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.olvColumn6 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.olvColumn7 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.serversListNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.serversListIpColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.serversListActionsColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.gamesListLabel = new System.Windows.Forms.Label();
+            this.regionsListLabel = new System.Windows.Forms.Label();
+            this.serversListLabel = new System.Windows.Forms.Label();
             this.addGameButton = new System.Windows.Forms.Button();
             this.addRegionButton = new System.Windows.Forms.Button();
             this.addServerButton = new System.Windows.Forms.Button();
@@ -67,18 +67,17 @@
             this.selectedFileLabel.AutoSize = true;
             this.selectedFileLabel.Location = new System.Drawing.Point(197, 27);
             this.selectedFileLabel.Name = "selectedFileLabel";
-            this.selectedFileLabel.Size = new System.Drawing.Size(35, 13);
+            this.selectedFileLabel.Size = new System.Drawing.Size(0, 13);
             this.selectedFileLabel.TabIndex = 2;
-            this.selectedFileLabel.Text = "label1";
             // 
             // gamesOLV
             // 
-            this.gamesOLV.AllColumns.Add(this.Name);
-            this.gamesOLV.AllColumns.Add(this.olvColumn1);
+            this.gamesOLV.AllColumns.Add(this.gamesListNameColumn);
+            this.gamesOLV.AllColumns.Add(this.gamesListActionsColumn);
             this.gamesOLV.CellEditUseWholeCell = false;
             this.gamesOLV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Name,
-            this.olvColumn1});
+            this.gamesListNameColumn,
+            this.gamesListActionsColumn});
             this.gamesOLV.Cursor = System.Windows.Forms.Cursors.Default;
             this.gamesOLV.FullRowSelect = true;
             this.gamesOLV.HasCollapsibleGroups = false;
@@ -96,24 +95,24 @@
             this.gamesOLV.View = System.Windows.Forms.View.Details;
             this.gamesOLV.SelectionChanged += new System.EventHandler(this.gamesOLV_SelectionChanged);
             // 
-            // Name
+            // gamesListNameColumn
             // 
-            this.Name.AspectName = "Name";
-            this.Name.Text = "Name";
-            this.Name.Width = 247;
+            this.gamesListNameColumn.AspectName = "Name";
+            this.gamesListNameColumn.Text = "Name";
+            this.gamesListNameColumn.Width = 247;
             // 
-            // olvColumn1
+            // gamesListActionsColumn
             // 
-            this.olvColumn1.Text = "Actions";
+            this.gamesListActionsColumn.Text = "Actions";
             // 
             // regionsOLV
             // 
-            this.regionsOLV.AllColumns.Add(this.olvColumn3);
-            this.regionsOLV.AllColumns.Add(this.olvColumn4);
+            this.regionsOLV.AllColumns.Add(this.regionsListNameColumn);
+            this.regionsOLV.AllColumns.Add(this.regionsListActionsColumn);
             this.regionsOLV.CellEditUseWholeCell = false;
             this.regionsOLV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.olvColumn3,
-            this.olvColumn4});
+            this.regionsListNameColumn,
+            this.regionsListActionsColumn});
             this.regionsOLV.Cursor = System.Windows.Forms.Cursors.Default;
             this.regionsOLV.FullRowSelect = true;
             this.regionsOLV.HasCollapsibleGroups = false;
@@ -130,26 +129,26 @@
             this.regionsOLV.View = System.Windows.Forms.View.Details;
             this.regionsOLV.SelectionChanged += new System.EventHandler(this.regionsOLV_SelectionChanged);
             // 
-            // olvColumn3
+            // regionsListNameColumn
             // 
-            this.olvColumn3.AspectName = "Name";
-            this.olvColumn3.Text = "Name";
-            this.olvColumn3.Width = 248;
+            this.regionsListNameColumn.AspectName = "Name";
+            this.regionsListNameColumn.Text = "Name";
+            this.regionsListNameColumn.Width = 248;
             // 
-            // olvColumn4
+            // regionsListActionsColumn
             // 
-            this.olvColumn4.Text = "Actions";
+            this.regionsListActionsColumn.Text = "Actions";
             // 
             // serversOLV
             // 
-            this.serversOLV.AllColumns.Add(this.olvColumn5);
-            this.serversOLV.AllColumns.Add(this.olvColumn6);
-            this.serversOLV.AllColumns.Add(this.olvColumn7);
+            this.serversOLV.AllColumns.Add(this.serversListNameColumn);
+            this.serversOLV.AllColumns.Add(this.serversListIpColumn);
+            this.serversOLV.AllColumns.Add(this.serversListActionsColumn);
             this.serversOLV.CellEditUseWholeCell = false;
             this.serversOLV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.olvColumn5,
-            this.olvColumn6,
-            this.olvColumn7});
+            this.serversListNameColumn,
+            this.serversListIpColumn,
+            this.serversListActionsColumn});
             this.serversOLV.Cursor = System.Windows.Forms.Cursors.Default;
             this.serversOLV.FullRowSelect = true;
             this.serversOLV.HasCollapsibleGroups = false;
@@ -165,48 +164,48 @@
             this.serversOLV.UseCompatibleStateImageBehavior = false;
             this.serversOLV.View = System.Windows.Forms.View.Details;
             // 
-            // olvColumn5
+            // serversListNameColumn
             // 
-            this.olvColumn5.AspectName = "Name";
-            this.olvColumn5.Text = "Name";
-            this.olvColumn5.Width = 117;
+            this.serversListNameColumn.AspectName = "Name";
+            this.serversListNameColumn.Text = "Name";
+            this.serversListNameColumn.Width = 117;
             // 
-            // olvColumn6
+            // serversListIpColumn
             // 
-            this.olvColumn6.AspectName = "Ip";
-            this.olvColumn6.Text = "IP";
-            this.olvColumn6.Width = 128;
+            this.serversListIpColumn.AspectName = "Ip";
+            this.serversListIpColumn.Text = "IP";
+            this.serversListIpColumn.Width = 128;
             // 
-            // olvColumn7
+            // serversListActionsColumn
             // 
-            this.olvColumn7.Text = "Actions";
+            this.serversListActionsColumn.Text = "Actions";
             // 
-            // label2
+            // gamesListLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Games";
+            this.gamesListLabel.AutoSize = true;
+            this.gamesListLabel.Location = new System.Drawing.Point(36, 67);
+            this.gamesListLabel.Name = "gamesListLabel";
+            this.gamesListLabel.Size = new System.Drawing.Size(40, 13);
+            this.gamesListLabel.TabIndex = 6;
+            this.gamesListLabel.Text = "Games";
             // 
-            // label3
+            // regionsListLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(36, 181);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Regions";
+            this.regionsListLabel.AutoSize = true;
+            this.regionsListLabel.Location = new System.Drawing.Point(36, 181);
+            this.regionsListLabel.Name = "regionsListLabel";
+            this.regionsListLabel.Size = new System.Drawing.Size(46, 13);
+            this.regionsListLabel.TabIndex = 7;
+            this.regionsListLabel.Text = "Regions";
             // 
-            // label4
+            // serversListLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 302);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Servers";
+            this.serversListLabel.AutoSize = true;
+            this.serversListLabel.Location = new System.Drawing.Point(33, 302);
+            this.serversListLabel.Name = "serversListLabel";
+            this.serversListLabel.Size = new System.Drawing.Size(43, 13);
+            this.serversListLabel.TabIndex = 8;
+            this.serversListLabel.Text = "Servers";
             // 
             // addGameButton
             // 
@@ -248,7 +247,7 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // Form2
+            // ConfigureGamesListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -257,15 +256,16 @@
             this.Controls.Add(this.addServerButton);
             this.Controls.Add(this.addRegionButton);
             this.Controls.Add(this.addGameButton);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.serversListLabel);
+            this.Controls.Add(this.regionsListLabel);
+            this.Controls.Add(this.gamesListLabel);
             this.Controls.Add(this.serversOLV);
             this.Controls.Add(this.regionsOLV);
             this.Controls.Add(this.gamesOLV);
             this.Controls.Add(this.selectedFileLabel);
             this.Controls.Add(this.selectFileButton);
-            this.Text = "Modify XML File";
+            this.Name = "ConfigureGamesListForm";
+            this.Text = "Configure Game List";
             ((System.ComponentModel.ISupportInitialize)(this.gamesOLV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.regionsOLV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serversOLV)).EndInit();
@@ -281,19 +281,19 @@
         private BrightIdeasSoftware.ObjectListView gamesOLV;
         private BrightIdeasSoftware.ObjectListView regionsOLV;
         private BrightIdeasSoftware.ObjectListView serversOLV;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label gamesListLabel;
+        private System.Windows.Forms.Label regionsListLabel;
+        private System.Windows.Forms.Label serversListLabel;
         private System.Windows.Forms.Button addGameButton;
         private System.Windows.Forms.Button addRegionButton;
         private System.Windows.Forms.Button addServerButton;
-        private BrightIdeasSoftware.OLVColumn Name;
-        private BrightIdeasSoftware.OLVColumn olvColumn3;
-        private BrightIdeasSoftware.OLVColumn olvColumn4;
-        private BrightIdeasSoftware.OLVColumn olvColumn5;
-        private BrightIdeasSoftware.OLVColumn olvColumn6;
-        private BrightIdeasSoftware.OLVColumn olvColumn7;
-        private BrightIdeasSoftware.OLVColumn olvColumn1;
+        private BrightIdeasSoftware.OLVColumn gamesListNameColumn;
+        private BrightIdeasSoftware.OLVColumn regionsListNameColumn;
+        private BrightIdeasSoftware.OLVColumn regionsListActionsColumn;
+        private BrightIdeasSoftware.OLVColumn serversListNameColumn;
+        private BrightIdeasSoftware.OLVColumn serversListIpColumn;
+        private BrightIdeasSoftware.OLVColumn serversListActionsColumn;
+        private BrightIdeasSoftware.OLVColumn gamesListActionsColumn;
         private System.Windows.Forms.Button saveButton;
     }
 }

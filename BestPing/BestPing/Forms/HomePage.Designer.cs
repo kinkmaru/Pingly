@@ -1,6 +1,6 @@
 ﻿namespace BestPing
 {
-    partial class Form3
+    partial class HomePage
     {
         /// <summary>
         /// Required designer variable.
@@ -52,15 +52,15 @@
             this.editGameListButton.UseVisualStyleBackColor = true;
             this.editGameListButton.Click += new System.EventHandler(this.editGameListButton_Click);
             // 
-            // Form3
+            // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.editGameListButton);
             this.Controls.Add(this.pingServersButton);
-            this.Name = "Form3";
-            this.Text = "Form3";
+            this.Name = "HomePage";
+            this.Text = "Home";
             this.ResumeLayout(false);
 
         }

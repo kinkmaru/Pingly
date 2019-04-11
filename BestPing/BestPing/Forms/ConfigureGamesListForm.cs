@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace BestPing
 {
-    public partial class Form2 : Form
+    public partial class ConfigureGamesListForm : Form
     {
         List<Game> gameList = new List<Game>();
         private static AddGame addGame;
         private static AddRegion addRegion;
         private static AddServer addServer;
 
-        public Form2()
+        public ConfigureGamesListForm()
         {
             InitializeComponent();
         }

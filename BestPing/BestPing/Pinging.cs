@@ -9,23 +9,22 @@ namespace BestPing
 {
     class Pinging
     {
-        public int getAveragePing(Server server, int timesToRunPing)
+        public int GetAveragePing(Server server, int timesToRunPing)
         {
             Ping p = new Ping();
-            string ip = server.Ip;
-            PingReply pr;
+            PingReply pingReply;
             long count = 0;
             int successfulPings = 0;
 
             for(int i = 0; i < timesToRunPing; i++)
             {
-                pr = p.Send(ip, 1000);
-                if (pr.Status != IPStatus.Success)
+                pingReply = p.Send(server.Ip, 1000);
+                if (pingReply.Status != IPStatus.Success)
                     continue;
                 else
                 {
                     successfulPings++;
-                    count += pr.RoundtripTime;
+                    count += pingReply.RoundtripTime;
                 }
             }
             if (successfulPings < 1)
