@@ -17,7 +17,6 @@ namespace BestPing
         private static AddRegion addRegion;
         private static AddServer addServer;
 
-
         public Form2()
         {
             InitializeComponent();

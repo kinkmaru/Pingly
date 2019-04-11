@@ -15,15 +15,23 @@ namespace BestPing
             string ip = server.Ip;
             PingReply pr;
             long count = 0;
+            int successfulPings = 0;
 
             for(int i = 0; i < timesToRunPing; i++)
             {
                 pr = p.Send(ip, 1000);
                 if (pr.Status != IPStatus.Success)
-                    return 999;
-                count += pr.RoundtripTime;
+                    continue;
+                else
+                {
+                    successfulPings++;
+                    count += pr.RoundtripTime;
+                }
             }
-            return Convert.ToInt32(count / timesToRunPing);
+            if (successfulPings < 1)
+                return 999;
+
+            return Convert.ToInt32(count / successfulPings);
         }
     }
 }
