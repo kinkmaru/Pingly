@@ -55,13 +55,6 @@ namespace BestPing
         {
         }
 
-        private void DisableAll()
-        {
-            gamesListComboBox.Enabled = false;
-            pingPrecisionComboBox.Enabled = false;
-            regionsListView.Enabled = false;
-        }
-
         private void gamesListComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ResetForm();
@@ -73,6 +66,9 @@ namespace BestPing
             }
             pingPrecisionComboBox.Enabled = true;
             regionsListView.Enabled = true;
+            regionsListView.Items[0].Selected = true;
+
+            pingServers();
         }
 
         private void PingServersForm_Load(object sender, EventArgs e)
@@ -80,51 +76,60 @@ namespace BestPing
             populateForm(Properties.Resources.gamesList, nameof(Properties.Resources.gamesList));
         }
 
-        private void regionsListView_MouseClick(object sender, MouseEventArgs e)
+        private void pingServers()
         {
             listServersOLV.ClearObjects();
 
-            string selectedServer = regionsListView.SelectedItems[0].Text;
-            List<Server> serverList = gameList.Find(x => x.Name == gamesListComboBox.Text).Regions.Find(y => y.Name == selectedServer).Servers;
+            if (gamesListComboBox.Text == "Game Name")
+                errorMessagesLabel.Text = "Game must be selected";
 
-            // int timesToPing = Convert.ToInt32(new String(pingPrecisionComboBox.Text.Where(Char.IsDigit).ToArray()));
-            int timesToPing;
+            else if (regionsListView.Items.Count < 1)
+                errorMessagesLabel.Text = "Region must be selected";
 
-            switch (pingPrecisionComboBox.Text)
+            else
             {
-                case "Fast":
-                    timesToPing = 1;
-                    break;
-                case "Moderate":
-                    timesToPing = 5;
-                    break;
-                case "Thorough":
-                    timesToPing = 10;
-                    break;
-                default:
-                    timesToPing = 1;
-                    break;
+                string selectedServer = regionsListView.SelectedItems[0].Text;
+                List<Server> serverList = gameList.Find(x => x.Name == gamesListComboBox.Text).Regions.Find(y => y.Name == selectedServer).Servers;
+
+                // int timesToPing = Convert.ToInt32(new String(pingPrecisionComboBox.Text.Where(Char.IsDigit).ToArray()));
+                int timesToPing;
+
+                switch (pingPrecisionComboBox.Text)
+                {
+                    case "Fast":
+                        timesToPing = 1;
+                        break;
+                    case "Moderate":
+                        timesToPing = 5;
+                        break;
+                    case "Thorough":
+                        timesToPing = 10;
+                        break;
+                    default:
+                        timesToPing = 1;
+                        break;
+                }
+
+                Tuple<List<Server>, int> serverListItems = Tuple.Create(serverList, timesToPing);
+
+                backgroundWorker.RunWorkerAsync(argument: serverListItems);
+
+                Status.ImageGetter = delegate (object rowObject)
+                {
+                    Server server = (Server)rowObject;
+                    int p = Convert.ToInt32(server.Ping);
+                    if (p < 50)
+                        return Properties.Resources.GreenDot;
+                    if (p > 50 && p < 101)
+                        return Properties.Resources.YellowDot;
+                    if (p > 100 && p < 201)
+                        return Properties.Resources.OrangeDot;
+
+                    return Properties.Resources.RedDot;
+                };
+
+                listServersOLV.RebuildColumns();
             }
-
-            Tuple<List<Server>, int> serverListItems = Tuple.Create(serverList, timesToPing);
-
-            backgroundWorker.RunWorkerAsync(argument: serverListItems);
-
-            Status.ImageGetter = delegate (object rowObject)
-            {
-                Server server = (Server)rowObject;
-                int p = Convert.ToInt32(server.Ping);
-                if (p < 50)
-                    return Properties.Resources.GreenDot;
-                if (p > 50 && p < 101)
-                    return Properties.Resources.YellowDot;
-                if (p > 100 && p < 201)
-                    return Properties.Resources.OrangeDot;
-
-                return Properties.Resources.RedDot;
-            };
-
-            listServersOLV.RebuildColumns();
         }
 
         private void ResetForm()
@@ -180,10 +185,19 @@ namespace BestPing
             gamesListComboBox.Sorted = true;
             gamesListComboBox.Text = "Game Name";
 
-            DisableAll();
             gamesListComboBox.Enabled = true;
             fileLabel.Text = gamesXMLFileName;
             ResetForm();
+        }
+
+        private void saveSettingsButton_Click(object sender, EventArgs e)
+        {
+            pingServers();
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            pingServers();
         }
     }
 }

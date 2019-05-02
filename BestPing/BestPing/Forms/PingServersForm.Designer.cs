@@ -46,6 +46,7 @@
             this.selectedFileLabel = new System.Windows.Forms.Label();
             this.saveSettingsButton = new System.Windows.Forms.Button();
             this.cancelSettingsButton = new System.Windows.Forms.Button();
+            this.errorMessagesLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.listServersOLV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,12 +62,12 @@
             // 
             // regionsListView
             // 
+            this.regionsListView.HideSelection = false;
             this.regionsListView.Location = new System.Drawing.Point(407, 82);
             this.regionsListView.Name = "regionsListView";
             this.regionsListView.Size = new System.Drawing.Size(171, 30);
             this.regionsListView.TabIndex = 2;
             this.regionsListView.UseCompatibleStateImageBehavior = false;
-            this.regionsListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.regionsListView_MouseClick);
             // 
             // regionListLabel
             // 
@@ -174,7 +175,7 @@
             this.editSettingsButton.Name = "editSettingsButton";
             this.editSettingsButton.Size = new System.Drawing.Size(75, 23);
             this.editSettingsButton.TabIndex = 16;
-            this.editSettingsButton.Text = "Edit";
+            this.editSettingsButton.Text = "Settings";
             this.editSettingsButton.UseVisualStyleBackColor = true;
             // 
             // refreshButton
@@ -185,6 +186,7 @@
             this.refreshButton.TabIndex = 17;
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // settingsLabel
             // 
@@ -212,6 +214,7 @@
             this.saveSettingsButton.TabIndex = 20;
             this.saveSettingsButton.Text = "<Save>";
             this.saveSettingsButton.UseVisualStyleBackColor = true;
+            this.saveSettingsButton.Click += new System.EventHandler(this.saveSettingsButton_Click);
             // 
             // cancelSettingsButton
             // 
@@ -222,11 +225,21 @@
             this.cancelSettingsButton.Text = "<Cancel>";
             this.cancelSettingsButton.UseVisualStyleBackColor = true;
             // 
+            // errorMessagesLabel
+            // 
+            this.errorMessagesLabel.AutoSize = true;
+            this.errorMessagesLabel.Location = new System.Drawing.Point(363, 376);
+            this.errorMessagesLabel.Name = "errorMessagesLabel";
+            this.errorMessagesLabel.Size = new System.Drawing.Size(35, 13);
+            this.errorMessagesLabel.TabIndex = 22;
+            this.errorMessagesLabel.Text = "label1";
+            // 
             // PingServersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(616, 414);
+            this.Controls.Add(this.errorMessagesLabel);
             this.Controls.Add(this.cancelSettingsButton);
             this.Controls.Add(this.saveSettingsButton);
             this.Controls.Add(this.selectedFileLabel);
@@ -269,6 +282,7 @@
         private System.Windows.Forms.Button saveSettingsButton;
         private System.Windows.Forms.Button cancelSettingsButton;
         private System.Windows.Forms.ComboBox gamesListComboBox;
+        private System.Windows.Forms.Label errorMessagesLabel;
     }
 }
 
