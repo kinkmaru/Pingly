@@ -32,14 +32,15 @@
             this.selectedFileLabel = new System.Windows.Forms.Label();
             this.gamesOLV = new BrightIdeasSoftware.ObjectListView();
             this.gamesListNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.gamesListActionsColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.gamesListEditColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.gamesListDeleteColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.regionsOLV = new BrightIdeasSoftware.ObjectListView();
             this.regionsListNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.regionsListActionsColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.regionsListEditColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.serversOLV = new BrightIdeasSoftware.ObjectListView();
             this.serversListNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.serversListIpColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.serversListActionsColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.serversListEditColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.gamesListLabel = new System.Windows.Forms.Label();
             this.regionsListLabel = new System.Windows.Forms.Label();
             this.serversListLabel = new System.Windows.Forms.Label();
@@ -47,6 +48,8 @@
             this.addRegionButton = new System.Windows.Forms.Button();
             this.addServerButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
+            this.regionsListDeleteColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.serversListDeleteColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             ((System.ComponentModel.ISupportInitialize)(this.gamesOLV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.regionsOLV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serversOLV)).BeginInit();
@@ -73,11 +76,13 @@
             // gamesOLV
             // 
             this.gamesOLV.AllColumns.Add(this.gamesListNameColumn);
-            this.gamesOLV.AllColumns.Add(this.gamesListActionsColumn);
+            this.gamesOLV.AllColumns.Add(this.gamesListEditColumn);
+            this.gamesOLV.AllColumns.Add(this.gamesListDeleteColumn);
             this.gamesOLV.CellEditUseWholeCell = false;
             this.gamesOLV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.gamesListNameColumn,
-            this.gamesListActionsColumn});
+            this.gamesListEditColumn,
+            this.gamesListDeleteColumn});
             this.gamesOLV.Cursor = System.Windows.Forms.Cursors.Default;
             this.gamesOLV.FullRowSelect = true;
             this.gamesOLV.HasCollapsibleGroups = false;
@@ -99,20 +104,28 @@
             // 
             this.gamesListNameColumn.AspectName = "Name";
             this.gamesListNameColumn.Text = "Name";
-            this.gamesListNameColumn.Width = 247;
+            this.gamesListNameColumn.Width = 224;
             // 
-            // gamesListActionsColumn
+            // gamesListEditColumn
             // 
-            this.gamesListActionsColumn.Text = "Actions";
+            this.gamesListEditColumn.Text = "Edit";
+            this.gamesListEditColumn.Width = 30;
+            // 
+            // gamesListDeleteColumn
+            // 
+            this.gamesListDeleteColumn.Text = "Delete";
+            this.gamesListDeleteColumn.Width = 43;
             // 
             // regionsOLV
             // 
             this.regionsOLV.AllColumns.Add(this.regionsListNameColumn);
-            this.regionsOLV.AllColumns.Add(this.regionsListActionsColumn);
+            this.regionsOLV.AllColumns.Add(this.regionsListEditColumn);
+            this.regionsOLV.AllColumns.Add(this.regionsListDeleteColumn);
             this.regionsOLV.CellEditUseWholeCell = false;
             this.regionsOLV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.regionsListNameColumn,
-            this.regionsListActionsColumn});
+            this.regionsListEditColumn,
+            this.regionsListDeleteColumn});
             this.regionsOLV.Cursor = System.Windows.Forms.Cursors.Default;
             this.regionsOLV.FullRowSelect = true;
             this.regionsOLV.HasCollapsibleGroups = false;
@@ -133,22 +146,25 @@
             // 
             this.regionsListNameColumn.AspectName = "Name";
             this.regionsListNameColumn.Text = "Name";
-            this.regionsListNameColumn.Width = 248;
+            this.regionsListNameColumn.Width = 224;
             // 
-            // regionsListActionsColumn
+            // regionsListEditColumn
             // 
-            this.regionsListActionsColumn.Text = "Actions";
+            this.regionsListEditColumn.Text = "Edit";
+            this.regionsListEditColumn.Width = 31;
             // 
             // serversOLV
             // 
             this.serversOLV.AllColumns.Add(this.serversListNameColumn);
             this.serversOLV.AllColumns.Add(this.serversListIpColumn);
-            this.serversOLV.AllColumns.Add(this.serversListActionsColumn);
+            this.serversOLV.AllColumns.Add(this.serversListEditColumn);
+            this.serversOLV.AllColumns.Add(this.serversListDeleteColumn);
             this.serversOLV.CellEditUseWholeCell = false;
             this.serversOLV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.serversListNameColumn,
             this.serversListIpColumn,
-            this.serversListActionsColumn});
+            this.serversListEditColumn,
+            this.serversListDeleteColumn});
             this.serversOLV.Cursor = System.Windows.Forms.Cursors.Default;
             this.serversOLV.FullRowSelect = true;
             this.serversOLV.HasCollapsibleGroups = false;
@@ -174,11 +190,12 @@
             // 
             this.serversListIpColumn.AspectName = "Ip";
             this.serversListIpColumn.Text = "IP";
-            this.serversListIpColumn.Width = 128;
+            this.serversListIpColumn.Width = 104;
             // 
-            // serversListActionsColumn
+            // serversListEditColumn
             // 
-            this.serversListActionsColumn.Text = "Actions";
+            this.serversListEditColumn.Text = "Edit";
+            this.serversListEditColumn.Width = 30;
             // 
             // gamesListLabel
             // 
@@ -247,6 +264,16 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // regionsListDeleteColumn
+            // 
+            this.regionsListDeleteColumn.Text = "Delete";
+            this.regionsListDeleteColumn.Width = 44;
+            // 
+            // serversListDeleteColumn
+            // 
+            this.serversListDeleteColumn.Text = "Delete";
+            this.serversListDeleteColumn.Width = 45;
+            // 
             // ConfigureGamesListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,11 +316,14 @@
         private System.Windows.Forms.Button addServerButton;
         private BrightIdeasSoftware.OLVColumn gamesListNameColumn;
         private BrightIdeasSoftware.OLVColumn regionsListNameColumn;
-        private BrightIdeasSoftware.OLVColumn regionsListActionsColumn;
+        private BrightIdeasSoftware.OLVColumn regionsListEditColumn;
         private BrightIdeasSoftware.OLVColumn serversListNameColumn;
         private BrightIdeasSoftware.OLVColumn serversListIpColumn;
-        private BrightIdeasSoftware.OLVColumn serversListActionsColumn;
-        private BrightIdeasSoftware.OLVColumn gamesListActionsColumn;
+        private BrightIdeasSoftware.OLVColumn serversListEditColumn;
+        private BrightIdeasSoftware.OLVColumn gamesListEditColumn;
         private System.Windows.Forms.Button saveButton;
+        private BrightIdeasSoftware.OLVColumn gamesListDeleteColumn;
+        private BrightIdeasSoftware.OLVColumn regionsListDeleteColumn;
+        private BrightIdeasSoftware.OLVColumn serversListDeleteColumn;
     }
 }

@@ -12,12 +12,10 @@ namespace BestPing
     public partial class PingServersForm : Form
     {
         List<Game> gameList = new List<Game>();
-        int progressSet;
 
         public PingServersForm()
         {
             InitializeComponent();
-            progressSet = progressionLabel.Left;
         }
 
         private void backgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
@@ -51,9 +49,6 @@ namespace BestPing
             progressBar.Value = e.ProgressPercentage;
 
             Tuple<double, double> list = (Tuple<double, double>) e.UserState;
-            progressionLabel.Text = list.Item1 + "/" + list.Item2;
-            progressionLabel.Left += Convert.ToInt32(progressBar.Size.Width / list.Item2);
-            progressionLabel.Refresh();
         }
 
         private void backgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
@@ -65,7 +60,6 @@ namespace BestPing
             gamesListComboBox.Enabled = false;
             pingPrecisionComboBox.Enabled = false;
             regionsListView.Enabled = false;
-            progressionLabel.Left = progressSet;
         }
 
         private void gamesListComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -97,8 +91,6 @@ namespace BestPing
         private void regionsListView_MouseClick(object sender, MouseEventArgs e)
         {
             listServersOLV.ClearObjects();
-            progressionLabel.Left = progressSet;
-            progressionLabel.Text = "0 / 0";
 
             string selectedServer = regionsListView.SelectedItems[0].Text;
             List<Server> serverList = gameList.Find(x => x.Name == gamesListComboBox.Text).Regions.Find(y => y.Name == selectedServer).Servers;
@@ -148,7 +140,7 @@ namespace BestPing
 
             if(ofd.ShowDialog() == DialogResult.OK)
             {
-                selectedFileLabel.Text = ofd.SafeFileName;
+                fileLabel.Text = ofd.SafeFileName;
 
                 string gameListLocation = ofd.FileName;
                 XMLManipulation xmlRead = new XMLManipulation();
@@ -161,7 +153,7 @@ namespace BestPing
                 }
 
                 gamesListComboBox.Sorted = true;
-                gamesListComboBox.Text = "<Options>";
+                gamesListComboBox.Text = "Game Name";
 
                 DisableAll();
                 gamesListComboBox.Enabled = true;

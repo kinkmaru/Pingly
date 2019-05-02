@@ -30,10 +30,8 @@
         {
             this.gamesListComboBox = new System.Windows.Forms.ComboBox();
             this.regionsListView = new System.Windows.Forms.ListView();
-            this.selectGameLabel = new System.Windows.Forms.Label();
             this.regionListLabel = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.progressionLabel = new System.Windows.Forms.Label();
             this.listServersOLV = new BrightIdeasSoftware.ObjectListView();
             this.Status = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.Server = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -41,9 +39,15 @@
             this.pingPrecisionComboBox = new System.Windows.Forms.ComboBox();
             this.pingPrecisionLabel = new System.Windows.Forms.Label();
             this.selectGameFileButton = new System.Windows.Forms.Button();
-            this.selectedFileLabel = new System.Windows.Forms.Label();
+            this.fileLabel = new System.Windows.Forms.Label();
             this.pingPrecisionNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.editSettingsButton = new System.Windows.Forms.Button();
+            this.refreshButton = new System.Windows.Forms.Button();
+            this.settingsLabel = new System.Windows.Forms.Label();
+            this.selectedFileLabel = new System.Windows.Forms.Label();
+            this.saveSettingsButton = new System.Windows.Forms.Button();
+            this.cancelSettingsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listServersOLV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pingPrecisionNumUpDown)).BeginInit();
             this.SuspendLayout();
@@ -51,60 +55,38 @@
             // gamesListComboBox
             // 
             this.gamesListComboBox.FormattingEnabled = true;
-            this.gamesListComboBox.Location = new System.Drawing.Point(118, 45);
+            this.gamesListComboBox.Location = new System.Drawing.Point(65, 39);
             this.gamesListComboBox.Name = "gamesListComboBox";
             this.gamesListComboBox.Size = new System.Drawing.Size(186, 21);
             this.gamesListComboBox.TabIndex = 0;
-            this.gamesListComboBox.Text = "<Options>";
+            this.gamesListComboBox.Text = "Game Name";
             this.gamesListComboBox.SelectedIndexChanged += new System.EventHandler(this.gamesListComboBox_SelectedIndexChanged);
             // 
             // regionsListView
             // 
-            this.regionsListView.Location = new System.Drawing.Point(27, 124);
+            this.regionsListView.Location = new System.Drawing.Point(407, 82);
             this.regionsListView.Name = "regionsListView";
-            this.regionsListView.Size = new System.Drawing.Size(297, 30);
+            this.regionsListView.Size = new System.Drawing.Size(171, 30);
             this.regionsListView.TabIndex = 2;
             this.regionsListView.UseCompatibleStateImageBehavior = false;
             this.regionsListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.regionsListView_MouseClick);
             // 
-            // selectGameLabel
-            // 
-            this.selectGameLabel.AutoSize = true;
-            this.selectGameLabel.Location = new System.Drawing.Point(36, 48);
-            this.selectGameLabel.Name = "selectGameLabel";
-            this.selectGameLabel.Size = new System.Drawing.Size(68, 13);
-            this.selectGameLabel.TabIndex = 3;
-            this.selectGameLabel.Text = "Select Game";
-            // 
             // regionListLabel
             // 
             this.regionListLabel.AutoSize = true;
-            this.regionListLabel.Location = new System.Drawing.Point(24, 108);
+            this.regionListLabel.Location = new System.Drawing.Point(360, 89);
             this.regionListLabel.Name = "regionListLabel";
-            this.regionListLabel.Size = new System.Drawing.Size(41, 13);
+            this.regionListLabel.Size = new System.Drawing.Size(44, 13);
             this.regionListLabel.TabIndex = 5;
-            this.regionListLabel.Text = "Region";
+            this.regionListLabel.Text = "Region:";
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(80, 370);
+            this.progressBar.Location = new System.Drawing.Point(27, 126);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(200, 23);
+            this.progressBar.Size = new System.Drawing.Size(297, 10);
             this.progressBar.Step = 0;
             this.progressBar.TabIndex = 7;
-            // 
-            // progressionLabel
-            // 
-            this.progressionLabel.AutoSize = true;
-            this.progressionLabel.BackColor = System.Drawing.Color.Transparent;
-            this.progressionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.progressionLabel.ForeColor = System.Drawing.Color.Black;
-            this.progressionLabel.Location = new System.Drawing.Point(80, 350);
-            this.progressionLabel.Name = "progressionLabel";
-            this.progressionLabel.Size = new System.Drawing.Size(0, 15);
-            this.progressionLabel.TabIndex = 8;
-            this.progressionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.progressionLabel.UseMnemonic = false;
             // 
             // listServersOLV
             // 
@@ -122,12 +104,12 @@
             this.listServersOLV.FullRowSelect = true;
             this.listServersOLV.HasCollapsibleGroups = false;
             this.listServersOLV.HideSelection = false;
-            this.listServersOLV.Location = new System.Drawing.Point(27, 160);
+            this.listServersOLV.Location = new System.Drawing.Point(27, 136);
             this.listServersOLV.Name = "listServersOLV";
             this.listServersOLV.SelectedBackColor = System.Drawing.Color.White;
             this.listServersOLV.SelectedForeColor = System.Drawing.Color.Black;
             this.listServersOLV.ShowGroups = false;
-            this.listServersOLV.Size = new System.Drawing.Size(297, 182);
+            this.listServersOLV.Size = new System.Drawing.Size(297, 266);
             this.listServersOLV.SortGroupItemsByPrimaryColumn = false;
             this.listServersOLV.TabIndex = 9;
             this.listServersOLV.UseCompatibleStateImageBehavior = false;
@@ -135,14 +117,15 @@
             // 
             // Status
             // 
-            this.Status.Text = "Status";
+            this.Status.Text = "";
             this.Status.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Status.Width = 26;
             // 
             // Server
             // 
             this.Server.AspectName = "Name";
             this.Server.Text = "Server Name";
-            this.Server.Width = 88;
+            this.Server.Width = 147;
             // 
             // Ping
             // 
@@ -159,9 +142,9 @@
             "5 - Moderate",
             "10 - Thorough",
             "Custom"});
-            this.pingPrecisionComboBox.Location = new System.Drawing.Point(118, 72);
+            this.pingPrecisionComboBox.Location = new System.Drawing.Point(447, 43);
             this.pingPrecisionComboBox.Name = "pingPrecisionComboBox";
-            this.pingPrecisionComboBox.Size = new System.Drawing.Size(121, 21);
+            this.pingPrecisionComboBox.Size = new System.Drawing.Size(131, 21);
             this.pingPrecisionComboBox.TabIndex = 10;
             this.pingPrecisionComboBox.Text = "1 - Fast";
             this.pingPrecisionComboBox.SelectedIndexChanged += new System.EventHandler(this.pingPrecisionComboBox_SelectedIndexChanged);
@@ -169,7 +152,7 @@
             // pingPrecisionLabel
             // 
             this.pingPrecisionLabel.AutoSize = true;
-            this.pingPrecisionLabel.Location = new System.Drawing.Point(36, 75);
+            this.pingPrecisionLabel.Location = new System.Drawing.Point(360, 46);
             this.pingPrecisionLabel.Name = "pingPrecisionLabel";
             this.pingPrecisionLabel.Size = new System.Drawing.Size(74, 13);
             this.pingPrecisionLabel.TabIndex = 12;
@@ -177,7 +160,7 @@
             // 
             // selectGameFileButton
             // 
-            this.selectGameFileButton.Location = new System.Drawing.Point(39, 13);
+            this.selectGameFileButton.Location = new System.Drawing.Point(447, 211);
             this.selectGameFileButton.Name = "selectGameFileButton";
             this.selectGameFileButton.Size = new System.Drawing.Size(133, 23);
             this.selectGameFileButton.TabIndex = 13;
@@ -185,18 +168,18 @@
             this.selectGameFileButton.UseVisualStyleBackColor = true;
             this.selectGameFileButton.Click += new System.EventHandler(this.selectGameFileButton_Click);
             // 
-            // selectedFileLabel
+            // fileLabel
             // 
-            this.selectedFileLabel.Location = new System.Drawing.Point(174, 13);
-            this.selectedFileLabel.Name = "selectedFileLabel";
-            this.selectedFileLabel.Size = new System.Drawing.Size(130, 23);
-            this.selectedFileLabel.TabIndex = 14;
-            this.selectedFileLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.fileLabel.Location = new System.Drawing.Point(469, 168);
+            this.fileLabel.Name = "fileLabel";
+            this.fileLabel.Size = new System.Drawing.Size(130, 23);
+            this.fileLabel.TabIndex = 14;
+            this.fileLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pingPrecisionNumUpDown
             // 
             this.pingPrecisionNumUpDown.Enabled = false;
-            this.pingPrecisionNumUpDown.Location = new System.Drawing.Point(245, 73);
+            this.pingPrecisionNumUpDown.Location = new System.Drawing.Point(528, 17);
             this.pingPrecisionNumUpDown.Maximum = new decimal(new int[] {
             50,
             0,
@@ -223,21 +206,79 @@
             this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker_ProgressChanged);
             this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
             // 
+            // editSettingsButton
+            // 
+            this.editSettingsButton.Location = new System.Drawing.Point(249, 7);
+            this.editSettingsButton.Name = "editSettingsButton";
+            this.editSettingsButton.Size = new System.Drawing.Size(75, 23);
+            this.editSettingsButton.TabIndex = 16;
+            this.editSettingsButton.Text = "Edit";
+            this.editSettingsButton.UseVisualStyleBackColor = true;
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.Location = new System.Drawing.Point(249, 97);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(75, 23);
+            this.refreshButton.TabIndex = 17;
+            this.refreshButton.Text = "Refresh";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            // 
+            // settingsLabel
+            // 
+            this.settingsLabel.AutoSize = true;
+            this.settingsLabel.Location = new System.Drawing.Point(423, 17);
+            this.settingsLabel.Name = "settingsLabel";
+            this.settingsLabel.Size = new System.Drawing.Size(45, 13);
+            this.settingsLabel.TabIndex = 18;
+            this.settingsLabel.Text = "Settings";
+            // 
+            // selectedFileLabel
+            // 
+            this.selectedFileLabel.AutoSize = true;
+            this.selectedFileLabel.Location = new System.Drawing.Point(369, 178);
+            this.selectedFileLabel.Name = "selectedFileLabel";
+            this.selectedFileLabel.Size = new System.Drawing.Size(71, 13);
+            this.selectedFileLabel.TabIndex = 19;
+            this.selectedFileLabel.Text = "Selected File:";
+            // 
+            // saveSettingsButton
+            // 
+            this.saveSettingsButton.Location = new System.Drawing.Point(393, 291);
+            this.saveSettingsButton.Name = "saveSettingsButton";
+            this.saveSettingsButton.Size = new System.Drawing.Size(75, 23);
+            this.saveSettingsButton.TabIndex = 20;
+            this.saveSettingsButton.Text = "<Save>";
+            this.saveSettingsButton.UseVisualStyleBackColor = true;
+            // 
+            // cancelSettingsButton
+            // 
+            this.cancelSettingsButton.Location = new System.Drawing.Point(487, 291);
+            this.cancelSettingsButton.Name = "cancelSettingsButton";
+            this.cancelSettingsButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelSettingsButton.TabIndex = 21;
+            this.cancelSettingsButton.Text = "<Cancel>";
+            this.cancelSettingsButton.UseVisualStyleBackColor = true;
+            // 
             // PingServersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 414);
-            this.Controls.Add(this.pingPrecisionNumUpDown);
+            this.ClientSize = new System.Drawing.Size(616, 414);
+            this.Controls.Add(this.cancelSettingsButton);
+            this.Controls.Add(this.saveSettingsButton);
             this.Controls.Add(this.selectedFileLabel);
+            this.Controls.Add(this.settingsLabel);
+            this.Controls.Add(this.refreshButton);
+            this.Controls.Add(this.editSettingsButton);
+            this.Controls.Add(this.pingPrecisionNumUpDown);
+            this.Controls.Add(this.fileLabel);
             this.Controls.Add(this.selectGameFileButton);
             this.Controls.Add(this.pingPrecisionLabel);
             this.Controls.Add(this.pingPrecisionComboBox);
             this.Controls.Add(this.listServersOLV);
-            this.Controls.Add(this.progressionLabel);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.regionListLabel);
-            this.Controls.Add(this.selectGameLabel);
             this.Controls.Add(this.regionsListView);
             this.Controls.Add(this.gamesListComboBox);
             this.Name = "PingServersForm";
@@ -254,10 +295,8 @@
 
         private System.Windows.Forms.ComboBox gamesListComboBox;
         private System.Windows.Forms.ListView regionsListView;
-        private System.Windows.Forms.Label selectGameLabel;
         private System.Windows.Forms.Label regionListLabel;
         private System.Windows.Forms.ProgressBar progressBar;
-        private System.Windows.Forms.Label progressionLabel;
         private BrightIdeasSoftware.ObjectListView listServersOLV;
         private BrightIdeasSoftware.OLVColumn Status;
         private BrightIdeasSoftware.OLVColumn Server;
@@ -265,9 +304,15 @@
         private System.Windows.Forms.ComboBox pingPrecisionComboBox;
         private System.Windows.Forms.Label pingPrecisionLabel;
         private System.Windows.Forms.Button selectGameFileButton;
-        private System.Windows.Forms.Label selectedFileLabel;
+        private System.Windows.Forms.Label fileLabel;
         private System.Windows.Forms.NumericUpDown pingPrecisionNumUpDown;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
+        private System.Windows.Forms.Button editSettingsButton;
+        private System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.Label settingsLabel;
+        private System.Windows.Forms.Label selectedFileLabel;
+        private System.Windows.Forms.Button saveSettingsButton;
+        private System.Windows.Forms.Button cancelSettingsButton;
     }
 }
 

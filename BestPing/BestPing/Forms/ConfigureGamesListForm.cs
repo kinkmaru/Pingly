@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BrightIdeasSoftware;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,6 +45,9 @@ namespace BestPing
                 {
                     gamesOLV.AddObject(game);
                 }
+                SetupActionButtons(gamesListEditColumn, "Edit");
+                SetupActionButtons(gamesListDeleteColumn, "Delete");
+                gamesOLV.RebuildColumns();
             }
         }
 
@@ -199,6 +203,22 @@ namespace BestPing
                 xmlM.WriteXMLFile(saveLocation, gameList);
             }
             this.Dispose();
+        }
+
+        private void SetupActionButtons(OLVColumn column, string icon)
+        {
+            column.ImageGetter = delegate (object rowObject)
+            {
+                switch (icon)
+                {
+                    case "Edit":
+                        return Properties.Resources.YellowDot;
+                    case "Delete":
+                        return Properties.Resources.RedDot;
+                }
+
+                return 0;
+            };
         }
     }
 }
