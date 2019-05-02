@@ -153,5 +153,11 @@
   <ItemGroup>
     <None Include="Resources\YellowDot.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gameList.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\testgames.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

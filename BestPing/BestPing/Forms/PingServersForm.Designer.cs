@@ -38,9 +38,7 @@
             this.Ping = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.pingPrecisionComboBox = new System.Windows.Forms.ComboBox();
             this.pingPrecisionLabel = new System.Windows.Forms.Label();
-            this.selectGameFileButton = new System.Windows.Forms.Button();
             this.fileLabel = new System.Windows.Forms.Label();
-            this.pingPrecisionNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.editSettingsButton = new System.Windows.Forms.Button();
             this.refreshButton = new System.Windows.Forms.Button();
@@ -49,7 +47,6 @@
             this.saveSettingsButton = new System.Windows.Forms.Button();
             this.cancelSettingsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listServersOLV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pingPrecisionNumUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // gamesListComboBox
@@ -138,16 +135,14 @@
             // 
             this.pingPrecisionComboBox.FormattingEnabled = true;
             this.pingPrecisionComboBox.Items.AddRange(new object[] {
-            "1 - Fast",
-            "5 - Moderate",
-            "10 - Thorough",
-            "Custom"});
+            "Fast",
+            "Moderate",
+            "Thorough"});
             this.pingPrecisionComboBox.Location = new System.Drawing.Point(447, 43);
             this.pingPrecisionComboBox.Name = "pingPrecisionComboBox";
             this.pingPrecisionComboBox.Size = new System.Drawing.Size(131, 21);
             this.pingPrecisionComboBox.TabIndex = 10;
-            this.pingPrecisionComboBox.Text = "1 - Fast";
-            this.pingPrecisionComboBox.SelectedIndexChanged += new System.EventHandler(this.pingPrecisionComboBox_SelectedIndexChanged);
+            this.pingPrecisionComboBox.Text = "Fast";
             // 
             // pingPrecisionLabel
             // 
@@ -158,46 +153,13 @@
             this.pingPrecisionLabel.TabIndex = 12;
             this.pingPrecisionLabel.Text = "Ping Precision";
             // 
-            // selectGameFileButton
-            // 
-            this.selectGameFileButton.Location = new System.Drawing.Point(447, 211);
-            this.selectGameFileButton.Name = "selectGameFileButton";
-            this.selectGameFileButton.Size = new System.Drawing.Size(133, 23);
-            this.selectGameFileButton.TabIndex = 13;
-            this.selectGameFileButton.Text = "Choose Game List (XML)";
-            this.selectGameFileButton.UseVisualStyleBackColor = true;
-            this.selectGameFileButton.Click += new System.EventHandler(this.selectGameFileButton_Click);
-            // 
             // fileLabel
             // 
-            this.fileLabel.Location = new System.Drawing.Point(469, 168);
+            this.fileLabel.Location = new System.Drawing.Point(450, 173);
             this.fileLabel.Name = "fileLabel";
             this.fileLabel.Size = new System.Drawing.Size(130, 23);
             this.fileLabel.TabIndex = 14;
             this.fileLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pingPrecisionNumUpDown
-            // 
-            this.pingPrecisionNumUpDown.Enabled = false;
-            this.pingPrecisionNumUpDown.Location = new System.Drawing.Point(528, 17);
-            this.pingPrecisionNumUpDown.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.pingPrecisionNumUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.pingPrecisionNumUpDown.Name = "pingPrecisionNumUpDown";
-            this.pingPrecisionNumUpDown.Size = new System.Drawing.Size(59, 20);
-            this.pingPrecisionNumUpDown.TabIndex = 15;
-            this.pingPrecisionNumUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // backgroundWorker
             // 
@@ -271,9 +233,7 @@
             this.Controls.Add(this.settingsLabel);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.editSettingsButton);
-            this.Controls.Add(this.pingPrecisionNumUpDown);
             this.Controls.Add(this.fileLabel);
-            this.Controls.Add(this.selectGameFileButton);
             this.Controls.Add(this.pingPrecisionLabel);
             this.Controls.Add(this.pingPrecisionComboBox);
             this.Controls.Add(this.listServersOLV);
@@ -285,15 +245,12 @@
             this.Text = "Ping Game Servers";
             this.Load += new System.EventHandler(this.PingServersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.listServersOLV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pingPrecisionNumUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox gamesListComboBox;
         private System.Windows.Forms.ListView regionsListView;
         private System.Windows.Forms.Label regionListLabel;
         private System.Windows.Forms.ProgressBar progressBar;
@@ -303,9 +260,7 @@
         private BrightIdeasSoftware.OLVColumn Ping;
         private System.Windows.Forms.ComboBox pingPrecisionComboBox;
         private System.Windows.Forms.Label pingPrecisionLabel;
-        private System.Windows.Forms.Button selectGameFileButton;
         private System.Windows.Forms.Label fileLabel;
-        private System.Windows.Forms.NumericUpDown pingPrecisionNumUpDown;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
         private System.Windows.Forms.Button editSettingsButton;
         private System.Windows.Forms.Button refreshButton;
@@ -313,6 +268,7 @@
         private System.Windows.Forms.Label selectedFileLabel;
         private System.Windows.Forms.Button saveSettingsButton;
         private System.Windows.Forms.Button cancelSettingsButton;
+        private System.Windows.Forms.ComboBox gamesListComboBox;
     }
 }
 

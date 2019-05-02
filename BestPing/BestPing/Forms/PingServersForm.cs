@@ -75,17 +75,9 @@ namespace BestPing
             regionsListView.Enabled = true;
         }
 
-        private void pingPrecisionComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (pingPrecisionComboBox.Text == "Custom")
-                pingPrecisionNumUpDown.Enabled = true;
-            else
-                pingPrecisionNumUpDown.Enabled = false;
-        }
-
         private void PingServersForm_Load(object sender, EventArgs e)
         {
-            DisableAll();
+            populateForm(Properties.Resources.gamesList, nameof(Properties.Resources.gamesList));
         }
 
         private void regionsListView_MouseClick(object sender, MouseEventArgs e)
@@ -95,11 +87,24 @@ namespace BestPing
             string selectedServer = regionsListView.SelectedItems[0].Text;
             List<Server> serverList = gameList.Find(x => x.Name == gamesListComboBox.Text).Regions.Find(y => y.Name == selectedServer).Servers;
 
+            // int timesToPing = Convert.ToInt32(new String(pingPrecisionComboBox.Text.Where(Char.IsDigit).ToArray()));
             int timesToPing;
-            if (pingPrecisionNumUpDown.Enabled)
-                timesToPing = Convert.ToInt32(pingPrecisionNumUpDown.Value);
-            else
-                timesToPing = Convert.ToInt32(new String(pingPrecisionComboBox.Text.Where(Char.IsDigit).ToArray()));
+
+            switch (pingPrecisionComboBox.Text)
+            {
+                case "Fast":
+                    timesToPing = 1;
+                    break;
+                case "Moderate":
+                    timesToPing = 5;
+                    break;
+                case "Thorough":
+                    timesToPing = 10;
+                    break;
+                default:
+                    timesToPing = 1;
+                    break;
+            }
 
             Tuple<List<Server>, int> serverListItems = Tuple.Create(serverList, timesToPing);
 
@@ -129,36 +134,56 @@ namespace BestPing
             pingPrecisionComboBox.SelectedIndex = 0;
         }
 
-        private void selectGameFileButton_Click(object sender, EventArgs e)
+        //private void selectGameFileButton_Click(object sender, EventArgs e)
+        //{
+        //    OpenFileDialog ofd = new OpenFileDialog()
+        //    {
+        //        Filter = "XML Files (*.xml)|*xml",
+        //        Multiselect = true,
+        //        Title = "Select XML File"
+        //    };
+
+        //    if (ofd.ShowDialog() == DialogResult.OK)
+        //    {
+        //        fileLabel.Text = ofd.SafeFileName;
+
+        //        string gameListLocation = ofd.FileName;
+        //        XMLManipulation xmlRead = new XMLManipulation();
+        //        gameList = xmlRead.ReadXmlFile(gameListLocation);
+
+        //        gamesListComboBox.Items.Clear();
+        //        foreach (Game game in gameList)
+        //        {
+        //            gamesListComboBox.Items.Add(game.Name);
+        //        }
+
+        //        gamesListComboBox.Sorted = true;
+        //        gamesListComboBox.Text = "Game Name";
+
+        //        DisableAll();
+        //        gamesListComboBox.Enabled = true;
+        //        ResetForm();
+        //    }
+        //}
+
+        private void populateForm(string gamesXMLFile, string gamesXMLFileName)
         {
-            OpenFileDialog ofd = new OpenFileDialog()
+            XMLManipulation xmlRead = new XMLManipulation();
+            gameList = xmlRead.ReadXmlFile(gamesXMLFile);
+
+            gamesListComboBox.Items.Clear();
+            foreach (Game game in gameList)
             {
-                Filter = "XML Files (*.xml)|*xml",
-                Multiselect = true,
-                Title = "Select XML File"
-            };
-
-            if(ofd.ShowDialog() == DialogResult.OK)
-            {
-                fileLabel.Text = ofd.SafeFileName;
-
-                string gameListLocation = ofd.FileName;
-                XMLManipulation xmlRead = new XMLManipulation();
-                gameList = xmlRead.ReadXmlFile(gameListLocation);
-
-                gamesListComboBox.Items.Clear();
-                foreach (Game game in gameList)
-                {
-                    gamesListComboBox.Items.Add(game.Name);
-                }
-
-                gamesListComboBox.Sorted = true;
-                gamesListComboBox.Text = "Game Name";
-
-                DisableAll();
-                gamesListComboBox.Enabled = true;
-                ResetForm();
+                gamesListComboBox.Items.Add(game.Name);
             }
+
+            gamesListComboBox.Sorted = true;
+            gamesListComboBox.Text = "Game Name";
+
+            DisableAll();
+            gamesListComboBox.Enabled = true;
+            fileLabel.Text = gamesXMLFileName;
+            ResetForm();
         }
     }
 }

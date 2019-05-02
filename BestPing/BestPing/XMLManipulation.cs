@@ -12,7 +12,7 @@ namespace BestPing
         public List<Game> ReadXmlFile(string xmlFile)
         {
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(xmlFile);
+            xmlDoc.LoadXml(xmlFile);
             //xmlDoc.Load("C:/Users/cupps/Desktop/ping-realms-project/testgames.xml");
             XmlNodeList xmlGames = xmlDoc.SelectNodes("games/game");
 
