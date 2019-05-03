@@ -80,9 +80,9 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(27, 126);
+            this.progressBar.Location = new System.Drawing.Point(27, 131);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(297, 10);
+            this.progressBar.Size = new System.Drawing.Size(297, 5);
             this.progressBar.Step = 0;
             this.progressBar.TabIndex = 7;
             // 
@@ -177,6 +177,7 @@
             this.editSettingsButton.TabIndex = 16;
             this.editSettingsButton.Text = "Settings";
             this.editSettingsButton.UseVisualStyleBackColor = true;
+            this.editSettingsButton.Click += new System.EventHandler(this.editSettingsButton_Click);
             // 
             // refreshButton
             // 
@@ -238,7 +239,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 414);
+            this.ClientSize = new System.Drawing.Size(351, 414);
             this.Controls.Add(this.errorMessagesLabel);
             this.Controls.Add(this.cancelSettingsButton);
             this.Controls.Add(this.saveSettingsButton);
@@ -254,7 +255,10 @@
             this.Controls.Add(this.regionListLabel);
             this.Controls.Add(this.regionsListView);
             this.Controls.Add(this.gamesListComboBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "PingServersForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ping Game Servers";
             this.Load += new System.EventHandler(this.PingServersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.listServersOLV)).EndInit();

@@ -199,5 +199,32 @@ namespace BestPing
         {
             pingServers();
         }
+
+        private void editSettingsButton_Click(object sender, EventArgs e)
+        {
+            resizeForm();
+        }
+
+        private void resizeForm()
+        {
+            string formWidth = (this.Width == 367) ? "closed" : "opened";
+
+            if (formWidth == "closed")
+            {
+                while (this.Width < 621)
+                {
+                    this.Width += 5;
+                    Application.DoEvents();
+                }
+            }
+            else if(formWidth == "opened")
+            {
+                while (this.Width > 367)
+                {
+                    this.Width -= 5;
+                    Application.DoEvents();
+                }
+            }
+        }
     }
 }
