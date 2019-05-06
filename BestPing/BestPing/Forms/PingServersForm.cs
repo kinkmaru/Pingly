@@ -12,6 +12,7 @@ namespace BestPing
     public partial class PingServersForm : Form
     {
         List<Game> gameList = new List<Game>();
+        private static ConfigureGamesListForm configureGamesListForm;
 
         public PingServersForm()
         {
@@ -225,6 +226,15 @@ namespace BestPing
                     Application.DoEvents();
                 }
             }
+        }
+
+        private void editFileButton_Click(object sender, EventArgs e)
+        {
+            if (configureGamesListForm == null || configureGamesListForm.IsDisposed)
+                configureGamesListForm = new ConfigureGamesListForm();
+
+            configureGamesListForm.Show();
+            configureGamesListForm.Focus();
         }
     }
 }

@@ -47,6 +47,7 @@
             this.saveSettingsButton = new System.Windows.Forms.Button();
             this.cancelSettingsButton = new System.Windows.Forms.Button();
             this.errorMessagesLabel = new System.Windows.Forms.Label();
+            this.editFileButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listServersOLV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -175,7 +176,7 @@
             this.editSettingsButton.Name = "editSettingsButton";
             this.editSettingsButton.Size = new System.Drawing.Size(75, 23);
             this.editSettingsButton.TabIndex = 16;
-            this.editSettingsButton.Text = "Settings";
+            this.editSettingsButton.Text = "<Settings>";
             this.editSettingsButton.UseVisualStyleBackColor = true;
             this.editSettingsButton.Click += new System.EventHandler(this.editSettingsButton_Click);
             // 
@@ -185,7 +186,7 @@
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(75, 23);
             this.refreshButton.TabIndex = 17;
-            this.refreshButton.Text = "Refresh";
+            this.refreshButton.Text = "<Refresh>";
             this.refreshButton.UseVisualStyleBackColor = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
@@ -235,11 +236,22 @@
             this.errorMessagesLabel.TabIndex = 22;
             this.errorMessagesLabel.Text = "label1";
             // 
+            // editFileButton
+            // 
+            this.editFileButton.Location = new System.Drawing.Point(503, 199);
+            this.editFileButton.Name = "editFileButton";
+            this.editFileButton.Size = new System.Drawing.Size(75, 23);
+            this.editFileButton.TabIndex = 23;
+            this.editFileButton.Text = "<Edit File>";
+            this.editFileButton.UseVisualStyleBackColor = true;
+            this.editFileButton.Click += new System.EventHandler(this.editFileButton_Click);
+            // 
             // PingServersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(351, 414);
+            this.Controls.Add(this.editFileButton);
             this.Controls.Add(this.errorMessagesLabel);
             this.Controls.Add(this.cancelSettingsButton);
             this.Controls.Add(this.saveSettingsButton);
@@ -287,6 +299,7 @@
         private System.Windows.Forms.Button cancelSettingsButton;
         private System.Windows.Forms.ComboBox gamesListComboBox;
         private System.Windows.Forms.Label errorMessagesLabel;
+        private System.Windows.Forms.Button editFileButton;
     }
 }
 
