@@ -23,33 +23,33 @@ namespace BestPing
             InitializeComponent();
         }
 
-        private void selectFileButton_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog()
-            {
-                Filter = "XML Files (*.xml)|*xml",
-                Title = "Select XML File"
-            };
+        //private void selectFileButton_Click(object sender, EventArgs e)
+        //{
+        //    OpenFileDialog ofd = new OpenFileDialog()
+        //    {
+        //        Filter = "XML Files (*.xml)|*xml",
+        //        Title = "Select XML File"
+        //    };
 
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                selectedFileLabel.Text = ofd.SafeFileName;
+        //    if (ofd.ShowDialog() == DialogResult.OK)
+        //    {
+        //        selectedFileLabel.Text = ofd.SafeFileName;
 
-                string s = ofd.FileName;
-                XMLManipulation x = new XMLManipulation();
-                gameList = x.ReadXmlFile(s);
+        //        string s = ofd.FileName;
+        //        XMLManipulation x = new XMLManipulation();
+        //        gameList = x.ReadXmlFile(s);
 
-                clearOVLs();
+        //        clearOVLs();
 
-                foreach(Game game in gameList)
-                {
-                    gamesOLV.AddObject(game);
-                }
-                SetupActionButtons(gamesListEditColumn, "Edit");
-                SetupActionButtons(gamesListDeleteColumn, "Delete");
-                gamesOLV.RebuildColumns();
-            }
-        }
+        //        foreach(Game game in gameList)
+        //        {
+        //            gamesOLV.AddObject(game);
+        //        }
+        //        SetupActionButtons(gamesListEditColumn, "Edit");
+        //        SetupActionButtons(gamesListDeleteColumn, "Delete");
+        //        gamesOLV.RebuildColumns();
+        //    }
+        //}
 
         private void clearOVLs()
         {
@@ -219,6 +219,11 @@ namespace BestPing
 
                 return 0;
             };
+        }
+
+        private void ConfigureGamesListForm_Load(object sender, EventArgs e)
+        {
+            fileLabel.
         }
     }
 }

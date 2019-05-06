@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.selectFileButton = new System.Windows.Forms.Button();
             this.selectedFileLabel = new System.Windows.Forms.Label();
             this.gamesOLV = new BrightIdeasSoftware.ObjectListView();
             this.gamesListNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -37,10 +36,12 @@
             this.regionsOLV = new BrightIdeasSoftware.ObjectListView();
             this.regionsListNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.regionsListEditColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.regionsListDeleteColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.serversOLV = new BrightIdeasSoftware.ObjectListView();
             this.serversListNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.serversListIpColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.serversListEditColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.serversListDeleteColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.gamesListLabel = new System.Windows.Forms.Label();
             this.regionsListLabel = new System.Windows.Forms.Label();
             this.serversListLabel = new System.Windows.Forms.Label();
@@ -48,22 +49,12 @@
             this.addRegionButton = new System.Windows.Forms.Button();
             this.addServerButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
-            this.regionsListDeleteColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.serversListDeleteColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.fileLabel = new System.Windows.Forms.Label();
+            this.gamesListComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.gamesOLV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.regionsOLV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serversOLV)).BeginInit();
             this.SuspendLayout();
-            // 
-            // selectFileButton
-            // 
-            this.selectFileButton.Location = new System.Drawing.Point(22, 17);
-            this.selectFileButton.Name = "selectFileButton";
-            this.selectFileButton.Size = new System.Drawing.Size(152, 33);
-            this.selectFileButton.TabIndex = 0;
-            this.selectFileButton.Text = "Select File";
-            this.selectFileButton.UseVisualStyleBackColor = true;
-            this.selectFileButton.Click += new System.EventHandler(this.selectFileButton_Click);
             // 
             // selectedFileLabel
             // 
@@ -153,6 +144,11 @@
             this.regionsListEditColumn.Text = "Edit";
             this.regionsListEditColumn.Width = 31;
             // 
+            // regionsListDeleteColumn
+            // 
+            this.regionsListDeleteColumn.Text = "Delete";
+            this.regionsListDeleteColumn.Width = 44;
+            // 
             // serversOLV
             // 
             this.serversOLV.AllColumns.Add(this.serversListNameColumn);
@@ -197,14 +193,19 @@
             this.serversListEditColumn.Text = "Edit";
             this.serversListEditColumn.Width = 30;
             // 
+            // serversListDeleteColumn
+            // 
+            this.serversListDeleteColumn.Text = "Delete";
+            this.serversListDeleteColumn.Width = 45;
+            // 
             // gamesListLabel
             // 
             this.gamesListLabel.AutoSize = true;
-            this.gamesListLabel.Location = new System.Drawing.Point(36, 67);
+            this.gamesListLabel.Location = new System.Drawing.Point(19, 62);
             this.gamesListLabel.Name = "gamesListLabel";
-            this.gamesListLabel.Size = new System.Drawing.Size(40, 13);
+            this.gamesListLabel.Size = new System.Drawing.Size(35, 13);
             this.gamesListLabel.TabIndex = 6;
-            this.gamesListLabel.Text = "Games";
+            this.gamesListLabel.Text = "Game";
             // 
             // regionsListLabel
             // 
@@ -226,11 +227,11 @@
             // 
             // addGameButton
             // 
-            this.addGameButton.Location = new System.Drawing.Point(244, 62);
+            this.addGameButton.Location = new System.Drawing.Point(187, 57);
             this.addGameButton.Name = "addGameButton";
             this.addGameButton.Size = new System.Drawing.Size(75, 23);
             this.addGameButton.TabIndex = 9;
-            this.addGameButton.Text = "Add Game";
+            this.addGameButton.Text = "<Add Game>";
             this.addGameButton.UseVisualStyleBackColor = true;
             this.addGameButton.Click += new System.EventHandler(this.addGameButton_Click);
             // 
@@ -256,29 +257,38 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(157, 413);
+            this.saveButton.Location = new System.Drawing.Point(136, 413);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 12;
-            this.saveButton.Text = "Save";
+            this.saveButton.Text = "<Save>";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // regionsListDeleteColumn
+            // fileLabel
             // 
-            this.regionsListDeleteColumn.Text = "Delete";
-            this.regionsListDeleteColumn.Width = 44;
+            this.fileLabel.AutoSize = true;
+            this.fileLabel.Location = new System.Drawing.Point(135, 27);
+            this.fileLabel.Name = "fileLabel";
+            this.fileLabel.Size = new System.Drawing.Size(64, 13);
+            this.fileLabel.TabIndex = 13;
+            this.fileLabel.Text = "<File Label>";
             // 
-            // serversListDeleteColumn
+            // gamesListComboBox
             // 
-            this.serversListDeleteColumn.Text = "Delete";
-            this.serversListDeleteColumn.Width = 45;
+            this.gamesListComboBox.FormattingEnabled = true;
+            this.gamesListComboBox.Location = new System.Drawing.Point(60, 59);
+            this.gamesListComboBox.Name = "gamesListComboBox";
+            this.gamesListComboBox.Size = new System.Drawing.Size(121, 21);
+            this.gamesListComboBox.TabIndex = 14;
             // 
             // ConfigureGamesListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 448);
+            this.ClientSize = new System.Drawing.Size(351, 448);
+            this.Controls.Add(this.gamesListComboBox);
+            this.Controls.Add(this.fileLabel);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.addServerButton);
             this.Controls.Add(this.addRegionButton);
@@ -290,9 +300,9 @@
             this.Controls.Add(this.regionsOLV);
             this.Controls.Add(this.gamesOLV);
             this.Controls.Add(this.selectedFileLabel);
-            this.Controls.Add(this.selectFileButton);
             this.Name = "ConfigureGamesListForm";
             this.Text = "Configure Game List";
+            this.Load += new System.EventHandler(this.ConfigureGamesListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gamesOLV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.regionsOLV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serversOLV)).EndInit();
@@ -302,8 +312,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button selectFileButton;
         private System.Windows.Forms.Label selectedFileLabel;
         private BrightIdeasSoftware.ObjectListView gamesOLV;
         private BrightIdeasSoftware.ObjectListView regionsOLV;
@@ -325,5 +333,7 @@
         private BrightIdeasSoftware.OLVColumn gamesListDeleteColumn;
         private BrightIdeasSoftware.OLVColumn regionsListDeleteColumn;
         private BrightIdeasSoftware.OLVColumn serversListDeleteColumn;
+        private System.Windows.Forms.Label fileLabel;
+        private System.Windows.Forms.ComboBox gamesListComboBox;
     }
 }
