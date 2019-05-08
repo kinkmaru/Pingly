@@ -238,7 +238,7 @@
             // 
             // editFileButton
             // 
-            this.editFileButton.Location = new System.Drawing.Point(503, 199);
+            this.editFileButton.Location = new System.Drawing.Point(510, 173);
             this.editFileButton.Name = "editFileButton";
             this.editFileButton.Size = new System.Drawing.Size(75, 23);
             this.editFileButton.TabIndex = 23;

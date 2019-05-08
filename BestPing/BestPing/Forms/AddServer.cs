@@ -21,14 +21,14 @@ namespace BestPing
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if(nameTextbox.Text == "" || ipTextbox.Text == "")
+            if(nameTextbox.Text == "" || ipTextBox1.Text == "")
             {
                 // TODO: tell user to fill in the information
             }
             else
             {
                 returnServerName = nameTextbox.Text;
-                returnIPAddress = ipTextbox.Text;
+                returnIPAddress = ipTextBox1.Text + ipSeparator1.Text + ipTextBox2.Text + ipSeparator2.Text + ipTextBox3.Text + ipSeparator3.Text + ipTextBox4.Text;
                 this.Visible = false;
             }
         }

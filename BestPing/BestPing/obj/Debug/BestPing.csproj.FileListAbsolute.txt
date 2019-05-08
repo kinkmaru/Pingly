@@ -28,4 +28,3 @@ C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPi
 C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.AddServer.resources
 C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.PingServersForm.resources
 C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.ConfigureGamesListForm.resources
-C:\Users\Kai\Desktop\ping-realms-project\ping\BestPing\BestPing\obj\Debug\BestPing.HomePage.resources
