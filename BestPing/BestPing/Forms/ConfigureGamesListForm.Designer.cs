@@ -42,6 +42,11 @@
             this.fileLabel = new System.Windows.Forms.Label();
             this.gamesListComboBox = new System.Windows.Forms.ComboBox();
             this.regionListComboBox = new System.Windows.Forms.ComboBox();
+            this.deleteGameButton = new System.Windows.Forms.Button();
+            this.deleteRegionButton = new System.Windows.Forms.Button();
+            this.editGameButton = new System.Windows.Forms.Button();
+            this.editRegionButton = new System.Windows.Forms.Button();
+            this.addEditGameTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.serversOLV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,6 +132,7 @@
             // 
             // addRegionButton
             // 
+            this.addRegionButton.Enabled = false;
             this.addRegionButton.Location = new System.Drawing.Point(193, 99);
             this.addRegionButton.Name = "addRegionButton";
             this.addRegionButton.Size = new System.Drawing.Size(84, 23);
@@ -136,6 +142,7 @@
             // 
             // addServerButton
             // 
+            this.addServerButton.Enabled = false;
             this.addServerButton.Location = new System.Drawing.Point(255, 138);
             this.addServerButton.Name = "addServerButton";
             this.addServerButton.Size = new System.Drawing.Size(84, 23);
@@ -165,15 +172,22 @@
             // 
             // gamesListComboBox
             // 
+            this.gamesListComboBox.BackColor = System.Drawing.SystemColors.Window;
+            this.gamesListComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gamesListComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gamesListComboBox.FormattingEnabled = true;
             this.gamesListComboBox.Location = new System.Drawing.Point(60, 59);
             this.gamesListComboBox.Name = "gamesListComboBox";
             this.gamesListComboBox.Size = new System.Drawing.Size(121, 21);
             this.gamesListComboBox.TabIndex = 14;
             this.gamesListComboBox.SelectedIndexChanged += new System.EventHandler(this.gamesListComboBox_SelectedIndexChanged);
+            this.gamesListComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gamesListComboBox_KeyDown);
             // 
             // regionListComboBox
             // 
+            this.regionListComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.regionListComboBox.Enabled = false;
+            this.regionListComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.regionListComboBox.FormattingEnabled = true;
             this.regionListComboBox.Location = new System.Drawing.Point(66, 101);
             this.regionListComboBox.Name = "regionListComboBox";
@@ -181,11 +195,65 @@
             this.regionListComboBox.TabIndex = 15;
             this.regionListComboBox.SelectedIndexChanged += new System.EventHandler(this.regionComboBox_SelectedIndexChanged);
             // 
+            // deleteGameButton
+            // 
+            this.deleteGameButton.Enabled = false;
+            this.deleteGameButton.Location = new System.Drawing.Point(336, 57);
+            this.deleteGameButton.Name = "deleteGameButton";
+            this.deleteGameButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteGameButton.TabIndex = 16;
+            this.deleteGameButton.Text = "<Delete>";
+            this.deleteGameButton.UseVisualStyleBackColor = true;
+            // 
+            // deleteRegionButton
+            // 
+            this.deleteRegionButton.Enabled = false;
+            this.deleteRegionButton.Location = new System.Drawing.Point(346, 99);
+            this.deleteRegionButton.Name = "deleteRegionButton";
+            this.deleteRegionButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteRegionButton.TabIndex = 17;
+            this.deleteRegionButton.Text = "<Delete>";
+            this.deleteRegionButton.UseVisualStyleBackColor = true;
+            // 
+            // editGameButton
+            // 
+            this.editGameButton.Enabled = false;
+            this.editGameButton.Location = new System.Drawing.Point(264, 57);
+            this.editGameButton.Name = "editGameButton";
+            this.editGameButton.Size = new System.Drawing.Size(75, 23);
+            this.editGameButton.TabIndex = 18;
+            this.editGameButton.Text = "<Edit>";
+            this.editGameButton.UseVisualStyleBackColor = true;
+            this.editGameButton.Click += new System.EventHandler(this.editGameButton_Click);
+            // 
+            // editRegionButton
+            // 
+            this.editRegionButton.Enabled = false;
+            this.editRegionButton.Location = new System.Drawing.Point(274, 99);
+            this.editRegionButton.Name = "editRegionButton";
+            this.editRegionButton.Size = new System.Drawing.Size(75, 23);
+            this.editRegionButton.TabIndex = 19;
+            this.editRegionButton.Text = "<Edit>";
+            this.editRegionButton.UseVisualStyleBackColor = true;
+            // 
+            // addEditGameTextBox
+            // 
+            this.addEditGameTextBox.Location = new System.Drawing.Point(12, 33);
+            this.addEditGameTextBox.Name = "addEditGameTextBox";
+            this.addEditGameTextBox.Size = new System.Drawing.Size(102, 20);
+            this.addEditGameTextBox.TabIndex = 20;
+            this.addEditGameTextBox.Visible = false;
+            // 
             // ConfigureGamesListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(351, 448);
+            this.ClientSize = new System.Drawing.Size(429, 448);
+            this.Controls.Add(this.addEditGameTextBox);
+            this.Controls.Add(this.editRegionButton);
+            this.Controls.Add(this.editGameButton);
+            this.Controls.Add(this.deleteRegionButton);
+            this.Controls.Add(this.deleteGameButton);
             this.Controls.Add(this.regionListComboBox);
             this.Controls.Add(this.gamesListComboBox);
             this.Controls.Add(this.fileLabel);
@@ -223,5 +291,10 @@
         private System.Windows.Forms.Label fileLabel;
         private System.Windows.Forms.ComboBox gamesListComboBox;
         private System.Windows.Forms.ComboBox regionListComboBox;
+        private System.Windows.Forms.Button deleteGameButton;
+        private System.Windows.Forms.Button deleteRegionButton;
+        private System.Windows.Forms.Button editGameButton;
+        private System.Windows.Forms.Button editRegionButton;
+        private System.Windows.Forms.TextBox addEditGameTextBox;
     }
 }

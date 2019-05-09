@@ -93,7 +93,7 @@ namespace BestPing
                 Game newGame = new Game();
                 newGame.Name = addGame.returnGame;
                 gameList.Add(newGame);
-                // gamesOLV.AddObject(newGame);
+                gamesListComboBox.Items.Add(newGame.Name);
             }
             addGame.Dispose();
         }
@@ -216,10 +216,9 @@ namespace BestPing
             }
 
             gamesListComboBox.Sorted = true;
-            gamesListComboBox.Text = "Game Name";
-            regionListComboBox.Text = "Region";
 
-            gamesListComboBox.Enabled = true;
+
+            ResetForm();
             fileLabel.Text = gamesXMLFileName;
         }
 
@@ -233,6 +232,10 @@ namespace BestPing
                 regionListComboBox.Items.Add(region.Name);
             }
             regionListComboBox.Sorted = true;
+            editGameButton.Enabled = true;
+            deleteGameButton.Enabled = true;
+            regionListComboBox.Enabled = true;
+            addRegionButton.Enabled = true;
         }
 
         private void regionComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -252,12 +255,62 @@ namespace BestPing
                 }
             }
             catch { }
+            editRegionButton.Enabled = true;
+            deleteRegionButton.Enabled = true;
+            addServerButton.Enabled = true;
         }
 
         private void ResetForm()
         {
+            gamesListComboBox.Text = "Game Name";
             regionListComboBox.Text = "Region";
             serversOLV.ClearObjects();
+            editGameButton.Enabled = false;
+            deleteGameButton.Enabled = false;
+            regionListComboBox.Items.Clear();
+            regionListComboBox.Enabled = false;
+            addRegionButton.Enabled = false;
+            editRegionButton.Enabled = false;
+            deleteRegionButton.Enabled = false;
+            addServerButton.Enabled = false;
+        }
+
+        private void editGameButton_Click(object sender, EventArgs e)
+        {
+            if(!addEditGameTextBox.Visible)
+            {
+                addEditGameTextBox.Text = gamesListComboBox.Text;
+                addEditGameTextBox.Focus();
+                addEditGameTextBox.Visible = true;
+            }
+            else
+            {
+                // find current game
+                Game currentGame = gameList.Find(x => x.Name == gamesListComboBox.Text);
+
+                // remove current game
+                gamesListComboBox.Items.Remove(currentGame.Name);
+                gameList.Remove(currentGame);
+
+                // copy game to new one, change its name, and add it to the gameList (prevents loss of region/servers)
+                currentGame.Name = addEditGameTextBox.Text;
+                gameList.Add(currentGame);
+                gamesListComboBox.Items.Add(currentGame.Name);
+
+                // set the combobox to changed name index
+                int newIndex = gamesListComboBox.Items.IndexOf(addEditGameTextBox.Text);
+                gamesListComboBox.SelectedIndex = newIndex;
+                
+
+                // reset textbox
+                addEditGameTextBox.Text = "";
+                addEditGameTextBox.Visible = false;
+            }
+        }
+
+        private void gamesListComboBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
         }
     }
 }

@@ -208,13 +208,13 @@ namespace BestPing
 
         private void resizeForm()
         {
-            string formWidth = (this.Width == 367) ? "closed" : "opened";
+            string formWidth = (this.Width <= 367) ? "closed" : "opened";
 
             if (formWidth == "closed")
             {
                 while (this.Width < 621)
                 {
-                    this.Width += 5;
+                    this.Width += 6;
                     Application.DoEvents();
                 }
             }
@@ -222,7 +222,7 @@ namespace BestPing
             {
                 while (this.Width > 367)
                 {
-                    this.Width -= 5;
+                    this.Width -= 2;
                     Application.DoEvents();
                 }
             }
