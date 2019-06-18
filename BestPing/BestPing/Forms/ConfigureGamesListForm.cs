@@ -1,9 +1,12 @@
-﻿using BrightIdeasSoftware;
+﻿using BestPing.Forms;
+using BrightIdeasSoftware;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,197 +17,26 @@ namespace BestPing
     public partial class ConfigureGamesListForm : Form
     {
         List<Game> gameList = new List<Game>();
-        private static AddGame addGame;
-        private static AddRegion addRegion;
-        private static AddServer addServer;
+        private static DeleteItemForm deleteItemForm;
+
+        private bool editingGameName;
+        private string gameBeingEdited;
+
+        private bool editingRegionName;
+        private string regionBeingEdited;
 
         public ConfigureGamesListForm()
         {
             InitializeComponent();
         }
 
-        //private void selectFileButton_Click(object sender, EventArgs e)
-        //{
-        //    OpenFileDialog ofd = new OpenFileDialog()
-        //    {
-        //        Filter = "XML Files (*.xml)|*xml",
-        //        Title = "Select XML File"
-        //    };
-
-        //    if (ofd.ShowDialog() == DialogResult.OK)
-        //    {
-        //        selectedFileLabel.Text = ofd.SafeFileName;
-
-        //        string s = ofd.FileName;
-        //        XMLManipulation x = new XMLManipulation();
-        //        gameList = x.ReadXmlFile(s);
-
-        //        clearOVLs();
-
-        //        foreach(Game game in gameList)
-        //        {
-        //            gamesOLV.AddObject(game);
-        //        }
-        //        SetupActionButtons(gamesListEditColumn, "Edit");
-        //        SetupActionButtons(gamesListDeleteColumn, "Delete");
-        //        gamesOLV.RebuildColumns();
-        //    }
-        //}
-
-        private void clearOVLs()
-        {
-            serversOLV.ClearObjects();
-        }
-
-        //private void regionsOLV_SelectionChanged(object sender, EventArgs e)
-        //{
-        //    serversOLV.ClearObjects();
-
-        //    try
-        //    {
-        //        Game selectedGame = (Game)gamesOLV.SelectedObject;
-        //        Region selectedRegion = (Region)regionsOLV.SelectedObject;
-
-        //        List<Server> serverList = gameList.Find(x => x.Name == selectedGame.Name).Regions.Find(x => x.Name == selectedRegion.Name).Servers;
-
-        //        foreach (Server server in serverList)
-        //        {
-        //            serversOLV.AddObject(server);
-        //        }
-        //    }
-        //    catch { }
-        //}
-
-        private void addGameButton_Click(object sender, EventArgs e)
-        {
-            if (addGame == null || addGame.IsDisposed)
-                addGame = new AddGame();
-
-            addGame.Show();
-            addGame.VisibleChanged += addGameButtonFormClosed;
-            addGame.Focus();
-        }
-
-        private void addGameButtonFormClosed(object sender, EventArgs e)
-        {
-            AddGame addGame = (AddGame)sender;
-            if (!addGame.Visible)
-            {
-                Game newGame = new Game();
-                newGame.Name = addGame.returnGame;
-                gameList.Add(newGame);
-                gamesListComboBox.Items.Add(newGame.Name);
-            }
-            addGame.Dispose();
-        }
-
-        //private void addRegionButton_Click(object sender, EventArgs e)
-        //{
-        //    if (gamesOLV.SelectedItem != null)
-        //    {
-        //        if (addRegion == null || addRegion.IsDisposed)
-        //            addRegion = new AddRegion();
-
-        //        addRegion.Show();
-        //        addRegion.VisibleChanged += addRegionButtonFormClosed;
-        //        addRegion.Focus();
-        //    }
-        //    else
-        //    {
-        //        // TODO: tell user to pick a game
-        //    }
-        //}
-
-        //private void addRegionButtonFormClosed(object sender, EventArgs e)
-        //{
-
-        //    Game selectedGame = (Game)gamesOLV.SelectedObject;
-
-        //    AddRegion addRegion = (AddRegion)sender;
-        //    if (!addRegion.Visible)
-        //    {
-        //        Region newRegion = new Region();
-        //        newRegion.Name = addRegion.returnRegion;
-        //        gameList.Find(x => x.Name == selectedGame.Name).Regions.Add(newRegion);
-        //        regionsOLV.AddObject(newRegion);
-        //    }
-        //    addRegion.Dispose();
-        //}
-
-        private void addServerButton_Click(object sender, EventArgs e)
-        {
-            if (regionListComboBox.SelectedItem != null)
-            {
-                if (addServer == null || addServer.IsDisposed)
-                    addServer = new AddServer();
-
-                addServer.Show();
-                addServer.VisibleChanged += addServerButtonFormClosed;
-                addServer.Focus();
-            }
-            else
-            {
-                // tell user to select a region
-            }
-        }
-
-        private void addServerButtonFormClosed(object sender, EventArgs e)
-        {
-            string selectedGame = gamesListComboBox.Text;
-            string selectedRegion = regionListComboBox.Text;
-
-            AddServer addServer = (AddServer)sender;
-            if (!addServer.Visible)
-            {
-                Server newServer = new Server();
-                newServer.Name = addServer.returnServerName;
-                newServer.Ip = addServer.returnIPAddress;
-                gameList.Find(x => x.Name == selectedGame).Regions.Find(y => y.Name == selectedRegion).Servers.Add(newServer);
-                serversOLV.AddObject(newServer);
-            }
-            addServer.Dispose();
-        }
-
-        private void saveButton_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog sfd = new SaveFileDialog()
-            {
-                Filter = "XML Files (*.xml)|*xml",
-                DefaultExt = "xml",
-                Title = "Save XML File"
-            };
-
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                string saveLocation = sfd.FileName;
-                XMLManipulation xmlM = new XMLManipulation();
-                xmlM.WriteXMLFile(saveLocation, gameList);
-            }
-            this.Dispose();
-        }
-
-        private void SetupActionButtons(OLVColumn column, string icon)
-        {
-            column.ImageGetter = delegate (object rowObject)
-            {
-                switch (icon)
-                {
-                    case "Edit":
-                        return Properties.Resources.YellowDot;
-                    case "Delete":
-                        return Properties.Resources.RedDot;
-                }
-
-                return 0;
-            };
-        }
-
         private void ConfigureGamesListForm_Load(object sender, EventArgs e)
         {
-            populateForm(Properties.Resources.gamesList, nameof(Properties.Resources.gamesList));
+            string gamesList = "..\\..\\gamesList.xml";
+            PopulateForm(gamesList, Path.GetFileName(gamesList));
         }
 
-        private void populateForm(string gamesXMLFile, string gamesXMLFileName)
+        private void PopulateForm(string gamesXMLFile, string gamesXMLFileName)
         {
             XMLManipulation xmlRead = new XMLManipulation();
             gameList = xmlRead.ReadXmlFile(gamesXMLFile);
@@ -217,100 +49,362 @@ namespace BestPing
 
             gamesListComboBox.Sorted = true;
 
-
             ResetForm();
             fileLabel.Text = gamesXMLFileName;
         }
 
-        private void gamesListComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ResetForm();
-            string selectedGame = gamesListComboBox.Text;
-            List<Region> regionList = gameList.Find(x => x.Name == selectedGame).Regions;
-            foreach (Region region in regionList)
-            {
-                regionListComboBox.Items.Add(region.Name);
-            }
-            regionListComboBox.Sorted = true;
-            editGameButton.Enabled = true;
-            deleteGameButton.Enabled = true;
-            regionListComboBox.Enabled = true;
-            addRegionButton.Enabled = true;
-        }
-
-        private void regionComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            serversOLV.ClearObjects();
-
-            try
-            {
-                string selectedGame = gamesListComboBox.Text;
-                string selectedRegion = regionListComboBox.Text;
-
-                List<Server> serverList = gameList.Find(x => x.Name == selectedGame).Regions.Find(x => x.Name == selectedRegion).Servers;
-
-                foreach (Server server in serverList)
-                {
-                    serversOLV.AddObject(server);
-                }
-            }
-            catch { }
-            editRegionButton.Enabled = true;
-            deleteRegionButton.Enabled = true;
-            addServerButton.Enabled = true;
-        }
-
         private void ResetForm()
         {
-            gamesListComboBox.Text = "Game Name";
-            regionListComboBox.Text = "Region";
-            serversOLV.ClearObjects();
             editGameButton.Enabled = false;
             deleteGameButton.Enabled = false;
+
             regionListComboBox.Items.Clear();
+            regionListComboBox.Text = "";
             regionListComboBox.Enabled = false;
+            regionsListLabel.Enabled = false;
             addRegionButton.Enabled = false;
             editRegionButton.Enabled = false;
             deleteRegionButton.Enabled = false;
+
+            serversListLabel.Enabled = false;
             addServerButton.Enabled = false;
+            addServerButton.Visible = true;
+            serversOLV.ClearObjects();
+            serversOLV.Enabled = false;
+            deleteServerButton.Enabled = false;
+            deleteServerButton.Visible = false;
+        }
+
+        // GAME FUNCTIONS
+        private void gamesListComboBoxSearchForGame(object sender, EventArgs e)
+        {
+            if (!editingGameName)
+            {
+                // If searched game exists, populate regions combobox and enable appropriate action buttons
+                if (gamesListComboBox.Items.Contains(gamesListComboBox.Text))
+                {
+                    ResetForm();
+                    string selectedGame = gamesListComboBox.Text;
+                    List<Region> regionList = gameList.Find(x => x.Name == selectedGame).Regions;
+                    foreach (Region region in regionList)
+                    {
+                        regionListComboBox.Items.Add(region.Name);
+                    }
+                    editGameButton.Enabled = true;
+                    deleteGameButton.Enabled = true;
+                    addGameButton.Enabled = false;
+
+                    regionListComboBox.Sorted = true;
+                    regionListComboBox.Enabled = true;
+                    regionsListLabel.Enabled = true;
+                }
+
+                // Can't add a game with no text - diable add button
+                else if (gamesListComboBox.Text == "")
+                    addGameButton.Enabled = false;
+
+                // Reset form under any other conditions
+                else
+                {
+                    ResetForm();
+                    addGameButton.Enabled = true;
+                }
+            }
+        }
+
+        private void addGameButton_Click(object sender, EventArgs e)
+        {
+            // Add new game to gamelist and game combobox
+            Game newGame = new Game();
+            newGame.Name = gamesListComboBox.Text;
+            gameList.Add(newGame);
+            gamesListComboBox.Items.Add(newGame.Name);
+
+            // Make changes to form suitable to having a game selected
+            gamesListComboBoxSearchForGame(gamesListComboBox, e);
         }
 
         private void editGameButton_Click(object sender, EventArgs e)
         {
-            if(!addEditGameTextBox.Visible)
+            // If game matches an existing one, enable editing
+            if (gamesListComboBox.Items.Contains(gamesListComboBox.Text))
             {
-                addEditGameTextBox.Text = gamesListComboBox.Text;
-                addEditGameTextBox.Focus();
-                addEditGameTextBox.Visible = true;
+                gamesListComboBox.Focus();
+                editingGameName = true;
+                gameBeingEdited = gamesListComboBox.Text;
             }
+
+            // Proceed with editing
             else
             {
-                // find current game
-                Game currentGame = gameList.Find(x => x.Name == gamesListComboBox.Text);
+                // find existing game based on given combobox text
+                Game currentGame = gameList.Find(x => x.Name == gameBeingEdited);
 
-                // remove current game
+                // remove existing game from the combobox items list and game list
                 gamesListComboBox.Items.Remove(currentGame.Name);
                 gameList.Remove(currentGame);
 
-                // copy game to new one, change its name, and add it to the gameList (prevents loss of region/servers)
-                currentGame.Name = addEditGameTextBox.Text;
+                // Override the existing game name and reenter into combo items list and game list
+                currentGame.Name = gamesListComboBox.Text;
                 gameList.Add(currentGame);
                 gamesListComboBox.Items.Add(currentGame.Name);
 
-                // set the combobox to changed name index
-                int newIndex = gamesListComboBox.Items.IndexOf(addEditGameTextBox.Text);
+                // set the combobox to changed name combobox list index
+                int newIndex = gamesListComboBox.Items.IndexOf(gamesListComboBox.Text);
                 gamesListComboBox.SelectedIndex = newIndex;
-                
 
-                // reset textbox
-                addEditGameTextBox.Text = "";
-                addEditGameTextBox.Visible = false;
+                editingGameName = false;
             }
         }
 
-        private void gamesListComboBox_KeyDown(object sender, KeyEventArgs e)
+        private void deleteGameButton_Click(object sender, EventArgs e)
         {
-            e.SuppressKeyPress = true;
+            if (deleteItemForm == null || deleteItemForm.IsDisposed)
+                deleteItemForm = new DeleteItemForm(gamesListComboBox.Text);
+
+            deleteItemForm.Show();
+            deleteItemForm.VisibleChanged += deleteGameFormClosed;
+            deleteItemForm.Focus();
+        }
+        private void deleteGameFormClosed(object sender, EventArgs e)
+        {
+            if (!deleteItemForm.Visible)
+            {
+                string deletedGame = deleteItemForm.itemToDelete;
+
+                Game game = gameList.Find(x => x.Name == deletedGame);
+                gameList.Remove(game);
+                gamesListComboBox.Items.Remove(deletedGame);
+
+                ResetForm();
+                gamesListComboBox.Text = "";
+
+                deleteItemForm.Dispose();
+            }
+        }
+
+        // REGION FUNCTIONS
+        private void regionListComboBoxSearchForRegion(object sender, EventArgs e)
+        {
+            if(!editingRegionName)
+            {
+
+            serversOLV.ClearObjects();
+
+            // If searched region exists, populate serversOLV and enable appropriate action buttons
+            if (regionListComboBox.Items.Contains(regionListComboBox.Text))
+            {
+                string selectedGame = gamesListComboBox.Text;
+                string selectedRegion = regionListComboBox.Text;
+                List<Server> serverList = gameList.Find(x => x.Name == selectedGame).Regions.Find(x => x.Name == selectedRegion).Servers;
+                foreach (Server server in serverList)
+                {
+                    serversOLV.AddObject(server);
+                }
+
+                editRegionButton.Enabled = true;
+                deleteRegionButton.Enabled = true;
+                addRegionButton.Enabled = false;
+
+                serversListLabel.Enabled = true;
+                addServerButton.Enabled = true;
+                serversOLV.Enabled = true;
+            }
+
+            // Can't add a region with no text - disable add button
+            else if (regionListComboBox.Text == "")
+                addRegionButton.Enabled = false;
+
+            // Reset server/region functions under any other conditions
+            else
+            {
+                editRegionButton.Enabled = false;
+                deleteRegionButton.Enabled = false;
+                addRegionButton.Enabled = true;
+
+                serversListLabel.Enabled = false;
+                addServerButton.Enabled = false;
+                serversOLV.ClearObjects();
+            }
+            }
+
+        }
+
+        private void addRegionButton_Click(object sender, EventArgs e)
+        {
+            // Add new region to gamelist and region combobox
+            Region newRegion = new Region();
+            newRegion.Name = regionListComboBox.Text;
+            gameList.Find(x => x.Name == gamesListComboBox.Text).Regions.Add(newRegion);
+            regionListComboBox.Items.Add(newRegion.Name);
+
+            // Mage changes to form suitable to having a region selected
+            regionListComboBoxSearchForRegion(sender, e);
+        }
+
+        private void editRegionButton_Click(object sender, EventArgs e)
+        {
+            // If region matches an existing one, enable editing
+            if (regionListComboBox.Items.Contains(regionListComboBox.Text))
+            {
+                regionListComboBox.Focus();
+                editingRegionName = true;
+                regionBeingEdited = regionListComboBox.Text;
+            }
+
+            // Proceed with editing
+            else
+            {
+                // find existing region based on given game and region combobox text
+                Game regionsGame = gameList.Find(x => x.Name == gamesListComboBox.Text);
+                Region currentRegion = regionsGame.Regions.Find(x => x.Name == regionBeingEdited);
+
+                // remove existing region from the region combobox items list and gameList
+                regionListComboBox.Items.Remove(currentRegion.Name);
+                gameList.Find(x => x == regionsGame).Regions.Remove(currentRegion);
+
+                // Override the existing game name and re-enter into combo items list and game list
+                currentRegion.Name = regionListComboBox.Text;
+                gameList.Find(x => x == regionsGame).Regions.Add(currentRegion);
+                regionListComboBox.Items.Add(currentRegion.Name);
+
+                // set the combobox to changed name combobox list index
+                int newIndex = regionListComboBox.Items.IndexOf(regionListComboBox.Text);
+                regionListComboBox.SelectedIndex = newIndex;
+
+                editingRegionName = false;
+            }
+        }
+
+        private void deleteRegionButton_Click(object sender, EventArgs e)
+        {
+            if (deleteItemForm == null || deleteItemForm.IsDisposed)
+                deleteItemForm = new DeleteItemForm(regionListComboBox.Text);
+
+            deleteItemForm.Show();
+            deleteItemForm.VisibleChanged += deleteRegionFormClosed;
+            deleteItemForm.Focus();
+        }
+        private void deleteRegionFormClosed(object sender, EventArgs e)
+        {
+            if (!deleteItemForm.Visible)
+            {
+                string deletedRegion = deleteItemForm.itemToDelete;
+
+                Region region = gameList.Find(x => x.Name == gamesListComboBox.Text).Regions.Find(x => x.Name == deletedRegion);
+                gameList.Find(x => x.Name == gamesListComboBox.Text).Regions.Remove(region);
+                regionListComboBox.Items.Remove(deletedRegion);
+
+                regionListComboBox.Text = "";
+                addServerButton.Enabled = false;
+                serversOLV.ClearObjects();
+                serversOLV.Enabled = false;
+                serversListLabel.Enabled = false;
+
+                deleteItemForm.Dispose();
+            }
+        }
+
+        // SERVER FUNCTIONS
+        private void addServerButton_Click(object sender, EventArgs e)
+        {
+            // Add a new server to the servers object list and gameList
+            // By adding the new server to both lists, the CellEditFinished of the ObjectListView will automatically modify the server list item
+            Server server = new Server();
+            serversOLV.AddObject(server);
+            gameList.Find(x => x.Name == gamesListComboBox.Text).Regions.Find(x => x.Name == regionListComboBox.Text).Servers.Add(server);
+
+            // Scroll the listview to the top using EnsureVisible so the user sees the new server added
+            serversOLV.EnsureVisible(0);
+
+            // Start the edit process on the first cell of the newly formed object
+            serversOLV.EditSubItem((OLVListItem)serversOLV.Items[0], 0);
+        }
+
+        private void serversOLV_CellEditStarting(object sender, CellEditEventArgs e)
+        {
+            // We clear the selecteditem to allow cell decoration changes to appear immediately after editing
+            serversOLV.SelectedItems.Clear();
+        }
+
+        private void serversOLV_CellEditFinishing(object sender, CellEditEventArgs e)
+        {
+            // If a cell is left empty after editing, cancel the cell edit to refute the change
+            if (e.NewValue.ToString() == "")
+            {
+                e.Cancel = true;
+
+                // Create a red border and apply it to the edited cell
+                CellBorderDecoration standardDecoration = new CellBorderDecoration();
+                standardDecoration.BorderPen = new Pen(Color.Red);
+                standardDecoration.FillBrush = null;
+                standardDecoration.BoundsPadding = Size.Empty;
+                standardDecoration.CornerRounding = 0;
+
+                e.ListViewItem.GetSubItem(e.SubItemIndex).Decoration = standardDecoration;
+
+                // Display a tooltip under the edited cell that a cell cannot be empty
+                ToolTip toolTip = new ToolTip();
+                Rectangle cellBounds = serversOLV.CellEditor.Bounds;
+                toolTip.Show("Cells cannot be empty", serversOLV, cellBounds.X, cellBounds.Y + cellBounds.Height, 3000);
+            }
+            //else
+            //    e.ListViewItem.GetSubItem(e.SubItemIndex).Decoration = null;
+        }
+
+        private void serversOLV_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (serversOLV.SelectedIndex != -1)
+            {
+                deleteServerButton.Enabled = true;
+                deleteServerButton.Visible = true;
+
+                addServerButton.Enabled = false;
+                addServerButton.Visible = false;
+            }
+            else
+            {
+                deleteServerButton.Enabled = false;
+                deleteServerButton.Visible = false;
+
+                addServerButton.Enabled = true;
+                addServerButton.Visible = true;
+            }
+
+        }
+
+        private void deleteServerButton_Click(object sender, EventArgs e)
+        {
+            if (deleteItemForm == null || deleteItemForm.IsDisposed)
+                deleteItemForm = new DeleteItemForm(regionListComboBox.Text);
+
+            deleteItemForm.Show();
+            deleteItemForm.VisibleChanged += deleteServerFormClosed;
+            deleteItemForm.Focus();
+        }
+        private void deleteServerFormClosed(object sender, EventArgs e)
+        {
+            if (!deleteItemForm.Visible)
+            {
+                string deletedServer = deleteItemForm.itemToDelete;
+
+                Server server = (Server)serversOLV.SelectedItem.RowObject;
+
+                gameList.Find(x => x.Name == gamesListComboBox.Text)
+                    .Regions.Find(x => x.Name == regionListComboBox.Text).Servers.Remove(server);
+                //regionListComboBox.Items.Remove(deletedRegion);
+                serversOLV.RemoveObject(server);
+
+                deleteItemForm.Dispose();
+            }
+        }
+
+        // SAVE CHANGES TO FILE
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            XMLManipulation xML = new XMLManipulation();
+            xML.WriteXMLFile("..\\..\\gamesList.xml", gameList);
+            this.Close();
         }
     }
 }

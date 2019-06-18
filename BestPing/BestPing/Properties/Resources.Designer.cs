@@ -61,30 +61,6 @@ namespace BestPing.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;games&gt;
-        ///	&lt;game name=&quot;World of Warcraft&quot;&gt;
-        ///		&lt;region name=&quot;NA&quot;&gt;
-        ///			&lt;server name=&quot;US West&quot; ip=&quot;137.221.105.2&quot;/&gt;
-        ///			&lt;server name=&quot;US Central&quot; ip=&quot;24.105.62.129&quot;/&gt;
-        ///		&lt;/region&gt;
-        ///		&lt;region name=&quot;EU&quot;&gt;
-        ///			&lt;server name=&quot;Europe 1&quot; ip=&quot;185.60.112.157&quot;/&gt;
-        ///			&lt;server name=&quot;Europe 2&quot; ip=&quot;185.60.112.158&quot;/&gt;
-        ///			&lt;server name=&quot;Europe 3&quot; ip=&quot;185.60.114.159&quot;/&gt;
-        ///		&lt;/region&gt;
-        ///	&lt;/game&gt;
-        ///	&lt;game name=&quot;Diablo III&quot;&gt;
-        ///		&lt;region name=&quot;EU&quot;&gt;
-        ///			&lt;server name=&quot;Europe 1&quot; ip=&quot;185.60.112.157&quot;/&gt;
-        ///			&lt;server name=&quot;Europe 2&quot; ip=&quot;185.60.112 [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string gamesList {
-            get {
-                return ResourceManager.GetString("gamesList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap GreenDot {

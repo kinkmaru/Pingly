@@ -53,29 +53,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\AddRegion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddRegion.Designer.cs">
-      <DependentUpon>AddRegion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\AddServer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddServer.Designer.cs">
-      <DependentUpon>AddServer.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\ConfigureGamesListForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ConfigureGamesListForm.Designer.cs">
       <DependentUpon>ConfigureGamesListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddGame.cs">
+    <Compile Include="Forms\DeleteItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddGame.Designer.cs">
-      <DependentUpon>AddGame.cs</DependentUpon>
+    <Compile Include="Forms\DeleteItemForm.Designer.cs">
+      <DependentUpon>DeleteItemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Game.cs" />
     <Compile Include="Forms\PingServersForm.cs">
@@ -90,14 +78,8 @@
     <Compile Include="Region.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="XMLManipulation.cs" />
-    <EmbeddedResource Include="Forms\AddGame.resx">
-      <DependentUpon>AddGame.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddRegion.resx">
-      <DependentUpon>AddRegion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddServer.resx">
-      <DependentUpon>AddServer.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DeleteItemForm.resx">
+      <DependentUpon>DeleteItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PingServersForm.resx">
       <DependentUpon>PingServersForm.cs</DependentUpon>

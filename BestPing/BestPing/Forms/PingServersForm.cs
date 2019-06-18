@@ -74,7 +74,13 @@ namespace BestPing
 
         private void PingServersForm_Load(object sender, EventArgs e)
         {
-            populateForm(Properties.Resources.gamesList, nameof(Properties.Resources.gamesList));
+            string gamesList = "..\\..\\gamesList.xml";
+            if (!File.Exists(gamesList))
+            {
+                XMLManipulation XML = new XMLManipulation();
+                XML.CreateFreshGameList(gamesList);
+            }
+            populateForm(gamesList, Path.GetFileName(gamesList));
         }
 
         private void pingServers()

@@ -12,7 +12,7 @@ namespace BestPing
         public List<Game> ReadXmlFile(string xmlFile)
         {
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.LoadXml(xmlFile);
+            xmlDoc.Load(xmlFile);
             //xmlDoc.Load("C:/Users/cupps/Desktop/ping-realms-project/testgames.xml");
             XmlNodeList xmlGames = xmlDoc.SelectNodes("games/game");
 
@@ -74,6 +74,22 @@ namespace BestPing
                 }
                 xmlWriter.WriteEndElement();
             }
+
+            xmlWriter.WriteEndDocument();
+            xmlWriter.Close();
+        }
+
+        public void CreateFreshGameList(string fileName)
+        {
+            XmlWriterSettings settings = new XmlWriterSettings()
+            {
+                Indent = true,
+            };
+
+            XmlWriter xmlWriter = XmlWriter.Create(fileName, settings);
+
+            xmlWriter.WriteStartDocument();
+            xmlWriter.WriteStartElement("games");
 
             xmlWriter.WriteEndDocument();
             xmlWriter.Close();
