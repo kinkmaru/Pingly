@@ -209,7 +209,6 @@
       <server name="Yellow" ip="24.105.62.129" />
       <server name="Orange" ip="185.60.112.157" />
       <server name="Red" ip="54.94.196.47" />
-      <server name="Blue" ip="191.168.1.2" />
     </region>
   </game>
 </games>

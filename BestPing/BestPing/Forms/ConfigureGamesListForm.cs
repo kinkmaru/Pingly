@@ -50,23 +50,27 @@ namespace BestPing
             gamesListComboBox.Sorted = true;
 
             ResetForm();
-            fileLabel.Text = gamesXMLFileName;
+            fileLabel.Text = "Edit > " + gamesXMLFileName;
         }
 
         private void ResetForm()
         {
+            addGameButton.ImageIndex = 0;
             editGameButton.Enabled = false;
             deleteGameButton.Enabled = false;
 
             regionListComboBox.Items.Clear();
             regionListComboBox.Text = "";
             regionListComboBox.Enabled = false;
-            regionsListLabel.Enabled = false;
-            addRegionButton.Enabled = false;
+            //regionsListLabel.Enabled = false;
+            regionsListLabel.ForeColor = Color.FromArgb(0, 92, 101);
+            //addRegionButton.Enabled = false;
+            addRegionButton.ImageIndex = 0;
             editRegionButton.Enabled = false;
             deleteRegionButton.Enabled = false;
 
-            serversListLabel.Enabled = false;
+            //serversListLabel.Enabled = false;
+            serversListLabel.ForeColor = Color.FromArgb(0, 92, 101);
             addServerButton.Enabled = false;
             addServerButton.Visible = true;
             serversOLV.ClearObjects();
@@ -92,36 +96,57 @@ namespace BestPing
                     }
                     editGameButton.Enabled = true;
                     deleteGameButton.Enabled = true;
-                    addGameButton.Enabled = false;
+                    //addGameButton.ImageIndex = 0;
+                    //addGameButton.Enabled = false;
 
                     regionListComboBox.Sorted = true;
                     regionListComboBox.Enabled = true;
-                    regionsListLabel.Enabled = true;
+                    //regionsListLabel.Enabled = true;
+                    regionsListLabel.ForeColor = Color.FromArgb(0, 151, 167);
                 }
 
                 // Can't add a game with no text - diable add button
                 else if (gamesListComboBox.Text == "")
-                    addGameButton.Enabled = false;
+                {
+                    //addGameButton.Enabled = false;
+                    addGameButton.ImageIndex = 0;
+                }
 
                 // Reset form under any other conditions
                 else
                 {
                     ResetForm();
-                    addGameButton.Enabled = true;
+                    //addGameButton.Enabled = true;
+                    addGameButton.ImageIndex = 1;
                 }
             }
         }
 
         private void addGameButton_Click(object sender, EventArgs e)
         {
-            // Add new game to gamelist and game combobox
-            Game newGame = new Game();
-            newGame.Name = gamesListComboBox.Text;
-            gameList.Add(newGame);
-            gamesListComboBox.Items.Add(newGame.Name);
+            if(addGameButton.ImageIndex != 0)
+            {
+                // Add new game to gamelist and game combobox
+                Game newGame = new Game();
+                newGame.Name = gamesListComboBox.Text;
+                gameList.Add(newGame);
+                gamesListComboBox.Items.Add(newGame.Name);
 
-            // Make changes to form suitable to having a game selected
-            gamesListComboBoxSearchForGame(gamesListComboBox, e);
+                // Make changes to form suitable to having a game selected
+                gamesListComboBoxSearchForGame(gamesListComboBox, e);
+            }
+        }
+        private void addGameButton_MouseEnter(object sender, EventArgs e)
+        {
+            if (addGameButton.ImageIndex != 0)
+                addGameButton.ImageIndex = 2;
+        }
+        private void addGameButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (gamesListComboBox.Text == "" || gamesListComboBox.Items.Contains(gamesListComboBox.Text))
+                addGameButton.ImageIndex = 0;
+            else
+                addGameButton.ImageIndex = 1;
         }
 
         private void editGameButton_Click(object sender, EventArgs e)
@@ -188,58 +213,79 @@ namespace BestPing
         {
             if(!editingRegionName)
             {
-
             serversOLV.ClearObjects();
 
-            // If searched region exists, populate serversOLV and enable appropriate action buttons
-            if (regionListComboBox.Items.Contains(regionListComboBox.Text))
-            {
-                string selectedGame = gamesListComboBox.Text;
-                string selectedRegion = regionListComboBox.Text;
-                List<Server> serverList = gameList.Find(x => x.Name == selectedGame).Regions.Find(x => x.Name == selectedRegion).Servers;
-                foreach (Server server in serverList)
+                // If searched region exists, populate serversOLV and enable appropriate action buttons
+                if (regionListComboBox.Items.Contains(regionListComboBox.Text))
                 {
-                    serversOLV.AddObject(server);
+                    string selectedGame = gamesListComboBox.Text;
+                    string selectedRegion = regionListComboBox.Text;
+                    List<Server> serverList = gameList.Find(x => x.Name == selectedGame).Regions.Find(x => x.Name == selectedRegion).Servers;
+                    foreach (Server server in serverList)
+                    {
+                        serversOLV.AddObject(server);
+                    }
+
+                    editRegionButton.Enabled = true;
+                    deleteRegionButton.Enabled = true;
+                    //addRegionButton.Enabled = false;
+                    addRegionButton.ImageIndex = 0;
+
+                    //serversListLabel.Enabled = true;
+                    serversListLabel.ForeColor = Color.FromArgb(0, 151, 167);
+
+                    addServerButton.Enabled = true;
+                    serversOLV.Enabled = true;
                 }
 
-                editRegionButton.Enabled = true;
-                deleteRegionButton.Enabled = true;
-                addRegionButton.Enabled = false;
+                // Can't add a region with no text - disable add button
+                else if (regionListComboBox.Text == "")
+                    addRegionButton.ImageIndex = 0;
+                    //addRegionButton.Enabled = false;
 
-                serversListLabel.Enabled = true;
-                addServerButton.Enabled = true;
-                serversOLV.Enabled = true;
-            }
+                // Reset server/region functions under any other conditions
+                else
+                {
+                    editRegionButton.Enabled = false;
+                    deleteRegionButton.Enabled = false;
+                    //addRegionButton.Enabled = true;
+                    addRegionButton.ImageIndex = 1;
 
-            // Can't add a region with no text - disable add button
-            else if (regionListComboBox.Text == "")
-                addRegionButton.Enabled = false;
+                    // serversListLabel.Enabled = false;
+                    serversListLabel.ForeColor = Color.FromArgb(0, 92, 101);
 
-            // Reset server/region functions under any other conditions
-            else
-            {
-                editRegionButton.Enabled = false;
-                deleteRegionButton.Enabled = false;
-                addRegionButton.Enabled = true;
-
-                serversListLabel.Enabled = false;
-                addServerButton.Enabled = false;
-                serversOLV.ClearObjects();
-            }
+                    addServerButton.Enabled = false;
+                    serversOLV.ClearObjects();
+                }
             }
 
         }
 
         private void addRegionButton_Click(object sender, EventArgs e)
         {
-            // Add new region to gamelist and region combobox
-            Region newRegion = new Region();
-            newRegion.Name = regionListComboBox.Text;
-            gameList.Find(x => x.Name == gamesListComboBox.Text).Regions.Add(newRegion);
-            regionListComboBox.Items.Add(newRegion.Name);
+            if(addRegionButton.ImageIndex != 0)
+            {
+                // Add new region to gamelist and region combobox
+                Region newRegion = new Region();
+                newRegion.Name = regionListComboBox.Text;
+                gameList.Find(x => x.Name == gamesListComboBox.Text).Regions.Add(newRegion);
+                regionListComboBox.Items.Add(newRegion.Name);
 
-            // Mage changes to form suitable to having a region selected
-            regionListComboBoxSearchForRegion(sender, e);
+                // Mage changes to form suitable to having a region selected
+                regionListComboBoxSearchForRegion(sender, e);
+            }
+        }
+        private void addRegionButton_MouseEnter(object sender, EventArgs e)
+        {
+            if (addRegionButton.ImageIndex != 0)
+                addRegionButton.ImageIndex = 2;
+        }
+        private void addRegionButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (regionListComboBox.Text == "" || regionListComboBox.Items.Contains(regionListComboBox.Text))
+                addRegionButton.ImageIndex = 0;
+            else
+                addRegionButton.ImageIndex = 1;
         }
 
         private void editRegionButton_Click(object sender, EventArgs e)
@@ -406,5 +452,6 @@ namespace BestPing
             xML.WriteXMLFile("..\\..\\gamesList.xml", gameList);
             this.Close();
         }
+
     }
 }

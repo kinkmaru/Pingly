@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigureGamesListForm));
             this.selectedFileLabel = new System.Windows.Forms.Label();
             this.serversOLV = new BrightIdeasSoftware.ObjectListView();
             this.serversListNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -35,7 +37,6 @@
             this.gamesListLabel = new System.Windows.Forms.Label();
             this.regionsListLabel = new System.Windows.Forms.Label();
             this.serversListLabel = new System.Windows.Forms.Label();
-            this.addGameButton = new System.Windows.Forms.Button();
             this.addRegionButton = new System.Windows.Forms.Button();
             this.addServerButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
@@ -47,6 +48,8 @@
             this.editGameButton = new System.Windows.Forms.Button();
             this.editRegionButton = new System.Windows.Forms.Button();
             this.deleteServerButton = new System.Windows.Forms.Button();
+            this.AddButtonImageList = new System.Windows.Forms.ImageList(this.components);
+            this.addGameButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.serversOLV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,11 +73,13 @@
             this.serversListIpColumn});
             this.serversOLV.Cursor = System.Windows.Forms.Cursors.Default;
             this.serversOLV.Enabled = false;
+            this.serversOLV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(173)))), ((int)(((byte)(0)))));
             this.serversOLV.FullRowSelect = true;
             this.serversOLV.HasCollapsibleGroups = false;
             this.serversOLV.HideSelection = false;
             this.serversOLV.LabelWrap = false;
             this.serversOLV.Location = new System.Drawing.Point(22, 167);
+            this.serversOLV.Margin = new System.Windows.Forms.Padding(53);
             this.serversOLV.MultiSelect = false;
             this.serversOLV.Name = "serversOLV";
             this.serversOLV.SelectAllOnControlA = false;
@@ -92,12 +97,14 @@
             // serversListNameColumn
             // 
             this.serversListNameColumn.AspectName = "Name";
+            this.serversListNameColumn.HeaderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.serversListNameColumn.Text = "Name";
             this.serversListNameColumn.Width = 120;
             // 
             // serversListIpColumn
             // 
             this.serversListIpColumn.AspectName = "Ip";
+            this.serversListIpColumn.HeaderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.serversListIpColumn.Text = "IP";
             this.serversListIpColumn.Width = 104;
             // 
@@ -115,7 +122,6 @@
             // regionsListLabel
             // 
             this.regionsListLabel.AutoSize = true;
-            this.regionsListLabel.Enabled = false;
             this.regionsListLabel.Font = new System.Drawing.Font("Orbitron", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.regionsListLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(167)))));
             this.regionsListLabel.Location = new System.Drawing.Point(19, 104);
@@ -127,7 +133,6 @@
             // serversListLabel
             // 
             this.serversListLabel.AutoSize = true;
-            this.serversListLabel.Enabled = false;
             this.serversListLabel.Font = new System.Drawing.Font("Orbitron", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.serversListLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(167)))));
             this.serversListLabel.Location = new System.Drawing.Point(19, 143);
@@ -136,29 +141,23 @@
             this.serversListLabel.TabIndex = 8;
             this.serversListLabel.Text = "Servers";
             // 
-            // addGameButton
-            // 
-            this.addGameButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(205)))), ((int)(((byte)(25)))));
-            this.addGameButton.Enabled = false;
-            this.addGameButton.Location = new System.Drawing.Point(187, 57);
-            this.addGameButton.Name = "addGameButton";
-            this.addGameButton.Size = new System.Drawing.Size(80, 23);
-            this.addGameButton.TabIndex = 9;
-            this.addGameButton.Text = "<Add Game>";
-            this.addGameButton.UseVisualStyleBackColor = false;
-            this.addGameButton.Click += new System.EventHandler(this.addGameButton_Click);
-            // 
             // addRegionButton
             // 
-            this.addRegionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(205)))), ((int)(((byte)(25)))));
-            this.addRegionButton.Enabled = false;
-            this.addRegionButton.Location = new System.Drawing.Point(193, 99);
+            this.addRegionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.addRegionButton.FlatAppearance.BorderSize = 0;
+            this.addRegionButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.addRegionButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.addRegionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addRegionButton.ImageIndex = 0;
+            this.addRegionButton.ImageList = this.AddButtonImageList;
+            this.addRegionButton.Location = new System.Drawing.Point(200, 94);
             this.addRegionButton.Name = "addRegionButton";
-            this.addRegionButton.Size = new System.Drawing.Size(84, 23);
+            this.addRegionButton.Size = new System.Drawing.Size(33, 33);
             this.addRegionButton.TabIndex = 10;
-            this.addRegionButton.Text = "<Add Region>";
             this.addRegionButton.UseVisualStyleBackColor = false;
             this.addRegionButton.Click += new System.EventHandler(this.addRegionButton_Click);
+            this.addRegionButton.MouseEnter += new System.EventHandler(this.addRegionButton_MouseEnter);
+            this.addRegionButton.MouseLeave += new System.EventHandler(this.addRegionButton_MouseLeave);
             // 
             // addServerButton
             // 
@@ -198,11 +197,13 @@
             this.gamesListComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.gamesListComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.gamesListComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.gamesListComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.gamesListComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gamesListComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gamesListComboBox.ForeColor = System.Drawing.Color.White;
             this.gamesListComboBox.FormattingEnabled = true;
-            this.gamesListComboBox.Location = new System.Drawing.Point(60, 59);
+            this.gamesListComboBox.Location = new System.Drawing.Point(67, 56);
             this.gamesListComboBox.Name = "gamesListComboBox";
-            this.gamesListComboBox.Size = new System.Drawing.Size(121, 21);
+            this.gamesListComboBox.Size = new System.Drawing.Size(121, 26);
             this.gamesListComboBox.TabIndex = 14;
             this.gamesListComboBox.SelectedIndexChanged += new System.EventHandler(this.gamesListComboBoxSearchForGame);
             this.gamesListComboBox.TextChanged += new System.EventHandler(this.gamesListComboBoxSearchForGame);
@@ -215,7 +216,7 @@
             this.regionListComboBox.Enabled = false;
             this.regionListComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.regionListComboBox.FormattingEnabled = true;
-            this.regionListComboBox.Location = new System.Drawing.Point(66, 101);
+            this.regionListComboBox.Location = new System.Drawing.Point(67, 101);
             this.regionListComboBox.Name = "regionListComboBox";
             this.regionListComboBox.Size = new System.Drawing.Size(121, 21);
             this.regionListComboBox.TabIndex = 15;
@@ -226,7 +227,7 @@
             // 
             this.deleteGameButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(11)))), ((int)(((byte)(0)))));
             this.deleteGameButton.Enabled = false;
-            this.deleteGameButton.Location = new System.Drawing.Point(336, 57);
+            this.deleteGameButton.Location = new System.Drawing.Point(344, 57);
             this.deleteGameButton.Name = "deleteGameButton";
             this.deleteGameButton.Size = new System.Drawing.Size(75, 23);
             this.deleteGameButton.TabIndex = 16;
@@ -250,7 +251,7 @@
             // 
             this.editGameButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(255)))), ((int)(((byte)(65)))));
             this.editGameButton.Enabled = false;
-            this.editGameButton.Location = new System.Drawing.Point(264, 57);
+            this.editGameButton.Location = new System.Drawing.Point(270, 57);
             this.editGameButton.Name = "editGameButton";
             this.editGameButton.Size = new System.Drawing.Size(75, 23);
             this.editGameButton.TabIndex = 18;
@@ -282,6 +283,36 @@
             this.deleteServerButton.Visible = false;
             this.deleteServerButton.Click += new System.EventHandler(this.deleteServerButton_Click);
             // 
+            // AddButtonImageList
+            // 
+            this.AddButtonImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("AddButtonImageList.ImageStream")));
+            this.AddButtonImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.AddButtonImageList.Images.SetKeyName(0, "AddButtonDisabled.png");
+            this.AddButtonImageList.Images.SetKeyName(1, "AddButtonActive.png");
+            this.AddButtonImageList.Images.SetKeyName(2, "AddButtonActiveHover.png");
+            // 
+            // addGameButton
+            // 
+            this.addGameButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.addGameButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.addGameButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.addGameButton.FlatAppearance.BorderSize = 0;
+            this.addGameButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.addGameButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.addGameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addGameButton.ForeColor = System.Drawing.Color.Transparent;
+            this.addGameButton.ImageIndex = 0;
+            this.addGameButton.ImageList = this.AddButtonImageList;
+            this.addGameButton.Location = new System.Drawing.Point(200, 52);
+            this.addGameButton.Margin = new System.Windows.Forms.Padding(0);
+            this.addGameButton.Name = "addGameButton";
+            this.addGameButton.Size = new System.Drawing.Size(33, 33);
+            this.addGameButton.TabIndex = 9;
+            this.addGameButton.UseVisualStyleBackColor = false;
+            this.addGameButton.Click += new System.EventHandler(this.addGameButton_Click);
+            this.addGameButton.MouseEnter += new System.EventHandler(this.addGameButton_MouseEnter);
+            this.addGameButton.MouseLeave += new System.EventHandler(this.addGameButton_MouseLeave);
+            // 
             // ConfigureGamesListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -305,6 +336,7 @@
             this.Controls.Add(this.gamesListLabel);
             this.Controls.Add(this.serversOLV);
             this.Controls.Add(this.selectedFileLabel);
+            this.MaximizeBox = false;
             this.Name = "ConfigureGamesListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configure Game List";
@@ -335,5 +367,6 @@
         private System.Windows.Forms.Button editGameButton;
         private System.Windows.Forms.Button editRegionButton;
         private System.Windows.Forms.Button deleteServerButton;
+        private System.Windows.Forms.ImageList AddButtonImageList;
     }
 }
