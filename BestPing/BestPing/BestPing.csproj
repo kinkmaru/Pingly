@@ -141,5 +141,8 @@
   <ItemGroup>
     <None Include="Resources\AddButtonDisabledTest.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TestImage.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

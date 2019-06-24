@@ -51,13 +51,24 @@ namespace BestPing
 
             ResetForm();
             fileLabel.Text = "Edit > " + gamesXMLFileName;
+
+
+
+
+
+            ComboBox cb = new ComboBox
+            {
+
+            };
         }
 
         private void ResetForm()
         {
             addGameButton.ImageIndex = 0;
-            editGameButton.Enabled = false;
-            deleteGameButton.Enabled = false;
+            //editGameButton.Enabled = false;
+            editGameButton.ImageIndex = 0;
+            //deleteGameButton.Enabled = false;
+            deleteGameButton.ImageIndex = 0;
 
             regionListComboBox.Items.Clear();
             regionListComboBox.Text = "";
@@ -66,17 +77,21 @@ namespace BestPing
             regionsListLabel.ForeColor = Color.FromArgb(0, 92, 101);
             //addRegionButton.Enabled = false;
             addRegionButton.ImageIndex = 0;
-            editRegionButton.Enabled = false;
-            deleteRegionButton.Enabled = false;
+            //editRegionButton.Enabled = false;
+            editRegionButton.ImageIndex = 0;
+            //deleteRegionButton.Enabled = false;
+            deleteRegionButton.ImageIndex = 0;
 
             //serversListLabel.Enabled = false;
             serversListLabel.ForeColor = Color.FromArgb(0, 92, 101);
-            addServerButton.Enabled = false;
+            //addServerButton.Enabled = false;
             addServerButton.Visible = true;
+            addServerButton.ImageIndex = 0;
+
             serversOLV.ClearObjects();
             serversOLV.Enabled = false;
-            deleteServerButton.Enabled = false;
             deleteServerButton.Visible = false;
+            deleteServerButton.ImageIndex = 0;
         }
 
         // GAME FUNCTIONS
@@ -94,9 +109,11 @@ namespace BestPing
                     {
                         regionListComboBox.Items.Add(region.Name);
                     }
-                    editGameButton.Enabled = true;
-                    deleteGameButton.Enabled = true;
-                    //addGameButton.ImageIndex = 0;
+                    editGameButton.ImageIndex = 1;
+                    //editGameButton.Enabled = true;
+                    //deleteGameButton.Enabled = true;
+                    deleteGameButton.ImageIndex = 1;
+                    addGameButton.ImageIndex = 0;
                     //addGameButton.Enabled = false;
 
                     regionListComboBox.Sorted = true;
@@ -181,6 +198,23 @@ namespace BestPing
                 editingGameName = false;
             }
         }
+        private void editGameButton_MouseEnter(object sender, EventArgs e)
+        {
+            if (editGameButton.ImageIndex != 0)
+            {
+                if (editingGameName)
+                    editGameButton.ImageIndex = 3;
+                else
+                    editGameButton.ImageIndex = 2;
+            }
+        }
+        private void editGameButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (editingGameName || gamesListComboBox.Items.Contains(gamesListComboBox.Text))
+                editGameButton.ImageIndex = 1;
+            else
+                editGameButton.ImageIndex = 0;
+        }
 
         private void deleteGameButton_Click(object sender, EventArgs e)
         {
@@ -207,6 +241,18 @@ namespace BestPing
                 deleteItemForm.Dispose();
             }
         }
+        private void deleteGameButton_MouseEnter(object sender, EventArgs e)
+        {
+            if (deleteGameButton.ImageIndex != 0)
+                deleteGameButton.ImageIndex = 2;
+        }
+        private void deleteGameButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (gamesListComboBox.Items.Contains(gamesListComboBox.Text))
+                deleteGameButton.ImageIndex = 1;
+            else
+                deleteGameButton.ImageIndex = 0;
+        }
 
         // REGION FUNCTIONS
         private void regionListComboBoxSearchForRegion(object sender, EventArgs e)
@@ -225,16 +271,18 @@ namespace BestPing
                     {
                         serversOLV.AddObject(server);
                     }
-
-                    editRegionButton.Enabled = true;
-                    deleteRegionButton.Enabled = true;
                     //addRegionButton.Enabled = false;
                     addRegionButton.ImageIndex = 0;
+                    //editRegionButton.Enabled = true;
+                    editRegionButton.ImageIndex = 1;
+                    //deleteRegionButton.Enabled = true;
+                    deleteRegionButton.ImageIndex = 1;
 
                     //serversListLabel.Enabled = true;
                     serversListLabel.ForeColor = Color.FromArgb(0, 151, 167);
 
-                    addServerButton.Enabled = true;
+                    //addServerButton.Enabled = true;
+                    addServerButton.ImageIndex = 1;
                     serversOLV.Enabled = true;
                 }
 
@@ -246,15 +294,18 @@ namespace BestPing
                 // Reset server/region functions under any other conditions
                 else
                 {
-                    editRegionButton.Enabled = false;
-                    deleteRegionButton.Enabled = false;
+                    // editRegionButton.Enabled = false;
+                    editRegionButton.ImageIndex = 0;
+                    //deleteRegionButton.Enabled = false;
+                    deleteRegionButton.ImageIndex = 0;
                     //addRegionButton.Enabled = true;
                     addRegionButton.ImageIndex = 1;
 
                     // serversListLabel.Enabled = false;
                     serversListLabel.ForeColor = Color.FromArgb(0, 92, 101);
 
-                    addServerButton.Enabled = false;
+                    //addServerButton.Enabled = false;
+                    addServerButton.ImageIndex = 0;
                     serversOLV.ClearObjects();
                 }
             }
@@ -297,8 +348,6 @@ namespace BestPing
                 editingRegionName = true;
                 regionBeingEdited = regionListComboBox.Text;
             }
-
-            // Proceed with editing
             else
             {
                 // find existing region based on given game and region combobox text
@@ -320,6 +369,23 @@ namespace BestPing
 
                 editingRegionName = false;
             }
+        }
+        private void editRegionButton_MouseEnter(object sender, EventArgs e)
+        {
+            if (editRegionButton.ImageIndex != 0)
+            {
+                if (editingRegionName)
+                    editRegionButton.ImageIndex = 3;
+                else
+                    editRegionButton.ImageIndex = 2;
+            }
+        }
+        private void editRegionButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (editingRegionName || regionListComboBox.Items.Contains(regionListComboBox.Text))
+                editRegionButton.ImageIndex = 1;
+            else
+                editRegionButton.ImageIndex = 0;
         }
 
         private void deleteRegionButton_Click(object sender, EventArgs e)
@@ -350,6 +416,18 @@ namespace BestPing
                 deleteItemForm.Dispose();
             }
         }
+        private void deleteRegionButton_MouseEnter(object sender, EventArgs e)
+        {
+            if (deleteRegionButton.ImageIndex != 0)
+                deleteRegionButton.ImageIndex = 2;
+        }
+        private void deleteRegionButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (regionListComboBox.Items.Contains(regionListComboBox.Text))
+                deleteRegionButton.ImageIndex = 1;
+            else
+                deleteRegionButton.ImageIndex = 0;
+        }
 
         // SERVER FUNCTIONS
         private void addServerButton_Click(object sender, EventArgs e)
@@ -365,6 +443,18 @@ namespace BestPing
 
             // Start the edit process on the first cell of the newly formed object
             serversOLV.EditSubItem((OLVListItem)serversOLV.Items[0], 0);
+        }
+        private void addServerButton_MouseEnter(object sender, EventArgs e)
+        {
+            if (addServerButton.ImageIndex != 0)
+                addServerButton.ImageIndex = 2;
+        }
+        private void addServerButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (regionListComboBox.Items.Contains(regionListComboBox.Text))
+                addServerButton.ImageIndex = 1;
+            else
+                addServerButton.ImageIndex = 0;
         }
 
         private void serversOLV_CellEditStarting(object sender, CellEditEventArgs e)
@@ -444,6 +534,14 @@ namespace BestPing
                 deleteItemForm.Dispose();
             }
         }
+        private void DeleteServerButtonIndexChange(object sender, EventArgs e)
+        {
+            int index = deleteServerButton.ImageIndex;
+            if (index == 0)
+                deleteServerButton.ImageIndex = 1;
+            else
+                deleteServerButton.ImageIndex = 0;
+        }
 
         // SAVE CHANGES TO FILE
         private void saveButton_Click(object sender, EventArgs e)
@@ -451,6 +549,14 @@ namespace BestPing
             XMLManipulation xML = new XMLManipulation();
             xML.WriteXMLFile("..\\..\\gamesList.xml", gameList);
             this.Close();
+        }
+        private void SaveButtonIndexChange(object sender, EventArgs e)
+        {
+            int index = saveButton.ImageIndex;
+            if (index == 0)
+                saveButton.ImageIndex = 1;
+            else
+                saveButton.ImageIndex = 0;
         }
 
     }
