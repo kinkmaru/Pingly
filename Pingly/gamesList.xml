@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<games>
+  <game name="Test">
+    <region name="All">
+      <server name="Green" ip="24.105.30.129" />
+      <server name="Yellow" ip="24.105.62.129" />
+      <server name="Orange" ip="185.60.112.157" />
+      <server name="Red" ip="54.94.196.47" />
+    </region>
+    <region name="All2" />
+    <region name="All3" />
+    <region name="All4" />
+    <region name="All5" />
+  </game>
+  <game name="Diablo III">
+    <region name="EU2">
+      <server name="Europe 1" ip="185.60.112.157" />
+      <server name="Europe 2" ip="185.60.112.158" />
+    </region>
+    <region name="NA2">
+      <server name="North America" ip="24.105.30.129" />
+    </region>
+    <region name="BR2">
+      <server name="Brazil(Americas)" ip="54.94.196.47" />
+    </region>
+  </game>
+  <game name="World of Warcraft">
+    <region name="NA2">
+      <server name="US West" ip="137.221.105.2" />
+      <server name="US Central" ip="24.105.62.129" />
+    </region>
+    <region name="EU2">
+      <server name="Europe 1" ip="185.60.112.157" />
+      <server name="Europe 2" ip="185.60.112.158" />
+      <server name="Europe 3" ip="185.60.114.159" />
+    </region>
+  </game>
+  <game name="Old School Runescape">
+    <region name="NA2">
+      <server name="Old School 1" ip="oldschool1.runescape.com" />
+      <server name="Old School 5" ip="oldschool5.runescape.com" />
+      <server name="Old School 6" ip="oldschool6.runescape.com" />
+      <server name="Old School 7" ip="oldschool7.runescape.com" />
+      <server name="Old School 13" ip="oldschool13.runescape.com" />
+      <server name="Old School 14" ip="oldschool14.runescape.com" />
+      <server name="Old School 15" ip="oldschool15.runescape.com" />
+      <server name="Old School 19" ip="oldschool19.runescape.com" />
+      <server name="Old School 20" ip="oldschool20.runescape.com" />
+      <server name="Old School 21" ip="oldschool21.runescape.com" />
+      <server name="Old School 22" ip="oldschool22.runescape.com" />
+      <server name="Old School 23" ip="oldschool23.runescape.com" />
+      <server name="Old School 24" ip="oldschool24.runescape.com" />
+      <server name="Old School 29" ip="oldschool29.runescape.com" />
+      <server name="Old School 30" ip="oldschool30.runescape.com" />
+      <server name="Old School 31" ip="oldschool31.runescape.com" />
+      <server name="Old School 32" ip="oldschool32.runescape.com" />
+      <server name="Old School 37" ip="oldschool37.runescape.com" />
+      <server name="Old School 38" ip="oldschool38.runescape.com" />
+      <server name="Old School 39" ip="oldschool39.runescape.com" />
+      <server name="Old School 40" ip="oldschool40.runescape.com" />
+      <server name="Old School 45" ip="oldschool45.runescape.com" />
+      <server name="Old School 46" ip="oldschool46.runescape.com" />
+      <server name="Old School 47" ip="oldschool47.runescape.com" />
+      <server name="Old School 48" ip="oldschool48.runescape.com" />
+      <server name="Old School 53" ip="oldschool53.runescape.com" />
+      <server name="Old School 54" ip="oldschool54.runescape.com" />
+      <server name="Old School 55" ip="oldschool55.runescape.com" />
+      <server name="Old School 56" ip="oldschool56.runescape.com" />
+      <server name="Old School 57" ip="oldschool57.runescape.com" />
+      <server name="Old School 61" ip="oldschool61.runescape.com" />
+      <server name="Old School 62" ip="oldschool62.runescape.com" />
+      <server name="Old School 69" ip="oldschool69.runescape.com" />
+      <server name="Old School 70" ip="oldschool70.runescape.com" />
+      <server name="Old School 74" ip="oldschool74.runescape.com" />
+      <server name="Old School 77" ip="oldschool77.runescape.com" />
+      <server name="Old School 78" ip="oldschool78.runescape.com" />
+      <server name="Old School 85" ip="oldschool85.runescape.com" />
+      <server name="Old School 86" ip="oldschool86.runescape.com" />
+      <server name="Old School 93" ip="oldschool93.runescape.com" />
+      <server name="Old School 94" ip="oldschool94.runescape.com" />
+      <server name="Old School 104" ip="oldschool104.runescape.com" />
+      <server name="Old School 109" ip="oldschool109.runescape.com" />
+      <server name="Old School 115" ip="oldschool115.runescape.com" />
+      <server name="Old School 116" ip="oldschool116.runescape.com" />
+      <server name="Old School 117" ip="oldschool117.runescape.com" />
+      <server name="Old School 118" ip="oldschool118.runescape.com" />
+      <server name="Old School 119" ip="oldschool119.runescape.com" />
+      <server name="Old School 120" ip="oldschool120.runescape.com" />
+      <server name="Old School 121" ip="oldschool121.runescape.com" />
+      <server name="Old School 122" ip="oldschool122.runescape.com" />
+      <server name="Old School 128" ip="oldschool128.runescape.com" />
+      <server name="Old School 129" ip="oldschool129.runescape.com" />
+      <server name="Old School 130" ip="oldschool130.runescape.com" />
+      <server name="Old School 131" ip="oldschool131.runescape.com" />
+      <server name="Old School 132" ip="oldschool132.runescape.com" />
+      <server name="Old School 133" ip="oldschool133.runescape.com" />
+      <server name="Old School 134" ip="oldschool134.runescape.com" />
+      <server name="Old School 135" ip="oldschool135.runescape.com" />
+      <server name="Old School 136" ip="oldschool136.runescape.com" />
+      <server name="Old School 137" ip="oldschool137.runescape.com" />
+      <server name="Old School 138" ip="oldschool138.runescape.com" />
+      <server name="Old School 139" ip="oldschool139.runescape.com" />
+      <server name="Old School 140" ip="oldschool140.runescape.com" />
+      <server name="Old School 144" ip="oldschool144.runescape.com" />
+      <server name="Old School 145" ip="oldschool145.runescape.com" />
+      <server name="Old School 146" ip="oldschool146.runescape.com" />
+      <server name="Old School 167" ip="oldschool167.runescape.com" />
+      <server name="Old School 168" ip="oldschool168.runescape.com" />
+      <server name="Old School 169" ip="oldschool169.runescape.com" />
+      <server name="Old School 170" ip="oldschool170.runescape.com" />
+      <server name="Old School 171" ip="oldschool171.runescape.com" />
+      <server name="Old School 172" ip="oldschool172.runescape.com" />
+      <server name="Old School 173" ip="oldschool173.runescape.com" />
+      <server name="Old School 174" ip="oldschool174.runescape.com" />
+      <server name="Old School 175" ip="oldschool175.runescape.com" />
+      <server name="Old School 176" ip="oldschool176.runescape.com" />
+      <server name="Old School 177" ip="oldschool177.runescape.com" />
+      <server name="Old School 191" ip="oldschool191.runescape.com" />
+      <server name="Old School 192" ip="oldschool192.runescape.com" />
+      <server name="Old School 193" ip="oldschool193.runescape.com" />
+      <server name="Old School 194" ip="oldschool194.runescape.com" />
+      <server name="Old School 195" ip="oldschool195.runescape.com" />
+      <server name="Old School 196" ip="oldschool196.runescape.com" />
+    </region>
+    <region name="EU2">
+      <server name="Old School 2" ip="oldschool2.runescape.com" />
+      <server name="Old School 3" ip="oldschool3.runescape.com" />
+      <server name="Old School 4" ip="oldschool4.runescape.com" />
+      <server name="Old School 8" ip="oldschool8.runescape.com" />
+      <server name="Old School 9" ip="oldschool9.runescape.com" />
+      <server name="Old School 10" ip="oldschool10.runescape.com" />
+      <server name="Old School 11" ip="oldschool11.runescape.com" />
+      <server name="Old School 12" ip="oldschool12.runescape.com" />
+      <server name="Old School 16" ip="oldschool16.runescape.com" />
+      <server name="Old School 17" ip="oldschool17.runescape.com" />
+      <server name="Old School 18" ip="oldschool18.runescape.com" />
+      <server name="Old School 25" ip="oldschool25.runescape.com" />
+      <server name="Old School 26" ip="oldschool26.runescape.com" />
+      <server name="Old School 27" ip="oldschool27.runescape.com" />
+      <server name="Old School 28" ip="oldschool28.runescape.com" />
+      <server name="Old School 33" ip="oldschool33.runescape.com" />
+      <server name="Old School 34" ip="oldschool34.runescape.com" />
+      <server name="Old School 35" ip="oldschool35.runescape.com" />
+      <server name="Old School 36" ip="oldschool36.runescape.com" />
+      <server name="Old School 41" ip="oldschool41.runescape.com" />
+      <server name="Old School 42" ip="oldschool42.runescape.com" />
+      <server name="Old School 43" ip="oldschool43.runescape.com" />
+      <server name="Old School 44" ip="oldschool44.runescape.com" />
+      <server name="Old School 51" ip="oldschool51.runescape.com" />
+      <server name="Old School 52" ip="oldschool52.runescape.com" />
+      <server name="Old School 58" ip="oldschool58.runescape.com" />
+      <server name="Old School 59" ip="oldschool59.runescape.com" />
+      <server name="Old School 60" ip="oldschool60.runescape.com" />
+      <server name="Old School 64" ip="oldschool64.runescape.com" />
+      <server name="Old School 65" ip="oldschool65.runescape.com" />
+      <server name="Old School 66" ip="oldschool66.runescape.com" />
+      <server name="Old School 67" ip="oldschool67.runescape.com" />
+      <server name="Old School 68" ip="oldschool68.runescape.com" />
+      <server name="Old School 71" ip="oldschool71.runescape.com" />
+      <server name="Old School 72" ip="oldschool72.runescape.com" />
+      <server name="Old School 73" ip="oldschool73.runescape.com" />
+      <server name="Old School 75" ip="oldschool75.runescape.com" />
+      <server name="Old School 76" ip="oldschool76.runescape.com" />
+      <server name="Old School 79" ip="oldschool79.runescape.com" />
+      <server name="Old School 80" ip="oldschool80.runescape.com" />
+      <server name="Old School 81" ip="oldschool81.runescape.com" />
+      <server name="Old School 82" ip="oldschool82.runescape.com" />
+      <server name="Old School 83" ip="oldschool83.runescape.com" />
+      <server name="Old School 84" ip="oldschool84.runescape.com" />
+      <server name="Old School 95" ip="oldschool95.runescape.com" />
+      <server name="Old School 96" ip="oldschool96.runescape.com" />
+      <server name="Old School 97" ip="oldschool97.runescape.com" />
+      <server name="Old School 98" ip="oldschool98.runescape.com" />
+      <server name="Old School 99" ip="oldschool99.runescape.com" />
+      <server name="Old School 105" ip="oldschool105.runescape.com" />
+      <server name="Old School 108" ip="oldschool108.runescape.com" />
+      <server name="Old School 113" ip="oldschool113.runescape.com" />
+      <server name="Old School 114" ip="oldschool114.runescape.com" />
+      <server name="Old School 147" ip="oldschool147.runescape.com" />
+      <server name="Old School 148" ip="oldschool148.runescape.com" />
+      <server name="Old School 149" ip="oldschool149.runescape.com" />
+      <server name="Old School 150" ip="oldschool150.runescape.com" />
+      <server name="Old School 151" ip="oldschool151.runescape.com" />
+      <server name="Old School 152" ip="oldschool152.runescape.com" />
+      <server name="Old School 153" ip="oldschool153.runescape.com" />
+      <server name="Old School 154" ip="oldschool154.runescape.com" />
+      <server name="Old School 155" ip="oldschool155.runescape.com" />
+      <server name="Old School 156" ip="oldschool156.runescape.com" />
+      <server name="Old School 157" ip="oldschool157.runescape.com" />
+      <server name="Old School 158" ip="oldschool158.runescape.com" />
+      <server name="Old School 159" ip="oldschool159.runescape.com" />
+      <server name="Old School 164" ip="oldschool164.runescape.com" />
+      <server name="Old School 165" ip="oldschool165.runescape.com" />
+      <server name="Old School 166" ip="oldschool166.runescape.com" />
+      <server name="Old School 197" ip="oldschool197.runescape.com" />
+      <server name="Old School 198" ip="oldschool198.runescape.com" />
+      <server name="Old School 199" ip="oldschool199.runescape.com" />
+      <server name="Old School 200" ip="oldschool200.runescape.com" />
+      <server name="Old School 201" ip="oldschool201.runescape.com" />
+      <server name="Old School 202" ip="oldschool202.runescape.com" />
+      <server name="Old School 203" ip="oldschool203.runescape.com" />
+      <server name="Old School 204" ip="oldschool204.runescape.com" />
+      <server name="Old School 213" ip="oldschool213.runescape.com" />
+      <server name="Old School 214" ip="oldschool214.runescape.com" />
+      <server name="Old School 215" ip="oldschool215.runescape.com" />
+      <server name="Old School 216" ip="oldschool216.runescape.com" />
+      <server name="Old School 217" ip="oldschool217.runescape.com" />
+      <server name="Old School 218" ip="oldschool218.runescape.com" />
+      <server name="Old School 219" ip="oldschool219.runescape.com" />
+      <server name="Old School 220" ip="oldschool220.runescape.com" />
+      <server name="Old School 221" ip="oldschool221.runescape.com" />
+      <server name="Old School 222" ip="oldschool222.runescape.com" />
+      <server name="Old School 223" ip="oldschool223.runescape.com" />
+      <server name="Old School 224" ip="oldschool224.runescape.com" />
+      <server name="Old School 225" ip="oldschool225.runescape.com" />
+    </region>
+  </game>
+</games>
