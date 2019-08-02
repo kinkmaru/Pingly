@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Pingly"
         xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Class="Pingly.PingWindow"
         mc:Ignorable="d"
-        Title="PingWindow" Height="469.068" Width="577.186" Background="White">
+        Title="Pingly" Height="455" Width="332" Background="White" ResizeMode="CanMinimize">
     <Window.Resources>
 
 
@@ -816,82 +816,69 @@
 
     </Window.Resources>
     <Grid Background="#FF212121" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-        <ListView x:Name="PingingListView" HorizontalAlignment="Left" Height="224" Margin="10,172,0,0" VerticalAlignment="Top" Width="271" Background="#FF212121" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" ItemContainerStyle="{DynamicResource ListViewItemStyle}" Style="{DynamicResource ServerListViewStyle}">
+        <ListView x:Name="PingingListView" Height="262" Margin="23,134,0,0" VerticalAlignment="Top" Background="#FF212121" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" ItemContainerStyle="{DynamicResource ListViewItemStyle}" Style="{DynamicResource ServerListViewStyle}" HorizontalAlignment="Left" Width="274" FontFamily="/Pingly;component/Fonts/#Roboto Mono">
             <ListView.View>
                 <GridView AllowsColumnReorder="False">
                     <GridViewColumn Width="25">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Width="10" Height="10" Source="{Binding Status}"/>
+                                    <Image Width="8" Height="8" Source="{Binding Status}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Name}" Width="120">
-                        <GridViewColumnHeader Tag="Name" Click="ServerNameColumnHeader_Click" Content="Server Name"/>
+                        <GridViewColumnHeader Tag="Name" Click="ServerNameColumnHeader_Click" Content="Server Name" FontFamily="/Pingly;component/Fonts/#Roboto Mono"/>
                     </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Ping}" Width="120">
-                        <GridViewColumnHeader Tag="Ping" Click="PingColumnHeader_Click" Content="Ping (m/s)"/>
+                        <GridViewColumnHeader Tag="Ping" Click="PingColumnHeader_Click" Content="Ping (m/s)" FontFamily="/Pingly;component/Fonts/#Roboto Mono"/>
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
-
         </ListView>
-        <ProgressBar x:Name="PingingProgressBar" HorizontalAlignment="Left" Height="6" Margin="10,165,0,0" VerticalAlignment="Top" Width="271" Foreground="#FF00C9DF" BorderBrush="#FF4B4B4B" ScrollViewer.VerticalScrollBarVisibility="Disabled" Background="#FF212121"/>
-        <Button x:Name="RefreshButton" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Width="30" Background="{x:Null}" Click="RefreshButton_Click" Height="30" Foreground="{x:Null}" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle}">
+        <ProgressBar x:Name="PingingProgressBar" HorizontalAlignment="Left" Height="6" Margin="23,128,0,0" VerticalAlignment="Top" Width="274" Foreground="#FF00C9DF" BorderBrush="#FF4B4B4B" ScrollViewer.VerticalScrollBarVisibility="Disabled" Background="#FF212121"/>
+        <Button x:Name="RefreshButton" HorizontalAlignment="Left" Margin="23,105,0,0" VerticalAlignment="Top" Width="22" Background="{x:Null}" Click="RefreshButton_Click" Height="22" Foreground="{x:Null}" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle}">
             <StackPanel>
                 <Image x:Name="RefreshButtonImage" Source="ButtonImgs/PingWindow/RefreshButtons/0-RefreshButtonActive.png"/>
             </StackPanel>
         </Button>
-        <Button x:Name="SettingsButton" HorizontalAlignment="Left" Margin="255,126,0,0" VerticalAlignment="Top" Width="26" RenderTransformOrigin="0.118,0.403" Background="{x:Null}" Click="SettingsButton_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" Style="{DynamicResource ButtonStyle}">
+        <Button x:Name="SettingsButton" Margin="279,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.118,0.403" Background="{x:Null}" Click="SettingsButton_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" Style="{DynamicResource ButtonStyle}" Height="23" HorizontalAlignment="Left" Width="18">
             <StackPanel>
-                <Image x:Name="SettingsButtonImage" Source="ButtonImgs/PingWindow/SettingsButtons/0-SettingsButton.png" Height="26" RenderTransformOrigin="0.5,0.5" Width="20"/>
+                <Image x:Name="SettingsButtonImage" Source="ButtonImgs/PingWindow/SettingsButtons/0-SettingsButton.png" RenderTransformOrigin="0.5,0.5"/>
             </StackPanel>
         </Button>
-        <ComboBox x:Name="GamesListComboBox" HorizontalAlignment="Left" Margin="56,105,0,0" VerticalAlignment="Top" Width="178" Background="White" SelectionChanged="GamesListComboBox_SelectionChanged" IsEditable="True" IsReadOnly="True" Style="{DynamicResource GamesListComboBoxTemplate}" Template="{DynamicResource GamesListEditableTemplate}" ItemContainerStyle="{DynamicResource GamesListComboBoxItemStyle}"/>
-        <Label x:Name="SettingsLabel" Content="Settings" HorizontalAlignment="Left" Margin="406,10,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF0097A7"/>
-        <Button x:Name="SelectFileButton" HorizontalAlignment="Left" Margin="84,32,0,0" VerticalAlignment="Top" Width="124" Height="52" Background="{x:Null}" Click="SelectFileClick" BorderBrush="{x:Null}" Foreground="{x:Null}" MouseEnter="SelectFileButton_MouseEnter" MouseLeave="SelectFileButton_MouseLeave" Style="{DynamicResource ButtonStyle}">
+        <ComboBox x:Name="GamesListComboBox" Margin="69,78,0,314" Background="White" SelectionChanged="GamesListComboBox_SelectionChanged" IsEditable="True" IsReadOnly="True" Style="{DynamicResource GamesListComboBoxTemplate}" Template="{DynamicResource GamesListEditableTemplate}" ItemContainerStyle="{DynamicResource GamesListComboBoxItemStyle}" FontSize="12" HorizontalAlignment="Left" Width="182" VerticalContentAlignment="Center" FontFamily="/Pingly;component/Fonts/#Roboto Mono"/>
+        <Label x:Name="SettingsLabel" Content="Settings" HorizontalAlignment="Left" Margin="406,16,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF0097A7" FontSize="18" FontFamily="/Pingly;component/Fonts/#Orbitron"/>
+        <Button x:Name="SelectFileButton" HorizontalAlignment="Left" Margin="97,18,0,0" VerticalAlignment="Top" Width="124" Height="52" Background="{x:Null}" Click="SelectFileClick" BorderBrush="{x:Null}" Foreground="{x:Null}" MouseEnter="SelectFileButton_MouseEnter" MouseLeave="SelectFileButton_MouseLeave" Style="{DynamicResource ButtonStyle}">
             <StackPanel>
                 <Grid>
                     <Image x:Name="SelectFileButtonImage" Source="ButtonImgs/PingWindow/SelectFileButtons/0-SelectFileButtonDefault.png"/>
-                    <TextBlock x:Name="SelectGameListTextBlock" TextWrapping="WrapWithOverflow" Text="Select Game List" UseLayoutRounding="False" Width="64" ScrollViewer.VerticalScrollBarVisibility="Disabled" TextTrimming="CharacterEllipsis" Height="35" Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonDown="SelectFileClick"/>
+                    <TextBlock x:Name="SelectGameListTextBlock" TextWrapping="WrapWithOverflow" Text="Select Game List" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" TextTrimming="CharacterEllipsis" Height="35" Foreground="White" TextAlignment="Center" VerticalAlignment="Center" MouseLeftButtonDown="SelectFileClick" FontFamily="/Pingly;component/Fonts/#Roboto Mono" Margin="0,3,25,2" HorizontalAlignment="Right" Width="67"/>
                     <TextBlock x:Name="CurrentFileTextBlock" HorizontalAlignment="Left" Text="Unselected" VerticalAlignment="Center" Width="91" TextTrimming="CharacterEllipsis" Foreground="White" MouseLeftButtonDown="SelectFileClick" Margin="28,10,0,14" Visibility="Hidden"/>
                 </Grid>
             </StackPanel>
         </Button>
-        <Label x:Name="RegionListLabel" Content="Region" HorizontalAlignment="Left" Margin="313,121,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF0097A7"/>
-        <Label x:Name="PingPrecisionLabel" Content="Ping Precision" HorizontalAlignment="Left" Margin="313,90,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF0097A7"/>
-        <ComboBox x:Name="PingPrecisionComboBox" SelectedIndex="0" HorizontalAlignment="Left" Margin="402,90,0,0" VerticalAlignment="Top" Width="101" Template="{DynamicResource PingPrecisionEditableTemplate}" ItemContainerStyle="{DynamicResource PingPrecisionComboBoxItemStyle}" Style="{DynamicResource PingPrecisionComboBoxTemplate}" IsEditable="True" IsReadOnly="True" IsHitTestVisible="True" ScrollViewer.CanContentScroll="True"/>
-        <Button x:Name="SaveSettingsButton" HorizontalAlignment="Left" Margin="349,256,0,0" VerticalAlignment="Top" Width="60" Background="{x:Null}" Click="SaveSettingsButton_Click" Height="60" BorderBrush="{x:Null}" Foreground="{x:Null}" Style="{DynamicResource ButtonStyle}">
+        <Label x:Name="RegionListLabel" Content="Region:" HorizontalAlignment="Left" Margin="313,161,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF0097A7" FontFamily="/Pingly;component/Fonts/#Orbitron"/>
+        <Label x:Name="PingPrecisionLabel" Content="Ping Precision:" HorizontalAlignment="Left" Margin="313,116,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF0097A7" FontFamily="/Pingly;component/Fonts/#Orbitron"/>
+        <ComboBox x:Name="PingPrecisionComboBox" SelectedIndex="0" Margin="424,119,0,0" VerticalAlignment="Top" Template="{DynamicResource PingPrecisionEditableTemplate}" ItemContainerStyle="{DynamicResource PingPrecisionComboBoxItemStyle}" Style="{DynamicResource PingPrecisionComboBoxTemplate}" IsEditable="True" IsReadOnly="True" IsHitTestVisible="True" ScrollViewer.CanContentScroll="True" FontFamily="/Pingly;component/Fonts/#Roboto Mono" HorizontalAlignment="Left" Width="101"/>
+        <Button x:Name="SaveSettingsButton" HorizontalAlignment="Left" Margin="382,257,0,0" VerticalAlignment="Top" Width="40" Background="{x:Null}" Click="SaveSettingsButton_Click" Height="40" BorderBrush="{x:Null}" Foreground="{x:Null}" Style="{DynamicResource ButtonStyle}">
             <StackPanel>
                 <Image x:Name="SaveSettingsButtonImage" Source="ButtonImgs/PingWindow/SaveButtons/0-SaveButtonActive.png"/>
             </StackPanel>
         </Button>
-        <Button x:Name="CancelSettingsButton" HorizontalAlignment="Left" Margin="451,256,0,0" VerticalAlignment="Top" Width="60" Background="{x:Null}" Click="CancelSettingsButton_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="60" Style="{DynamicResource ButtonStyle}">
+        <Button x:Name="CancelSettingsButton" HorizontalAlignment="Left" Margin="439,257,0,0" VerticalAlignment="Top" Width="40" Background="{x:Null}" Click="CancelSettingsButton_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="40" Style="{DynamicResource ButtonStyle}">
             <StackPanel>
                 <Image x:Name="CancelSettingsButtonImage" Source="ButtonImgs/PingWindow/CancelButtons/0-CancelButtonActive.png"/>
             </StackPanel>
         </Button>
-        <Label x:Name="SelectedFileLabel" Content="Selected File:" HorizontalAlignment="Left" Margin="313,43,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF0097A7"/>
-        <Button x:Name="FileEditButton" HorizontalAlignment="Left" Margin="521,40,0,0" VerticalAlignment="Top" Width="26" Click="FileEditButton_Click" Height="33" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Style="{DynamicResource ButtonStyle}">
+        <Label x:Name="SelectedFileLabel" Content="Selected File:" HorizontalAlignment="Left" Margin="313,71,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF0097A7" FontFamily="/Pingly;component/Fonts/#Orbitron"/>
+        <Button x:Name="FileEditButton" HorizontalAlignment="Left" Margin="543,71,0,0" VerticalAlignment="Top" Width="24" Click="FileEditButton_Click" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Style="{DynamicResource ButtonStyle}">
             <StackPanel>
                 <Image x:Name="FileEditButtonImage" Source="ButtonImgs/PingWindow/SettingsButtons/0-SettingsButton.png" RenderTransformOrigin="1.114,0.518"/>
             </StackPanel>
         </Button>
-        <!--<ListView x:Name="RegionsListView" HorizontalAlignment="Left" Height="28" Margin="375,81,-34,0" VerticalAlignment="Top" Width="172" Background="#FF212121" IsHitTestVisible="True" SelectionMode="Single" BorderBrush="{x:Null}" Foreground="White" ItemContainerStyle="{DynamicResource ListViewItemStyle}" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-            <ListView.View>
-                <GridView AllowsColumnReorder="False" ColumnHeaderContainerStyle="{StaticResource RegionHeaderStyle}">
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>-->
-        <ListView x:Name="RegionsListView" HorizontalAlignment="Left" Margin="375,121,0,0" VerticalAlignment="Top" Width="172" Background="#FF212121" IsHitTestVisible="True" SelectionMode="Single" BorderBrush="{x:Null}" Foreground="White" ItemContainerStyle="{DynamicResource ListViewItemStyle}" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Style="{DynamicResource RegionListViewStyle}">
+        <ListView x:Name="RegionsListView" HorizontalAlignment="Left" Margin="382,161,0,0" VerticalAlignment="Top" Width="172" Background="#FF212121" IsHitTestVisible="True" SelectionMode="Single" BorderBrush="{x:Null}" Foreground="White" ItemContainerStyle="{DynamicResource ListViewItemStyle}" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Style="{DynamicResource RegionListViewStyle}" FontFamily="/Pingly;component/Fonts/#Roboto Mono">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Width="{Binding (FrameworkElement.ActualWidth), 
@@ -909,6 +896,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBlock x:Name="SelectedFileTextBlock" HorizontalAlignment="Left" Margin="397,48,0,0" VerticalAlignment="Top" Width="119" TextTrimming="CharacterEllipsis" Foreground="White"/>
+        <TextBlock x:Name="SelectedFileTextBlock" HorizontalAlignment="Left" Margin="424,76,0,0" VerticalAlignment="Top" Width="114" TextTrimming="CharacterEllipsis" Foreground="White" FontFamily="/Pingly;component/Fonts/#Roboto Mono"/>
     </Grid>
 </Window>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Pingly"
         xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Class="Pingly.FileEditWindow"
         mc:Ignorable="d"
-        Title="FileEditWindow" Height="557" Width="563" ResizeMode="CanMinimize" Background="White" WindowStartupLocation="CenterScreen">
+        Title="Pingly" Height="557" Width="418" ResizeMode="CanMinimize" Background="White" WindowStartupLocation="CenterOwner" FontFamily="/Pingly;component/Fonts/#Quicksand Light">
     <Window.Resources>
 
 
@@ -716,18 +716,18 @@
         </Style>
 
     </Window.Resources>
-    <Grid Background="#FF212121" Margin="0,0,-6,-2" MinWidth="623" MinHeight="478" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="ClearDataGridSelection">
+    <Grid Background="#FF212121" Margin="0,0,0,-2" MinWidth="623" MinHeight="478" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="ClearDataGridSelection" HorizontalAlignment="Left" Width="446">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="367*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="GameLabel" Content="Game" HorizontalAlignment="Left" Margin="64,50,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF0097A7"/>
-        <DataGrid Style="{DynamicResource DataGridStyle}" x:Name="ServersDataGrid" CanUserAddRows="false" HorizontalAlignment="Left" Height="261" Margin="64,192,0,0" VerticalAlignment="Top" Width="387" Background="#FF212121" BorderBrush="#FF4B4B4B" Foreground="#FF666666" GridLinesVisibility="None" AutoGenerateColumns="False" HeadersVisibility="Column" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Grid.ColumnSpan="2" RowBackground="#FF212121" CellEditEnding="ServersDataGrid_CellEditEnding" SelectionChanged="ServersOLV_SelectedIndexChanged" VerticalContentAlignment="Center" EnableRowVirtualization="False" SelectionMode="Single" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False" PreviewKeyDown="ServersDataGrid_PreviewKeyDown">
+        <Label x:Name="GameLabel" Content="Game" HorizontalAlignment="Left" Margin="28,58,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF0097A7" FontSize="14" FontFamily="/Pingly;component/Fonts/#Orbitron"/>
+        <DataGrid Style="{DynamicResource DataGridStyle}" x:Name="ServersDataGrid" CanUserAddRows="false" HorizontalAlignment="Left" Height="261" Margin="28,201,0,0" VerticalAlignment="Top" Width="344" Background="#FF212121" BorderBrush="#FF4B4B4B" Foreground="#FF666666" GridLinesVisibility="None" AutoGenerateColumns="False" HeadersVisibility="Column" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" RowBackground="#FF212121" CellEditEnding="ServersDataGrid_CellEditEnding" SelectionChanged="ServersOLV_SelectedIndexChanged" VerticalContentAlignment="Center" EnableRowVirtualization="False" SelectionMode="Single" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False" PreviewKeyDown="ServersDataGrid_PreviewKeyDown" FontFamily="/Pingly;component/Fonts/#Roboto Mono">
             <DataGrid.Resources>
                 <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
                    Color="#FF434343"/>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Name}" ClipboardContentBinding="{x:Null}" Foreground="#FFFFAD00" Header="Name" MaxWidth="124" MinWidth="124" CanUserResize="False">
+                <DataGridTextColumn Binding="{Binding Name}" ClipboardContentBinding="{x:Null}" Foreground="#FFFFAD00" Header="Name" MaxWidth="144" MinWidth="144" CanUserResize="False" Width="144">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -741,7 +741,7 @@
                         </Style>
                     </DataGridTextColumn.EditingElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding Ip}" ClipboardContentBinding="{x:Null}" Foreground="#FFFFAD00" CanUserResize="False" Header="IP" MaxWidth="261" MinWidth="261">
+                <DataGridTextColumn Binding="{Binding Ip}" ClipboardContentBinding="{x:Null}" Foreground="#FFFFAD00" CanUserResize="False" Header="IP" MaxWidth="198" MinWidth="198" Width="198">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -757,57 +757,57 @@
                 </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Label x:Name="RegionsLabel" Content="Regions" HorizontalAlignment="Left" Margin="64,104,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF005C65"/>
-        <Label x:Name="FileLabel" Content="&lt;File Name Label&gt;" HorizontalAlignment="Left" Margin="236,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Background="{x:Null}" Foreground="#FF0097A7"/>
+        <Label x:Name="RegionsLabel" Content="Regions" HorizontalAlignment="Left" Margin="28,116,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF005C65" FontSize="14" FontFamily="/Pingly;component/Fonts/#Orbitron"/>
+        <Label x:Name="FileLabel" Content="&lt;File Name Label&gt;" HorizontalAlignment="Left" Margin="44,9,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF0097A7" FontSize="18" Width="328" FontFamily="/Pingly;component/Fonts/#Orbitron" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
-        <Button x:Name="AddGameButton" HorizontalAlignment="Left" Margin="268,36,0,0" VerticalAlignment="Top" Width="48" Height="48" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="AddGameButton_Click" MouseEnter="AddGameButton_MouseEnter" MouseLeave="AddGameButton_MouseLeave" BorderThickness="1" Style="{DynamicResource ButtonStyle}">
+        <Button x:Name="AddGameButton" HorizontalAlignment="Left" Margin="275,55,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="AddGameButton_Click" MouseEnter="AddGameButton_MouseEnter" MouseLeave="AddGameButton_MouseLeave" BorderThickness="1" Style="{DynamicResource ButtonStyle}">
             <StackPanel>
                 <Image x:Name="AddGameButtonImage" Source="ButtonImgs/EditGameListWindow/AddButtons/0-AddButtonDisabled.png"/>
             </StackPanel>
         </Button>
-        <Button x:Name="EditGameButton" HorizontalAlignment="Left" Margin="321,36,0,0" VerticalAlignment="Top" Width="48" Height="48" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="EditGameButton_Click" MouseEnter="EditGameButton_MouseEnter" MouseLeave="EditGameButton_MouseLeave" Style="{DynamicResource ButtonStyle}">
+        <Button x:Name="EditGameButton" HorizontalAlignment="Left" Margin="312,55,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="EditGameButton_Click" MouseEnter="EditGameButton_MouseEnter" MouseLeave="EditGameButton_MouseLeave" Style="{DynamicResource ButtonStyle}">
             <StackPanel>
                 <Image x:Name="EditGameButtonImage" Source="ButtonImgs/EditGameListWindow/EditButtons/0-EditButtonDisabled.png"/>
             </StackPanel>
         </Button>
-        <Button x:Name="DeleteGameButton" HorizontalAlignment="Left" Margin="374,36,0,0" VerticalAlignment="Top" Width="48" Height="48" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="DeleteGameButton_Click" MouseEnter="DeleteGameButton_MouseEnter" MouseLeave="DeleteGameButton_MouseLeave" Style="{DynamicResource ButtonStyle}">
+        <Button x:Name="DeleteGameButton" HorizontalAlignment="Left" Margin="349,55,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="DeleteGameButton_Click" MouseEnter="DeleteGameButton_MouseEnter" MouseLeave="DeleteGameButton_MouseLeave" Style="{DynamicResource ButtonStyle}">
             <StackPanel>
                 <Image x:Name="DeleteGameButtonImage" Source="ButtonImgs/EditGameListWindow/DeleteButtons/0-DeleteButtonDisabled.png"/>
             </StackPanel>
         </Button>
-        <Button x:Name="AddRegionButton" HorizontalAlignment="Left" Margin="268,91,0,0" VerticalAlignment="Top" Width="48" Height="48" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="AddRegionButton_Click" MouseEnter="AddRegionButton_MouseEnter" MouseLeave="AddRegionButton_MouseLeave" Style="{DynamicResource ButtonStyle}">
+        <Button x:Name="AddRegionButton" HorizontalAlignment="Left" Margin="275,114,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="AddRegionButton_Click" MouseEnter="AddRegionButton_MouseEnter" MouseLeave="AddRegionButton_MouseLeave" Style="{DynamicResource ButtonStyle}">
             <StackPanel>
                 <Image x:Name="AddRegionButtonImage" Source="ButtonImgs/EditGameListWindow/AddButtons/0-AddButtonDisabled.png"/>
             </StackPanel>
         </Button>
-        <Button x:Name="EditRegionButton" HorizontalAlignment="Left" Margin="321,89,0,0" VerticalAlignment="Top" Width="48" Height="48" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="EditRegionButton_Click" MouseEnter="EditRegionButton_MouseEnter" MouseLeave="EditRegionButton_MouseLeave" Style="{DynamicResource ButtonStyle}">
+        <Button x:Name="EditRegionButton" HorizontalAlignment="Left" Margin="312,114,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="EditRegionButton_Click" MouseEnter="EditRegionButton_MouseEnter" MouseLeave="EditRegionButton_MouseLeave" Style="{DynamicResource ButtonStyle}">
             <StackPanel>
                 <Image x:Name="EditRegionButtonImage" Source="ButtonImgs/EditGameListWindow/EditButtons/0-EditButtonDisabled.png"/>
             </StackPanel>
         </Button>
-        <Button x:Name="DeleteRegionButton" HorizontalAlignment="Left" Margin="374,89,0,0" VerticalAlignment="Top" Width="48" Height="48" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="DeleteRegionButton_Click" MouseEnter="DeleteRegionButton_MouseEnter" MouseLeave="DeleteRegionButton_MouseLeave" Style="{DynamicResource ButtonStyle}">
+        <Button x:Name="DeleteRegionButton" HorizontalAlignment="Left" Margin="349,114,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="DeleteRegionButton_Click" MouseEnter="DeleteRegionButton_MouseEnter" MouseLeave="DeleteRegionButton_MouseLeave" Style="{DynamicResource ButtonStyle}">
             <StackPanel>
                 <Image x:Name="DeleteRegionButtonImage" Source="ButtonImgs/EditGameListWindow/DeleteButtons/0-DeleteButtonDisabled.png"/>
             </StackPanel>
         </Button>
-        <Button x:Name="SaveChangesButton" HorizontalAlignment="Left" Margin="236,458,0,0" VerticalAlignment="Top" Width="48" Height="48" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" MouseEnter="SaveButtonMouseEnterOrLeave" MouseLeave="SaveButtonMouseEnterOrLeave" Click="SaveButton_Click" Style="{DynamicResource ButtonStyle}">
+        <Button x:Name="SaveChangesButton" HorizontalAlignment="Left" Margin="186,468,0,0" VerticalAlignment="Top" Width="46" Height="46" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" MouseEnter="SaveButtonMouseEnterOrLeave" MouseLeave="SaveButtonMouseEnterOrLeave" Click="SaveButton_Click" Style="{DynamicResource ButtonStyle}">
             <StackPanel>
                 <Image x:Name="SaveChangesButtonImage" Source="ButtonImgs/EditGameListWindow/SaveButtons/0-SaveButtonActive.png"/>
             </StackPanel>
         </Button>
-        <Button x:Name="AddServerButton" HorizontalAlignment="Left" Margin="403,144,0,0" VerticalAlignment="Top" Width="48" Height="48" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="AddServerButton_Click" MouseEnter="AddServerButton_MouseEnter" MouseLeave="AddServerButton_MouseLeave" Style="{DynamicResource ButtonStyle}">
+        <Button x:Name="AddServerButton" HorizontalAlignment="Left" Margin="344,170,0,0" VerticalAlignment="Top" Width="28" Height="28" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="AddServerButton_Click" MouseEnter="AddServerButton_MouseEnter" MouseLeave="AddServerButton_MouseLeave" Style="{DynamicResource ButtonStyle}">
             <StackPanel>
                 <Image x:Name="AddServerButtonImage" Source="ButtonImgs/EditGameListWindow/AddServerButtons/0-ServerAddButtonDisabled.png"/>
             </StackPanel>
         </Button>
-        <Button x:Name="DeleteServerButton" HorizontalAlignment="Left" Margin="403,144,0,0" VerticalAlignment="Top" Width="48" Height="48" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" MouseEnter="DeleteServerButtonMouseEnterOrLeave" MouseLeave="DeleteServerButtonMouseEnterOrLeave" Click="DeleteServerButton_Click" Style="{DynamicResource ButtonStyle}">
+        <Button x:Name="DeleteServerButton" HorizontalAlignment="Left" Margin="344,170,0,0" VerticalAlignment="Top" Width="28" Height="28" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" MouseEnter="DeleteServerButtonMouseEnterOrLeave" MouseLeave="DeleteServerButtonMouseEnterOrLeave" Click="DeleteServerButton_Click" Style="{DynamicResource ButtonStyle}">
             <StackPanel>
                 <Image x:Name="DeleteServerButtonImage" Source="ButtonImgs/EditGameListWindow/DeleteServerButtons/0-ServerDeleteButtonActive.png"/>
             </StackPanel>
         </Button>
-        <Label x:Name="ServersLabel" Content="Servers" HorizontalAlignment="Left" Margin="64,161,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF005C65"/>
+        <Label x:Name="ServersLabel" Content="Servers" HorizontalAlignment="Left" Margin="28,169,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF005C65" FontSize="14" FontFamily="/Pingly;component/Fonts/#Orbitron"/>
 
-        <ComboBox x:Name="gamesListComboBox" HorizontalAlignment="Left" Margin="128,50,0,0" VerticalAlignment="Top" Width="120" TextBoxBase.TextChanged="GamesListComboBoxSearchForGame" Style="{DynamicResource GamesListComboBoxTemplate}" IsEditable="True" DropDownClosed="ClearFocus" ItemContainerStyle="{DynamicResource GamesListComboBoxItemStyle}"/>
-        <ComboBox x:Name="regionsListComboBox" HorizontalAlignment="Left" Margin="128,108,0,0" VerticalAlignment="Top" Width="120" TextBoxBase.TextChanged="RegionsListComboBoxSearchForRegion"  Style="{DynamicResource RegionsListComboBoxTemplate}" IsEditable="True" ItemContainerStyle="{DynamicResource RegionListComboBoxItemStyle}" DropDownClosed="ClearFocus"/>
+        <ComboBox x:Name="gamesListComboBox" HorizontalAlignment="Left" Margin="105,58,0,0" VerticalAlignment="Top" Width="165" TextBoxBase.TextChanged="GamesListComboBoxSearchForGame" Style="{DynamicResource GamesListComboBoxTemplate}" IsEditable="True" DropDownClosed="ClearFocus" ItemContainerStyle="{DynamicResource GamesListComboBoxItemStyle}" FontSize="12" Height="30" VerticalContentAlignment="Center" FontFamily="/Pingly;component/Fonts/#Roboto Mono"/>
+        <ComboBox x:Name="regionsListComboBox" HorizontalAlignment="Left" Margin="105,116,0,0" VerticalAlignment="Top" Width="165" TextBoxBase.TextChanged="RegionsListComboBoxSearchForRegion"  Style="{DynamicResource RegionsListComboBoxTemplate}" IsEditable="True" ItemContainerStyle="{DynamicResource RegionListComboBoxItemStyle}" DropDownClosed="ClearFocus" FontSize="12" Height="30" VerticalContentAlignment="Center" FontFamily="/Pingly;component/Fonts/#Roboto Mono"/>
     </Grid>
 </Window>

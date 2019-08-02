@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pingly"
-        mc:Ignorable="d" Height="160" Width="262" WindowStartupLocation="CenterScreen" WindowStyle="None" BorderBrush="White" Foreground="{x:Null}" Background="White" ResizeMode="NoResize">
+        mc:Ignorable="d" Height="160" Width="262" WindowStartupLocation="CenterOwner" WindowStyle="None" BorderBrush="White" Foreground="{x:Null}" Background="White" ResizeMode="NoResize">
     <Window.Resources>
         <!--Button Styling-->
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
@@ -64,7 +64,7 @@
         </Style>
     </Window.Resources>
     <Grid Background="#FF0031B6" Margin="2">
-        <Label x:Name="DeleteLabel" Content="Delete?" HorizontalAlignment="Left" Margin="54,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="40"/>
+        <Label x:Name="DeleteLabel" Content="Delete?" Margin="40,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="40" FontFamily="/Pingly;component/Fonts/#Roboto Mono" HorizontalAlignment="Left" Width="178"/>
         <Button x:Name="ConfirmDeleteButton" HorizontalAlignment="Left" Margin="66,78,0,0" VerticalAlignment="Top" Width="48" Height="48" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="ConfirmButton_Click" Style="{DynamicResource ButtonStyle}">
             <StackPanel>
                 <Image x:Name="ConfirmDeleteButtonImage" Source="ButtonImgs/DeleteItemWindow/ConfirmDeleteButtons/0-ConfirmDelete.png" MouseEnter="ConfirmDeleteButtonImage_MouseEnter" MouseLeave="ConfirmDeleteButtonImage_MouseLeave"/>

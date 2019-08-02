@@ -109,6 +109,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\Orbitron-Regular.ttf" />
+    <Resource Include="Fonts\Quicksand-Regular.ttf" />
+    <Resource Include="Fonts\RobotoMono-Regular.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -197,5 +200,6 @@
   <ItemGroup>
     <Resource Include="ButtonImgs\PingWindow\RefreshButtons\2-RefreshButtonCancel.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

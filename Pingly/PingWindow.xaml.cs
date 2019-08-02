@@ -119,7 +119,7 @@ namespace Pingly
                 GamesListComboBox.Items.Add(game.Name);
             }
 
-            GamesListComboBox.Text = "Game Name";
+            GamesListComboBox.Text = "Select Game";
             //GamesListComboBox.SelectedIndex = 0;
 
             PingPrecisionComboBox.Items.Clear();
@@ -333,22 +333,20 @@ namespace Pingly
 
         private void ResizeForm()
         {
-            string formWidth = (this.Width <= 367) ? "closed" : "opened";
+            string formWidth = (this.Width <= 332) ? "closed" : "opened";
 
             if (formWidth == "closed")
             {
-                while (this.Width < 621)
+                while (this.Width < 596)
                 {
                     this.Width += 6;
-                    //Application.DoEvents();
                 }
             }
             else if (formWidth == "opened")
             {
-                while (this.Width > 367)
+                while (this.Width > 332)
                 {
                     this.Width -= 6;
-                    //Application.DoEvents();
                 }
             }
         }
@@ -364,7 +362,6 @@ namespace Pingly
                 pingSortDirection = pingSortDirection == "Ascending" ? "Descending" : "Ascending";
             }
         }
-
         private void ServerNameColumnHeader_Click(object sender, RoutedEventArgs e)
         {
             if (pingingServerList.Count > 0)
@@ -376,7 +373,6 @@ namespace Pingly
                 nameSortDirection = nameSortDirection == "Ascending" ? "Descending" : "Ascending";
             }
         }
-
         private void SortColumnByHeader(string header, string sortDirection)
         {
             ListSortDirection lsdir;
