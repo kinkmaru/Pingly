@@ -198,8 +198,7 @@
     <Resource Include="StatusButtonImgs\1-PingYellow.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\PingWindow\RefreshButtons\2-RefreshButtonCancel.png" />
+    <Resource Include="ButtonImgs\PingWindow\RefreshButtons\2-CancelPing.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

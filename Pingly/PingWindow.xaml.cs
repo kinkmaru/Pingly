@@ -299,6 +299,7 @@ namespace Pingly
             if (!SaveSettingsButtonImage.Source.ToString().Contains("2"))
             {
                 SetPingSettings();
+                ResizeForm();
                 PingServers();
             }
         }
