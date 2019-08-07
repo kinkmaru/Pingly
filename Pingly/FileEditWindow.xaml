@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Pingly"
         xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Class="Pingly.FileEditWindow"
         mc:Ignorable="d"
-        Title="Pingly" Height="557" Width="418" ResizeMode="CanMinimize" Background="White" WindowStartupLocation="CenterOwner" FontFamily="/Pingly;component/Fonts/#Quicksand Light">
+        Title="Pingly" Height="557" Width="418" ResizeMode="CanMinimize" Background="White" WindowStartupLocation="CenterOwner" FontFamily="/Pingly;component/Fonts/#Quicksand Light" Icon="Logo.png">
     <Window.Resources>
 
 
@@ -767,7 +767,7 @@
         </Button>
         <Button x:Name="EditGameButton" HorizontalAlignment="Left" Margin="312,55,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="EditGameButton_Click" MouseEnter="EditGameButton_MouseEnter" MouseLeave="EditGameButton_MouseLeave" Style="{DynamicResource ButtonStyle}">
             <StackPanel>
-                <Image x:Name="EditGameButtonImage" Source="ButtonImgs/EditGameListWindow/EditButtons/0-EditButtonDisabled.png"/>
+                <Image x:Name="EditGameButtonImage" Source="ButtonImgs/EditGameListWindow/EditButtons/0-EditButtonDisabledWithPoint.png"/>
             </StackPanel>
         </Button>
         <Button x:Name="DeleteGameButton" HorizontalAlignment="Left" Margin="349,55,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="DeleteGameButton_Click" MouseEnter="DeleteGameButton_MouseEnter" MouseLeave="DeleteGameButton_MouseLeave" Style="{DynamicResource ButtonStyle}">
@@ -782,7 +782,7 @@
         </Button>
         <Button x:Name="EditRegionButton" HorizontalAlignment="Left" Margin="312,114,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="EditRegionButton_Click" MouseEnter="EditRegionButton_MouseEnter" MouseLeave="EditRegionButton_MouseLeave" Style="{DynamicResource ButtonStyle}">
             <StackPanel>
-                <Image x:Name="EditRegionButtonImage" Source="ButtonImgs/EditGameListWindow/EditButtons/0-EditButtonDisabled.png"/>
+                <Image x:Name="EditRegionButtonImage" Source="ButtonImgs/EditGameListWindow/EditButtons/0-EditButtonDisabledWithPoint.png"/>
             </StackPanel>
         </Button>
         <Button x:Name="DeleteRegionButton" HorizontalAlignment="Left" Margin="349,114,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="DeleteRegionButton_Click" MouseEnter="DeleteRegionButton_MouseEnter" MouseLeave="DeleteRegionButton_MouseLeave" Style="{DynamicResource ButtonStyle}">

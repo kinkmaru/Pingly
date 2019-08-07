@@ -144,8 +144,8 @@
     <Resource Include="ButtonImgs\EditGameListWindow\DeleteServerButtons\1-ServerDeleteButtonActiveHover.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\1-EditButtonActive.png" />
-    <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\2-EditButtonActiveHover.png" />
+    <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\EditButtonActive.png" />
+    <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\EditButtonActiveHover.png" />
     <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\3-EditButtonEditingConfirm.png" />
   </ItemGroup>
   <ItemGroup>
@@ -153,7 +153,7 @@
     <Resource Include="ButtonImgs\EditGameListWindow\SaveButtons\1-SaveButtonHover.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\0-EditButtonDisabled.png" />
+    <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\EditButtonDisabled.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ButtonImgs\DeleteItemWindow\CancelDeleteButtons\1-CancelDeleteHover.png" />
@@ -176,9 +176,6 @@
     <Resource Include="ButtonImgs\PingWindow\RefreshButtons\1-RefreshButtonDisabled.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\PingWindow\SettingsButtons\0-SettingsButton.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="ButtonImgs\PingWindow\SaveButtons\0-SaveButtonActive.png" />
     <Resource Include="ButtonImgs\PingWindow\SaveButtons\1-SaveButtonHover.png" />
   </ItemGroup>
@@ -199,6 +196,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ButtonImgs\PingWindow\RefreshButtons\2-CancelPing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ButtonImgs\PingWindow\SettingsButtons\0-SettingsButtonWithPoint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\2-EditButtonActiveHoverWithPoint.png" />
+    <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\1-EditButtonActiveWithPoint.png" />
+    <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\0-EditButtonDisabledWithPoint.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

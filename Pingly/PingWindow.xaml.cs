@@ -32,7 +32,7 @@ namespace Pingly
         Dictionary<string, ImageList> buttonsImageList = new Dictionary<string, ImageList>();
         Dictionary<string, ImageList> serverStatusImageList = new Dictionary<string, ImageList>();
 
-        private bool isPingCancelled;
+        public bool isPingCancelled;
 
         private string pingSortDirection = "Ascending";
         private string nameSortDirection = "Ascending";
@@ -120,7 +120,6 @@ namespace Pingly
             }
 
             GamesListComboBox.Text = "Select Game";
-            //GamesListComboBox.SelectedIndex = 0;
 
             PingPrecisionComboBox.Items.Clear();
             PingPrecisionComboBox.Items.Add("Fast");
@@ -142,7 +141,6 @@ namespace Pingly
             SelectedFileTextBlock.Text = gamesXMLFileName;
 
             PingingListView.ItemsSource = pingingServerList;
-            //ResetForm();
         }
 
         private void ResetForm()
@@ -173,34 +171,6 @@ namespace Pingly
             }
         }
 
-        private void PingServers(List<Server> serverList, int timesToPing)
-        {
-            Pinging ping = new Pinging();
-
-            double totalServers = serverList.Count();
-            double pingProgressionCount = 0;
-
-            foreach (Server server in serverList)
-            {
-                if(isPingCancelled)
-                {
-                    isPingCancelled = false;
-                    break;
-                }
-                server.Ping = ping.GetAveragePing(server, timesToPing);
-                server.Status = serverStatusImageList["StatusButtonImgs"].Images[ping.GetPingStatusCode(server.Ping)];
-
-                pingProgressionCount++;
-                int progressValue = Convert.ToInt32(Math.Floor(((pingProgressionCount / totalServers) * 100)));
-
-                PingingListView.Dispatcher.Invoke(() =>
-                {
-                    pingingServerList.Add(server);
-                    PingingProgressBar.Value = progressValue;
-                });
-            }
-        }
-
         private async void PingServers()
         {
             if (GamesListComboBox.SelectedItem != null)
@@ -215,7 +185,35 @@ namespace Pingly
                 PingingListView.IsEnabled = true;
 
                 List<Server> serverList = gameList.Find(x => x.Name == pingItems.GameName).Regions.Find(y => y.Name == pingItems.RegionName).Servers;
-                await Task.Run(() => PingServers(serverList, GetPingPrecision(pingItems.PingPrecision)));
+
+                await Task.Run(() =>
+                {
+                    Pinging ping = new Pinging();
+
+                    double totalServers = serverList.Count();
+                    double pingProgressionCount = 0;
+
+                    foreach (Server server in serverList)
+                    {
+                        if (isPingCancelled)
+                        {
+                            isPingCancelled = false;
+                            break;
+                        }
+                        server.Ping = ping.GetAveragePing(server, GetPingPrecision(pingItems.PingPrecision));
+                        server.Status = serverStatusImageList["StatusButtonImgs"].Images[ping.GetPingStatusCode(server.Ping)];
+
+                        pingProgressionCount++;
+                        int progressValue = Convert.ToInt32(Math.Floor(((pingProgressionCount / totalServers) * 100)));
+
+                        PingingListView.Dispatcher.Invoke(() =>
+                        {
+                            pingingServerList.Add(server);
+                            PingingProgressBar.Value = progressValue;
+                        });
+                    }
+                });
+
 
                 SaveSettingsButton.IsEnabled = true;
                 SettingsButton.IsEnabled = true;
@@ -282,9 +280,10 @@ namespace Pingly
                 ResetSettings();
                 PingServers();
             }
-            else if(RefreshButtonImage.Source.ToString().Contains("2"))
+            else if (RefreshButtonImage.Source.ToString().Contains("2"))
             {
                 isPingCancelled = true;
+                //tokenSource.Cancel();
             }
         }
 
