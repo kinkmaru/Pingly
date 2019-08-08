@@ -240,6 +240,8 @@ namespace Pingly
             if (fileEditWindow == null || !fileEditWindow.IsLoaded)
                 fileEditWindow = new FileEditWindow(chosenGameList);
 
+            fileEditWindow.Owner = this;
+
             fileEditWindow.Show();
             fileEditWindow.IsVisibleChanged += FileEditWindowClosed;
             SetPingCapabilities(false);

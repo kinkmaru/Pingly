@@ -1,17 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <games>
-  <game name="Test">
-    <region name="All">
-      <server name="Green" ip="24.105.30.129" />
-      <server name="Yellow" ip="24.105.62.129" />
-      <server name="Orange" ip="185.60.112.157" />
-      <server name="Red" ip="54.94.196.47" />
-    </region>
-    <region name="All2" />
-    <region name="All3" />
-    <region name="All4" />
-    <region name="All5" />
-  </game>
   <game name="Diablo III">
     <region name="EU2">
       <server name="Europe 1" ip="185.60.112.157" />
@@ -214,5 +202,21 @@
       <server name="Old School 224" ip="oldschool224.runescape.com" />
       <server name="Old School 225" ip="oldschool225.runescape.com" />
     </region>
+  </game>
+  <game name="Testasd">
+    <region name="All">
+      <server name="Green" ip="24.105.30.129" />
+      <server name="Yellow" ip="24.105.62.129" />
+      <server name="Orange" ip="185.60.112.157" />
+      <server name="Red" ip="54.94.196.47" />
+      <server name="Blue" ip="hello" />
+    </region>
+    <region name="All3" />
+    <region name="All4" />
+    <region name="All5" />
+    <region name="Al2">
+      <server name="there" ip="80" />
+    </region>
+    <region name="ser" />
   </game>
 </games>

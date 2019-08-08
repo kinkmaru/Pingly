@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Pingly"
         xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Class="Pingly.PingWindow"
         mc:Ignorable="d"
-        Title="Pingly" Height="455" Width="332" Background="White" ResizeMode="CanMinimize" Icon="Logo.png">
+        Title="Pingly" Height="455" Width="332" Background="White" ResizeMode="CanMinimize" Icon="Logo.png" WindowStartupLocation="CenterScreen">
     <Window.Resources>
 
 
@@ -873,9 +873,9 @@
             </StackPanel>
         </Button>
         <Label x:Name="SelectedFileLabel" Content="Selected File:" HorizontalAlignment="Left" Margin="313,71,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF0097A7" FontFamily="/Pingly;component/Fonts/#Orbitron"/>
-        <Button x:Name="FileEditButton" HorizontalAlignment="Left" Margin="543,71,0,0" VerticalAlignment="Top" Width="24" Click="FileEditButton_Click" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Style="{DynamicResource ButtonStyle}">
+        <Button x:Name="FileEditButton" HorizontalAlignment="Left" Margin="543,71,0,0" VerticalAlignment="Top" Width="30" Click="FileEditButton_Click" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Style="{DynamicResource ButtonStyle}">
             <StackPanel>
-                <Image x:Name="FileEditButtonImage" Source="ButtonImgs/PingWindow/SettingsButtons/0-SettingsButtonWithPoint.png" RenderTransformOrigin="1.114,0.518"/>
+                <Image x:Name="FileEditButtonImage" Source="ButtonImgs/PingWindow/SettingsButtons/1-EditButtonActiveWithPoint.png" RenderTransformOrigin="1.114,0.518"/>
             </StackPanel>
         </Button>
         <ListView x:Name="RegionsListView" HorizontalAlignment="Left" Margin="382,161,0,0" VerticalAlignment="Top" Width="172" Background="#FF212121" IsHitTestVisible="True" SelectionMode="Single" BorderBrush="{x:Null}" Foreground="White" ItemContainerStyle="{DynamicResource ListViewItemStyle}" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Style="{DynamicResource RegionListViewStyle}" FontFamily="/Pingly;component/Fonts/#Roboto Mono">

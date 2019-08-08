@@ -29,6 +29,11 @@
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
             <Setter Property="BorderBrush" Value="White"/>
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="true">
+                    <Setter Property="BorderThickness" Value="1"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
         <!--Button Styling-->
@@ -807,7 +812,7 @@
         </Button>
         <Label x:Name="ServersLabel" Content="Servers" HorizontalAlignment="Left" Margin="28,169,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF005C65" FontSize="14" FontFamily="/Pingly;component/Fonts/#Orbitron"/>
 
-        <ComboBox x:Name="gamesListComboBox" HorizontalAlignment="Left" Margin="105,58,0,0" VerticalAlignment="Top" Width="165" TextBoxBase.TextChanged="GamesListComboBoxSearchForGame" Style="{DynamicResource GamesListComboBoxTemplate}" IsEditable="True" DropDownClosed="ClearFocus" ItemContainerStyle="{DynamicResource GamesListComboBoxItemStyle}" FontSize="12" Height="30" VerticalContentAlignment="Center" FontFamily="/Pingly;component/Fonts/#Roboto Mono"/>
-        <ComboBox x:Name="regionsListComboBox" HorizontalAlignment="Left" Margin="105,116,0,0" VerticalAlignment="Top" Width="165" TextBoxBase.TextChanged="RegionsListComboBoxSearchForRegion"  Style="{DynamicResource RegionsListComboBoxTemplate}" IsEditable="True" ItemContainerStyle="{DynamicResource RegionListComboBoxItemStyle}" DropDownClosed="ClearFocus" FontSize="12" Height="30" VerticalContentAlignment="Center" FontFamily="/Pingly;component/Fonts/#Roboto Mono"/>
+        <ComboBox x:Name="gamesListComboBox" HorizontalAlignment="Left" Margin="105,58,0,0" VerticalAlignment="Top" Width="165" TextBoxBase.TextChanged="GamesListComboBoxSearchForGame" Style="{DynamicResource GamesListComboBoxTemplate}" IsEditable="True" DropDownClosed="ClearFocus" ItemContainerStyle="{DynamicResource GamesListComboBoxItemStyle}" FontSize="12" Height="30" VerticalContentAlignment="Center" FontFamily="/Pingly;component/Fonts/#Roboto Mono" PreviewLostKeyboardFocus="gamesListComboBox_PreviewLostKeyboardFocus"/>
+        <ComboBox x:Name="regionsListComboBox" HorizontalAlignment="Left" Margin="105,116,0,0" VerticalAlignment="Top" Width="165" TextBoxBase.TextChanged="RegionsListComboBoxSearchForRegion"  Style="{DynamicResource RegionsListComboBoxTemplate}" IsEditable="True" ItemContainerStyle="{DynamicResource RegionListComboBoxItemStyle}" DropDownClosed="ClearFocus" FontSize="12" Height="30" VerticalContentAlignment="Center" FontFamily="/Pingly;component/Fonts/#Roboto Mono" PreviewLostKeyboardFocus="regionsListComboBox_PreviewLostKeyboardFocus"/>
     </Grid>
 </Window>

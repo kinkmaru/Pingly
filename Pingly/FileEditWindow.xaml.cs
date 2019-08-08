@@ -148,6 +148,12 @@ namespace Pingly
                 }
             }
         }
+        private void gamesListComboBox_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            // Should a user leave the combobox during an edit before completing, cancel movement
+            if (editingGameName)
+                e.Handled = true;
+        }
 
         private void AddGameButton_Click(object sender, EventArgs e)
         {
@@ -199,8 +205,8 @@ namespace Pingly
                         gamesListComboBox.Focus();
 
                         // Must find the combobox textbox template by name in order to modify its caret position
-                        var test = (TextBox)gamesListComboBox.Template.FindName("PART_EditableTextBox", gamesListComboBox);
-                        test.CaretIndex = gamesListComboBox.Text.Length;
+                        var gameComboTextBox = (TextBox)gamesListComboBox.Template.FindName("PART_EditableTextBox", gamesListComboBox);
+                        gameComboTextBox.CaretIndex = gamesListComboBox.Text.Length;
 
                         editingGameName = true;
                         gameBeingEdited = gamesListComboBox.Text;
@@ -265,6 +271,8 @@ namespace Pingly
             {
                 if (deleteItemWindow == null || !deleteItemWindow.IsLoaded)
                     deleteItemWindow = new DeleteItemWindow(gamesListComboBox.Text);
+
+                deleteItemWindow.Owner = this;
 
                 deleteItemWindow.Show();
                 deleteItemWindow.IsVisibleChanged += DeleteGameWindowClosed;
@@ -365,26 +373,50 @@ namespace Pingly
                 }
             }
         }
+        private void regionsListComboBox_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            // Should a user try to leave the combobox before completing an edit, cancel the movement
+            if (editingRegionName)
+            {
+                e.Handled = true;
+            }
+        }
 
         private void AddRegionButton_Click(object sender, EventArgs e)
         {
             if (!AddRegionButtonImage.Source.ToString().Contains("0"))
             {
-                // Add new region to gamelist and region combobox
-                Region newRegion = new Region();
-                newRegion.Name = regionsListComboBox.Text;
-                gameList.Find(x => x.Name == gamesListComboBox.Text).Regions.Add(newRegion);
-                Game regionsGame = gameList.Find(x => x.Name == gamesListComboBox.Text);
+                // store new region name for later use
+                string newRegionName = regionsListComboBox.Text;
 
-                var regions = regionsGame.Regions.OrderBy(x => x.Name);
-                regionsListComboBox.Items.Clear();
-                foreach (Region region in regions)
+                if (newRegionName.Length > 3)
                 {
-                    regionsListComboBox.Items.Add(region.Name);
-                }
+                    regionsListComboBox.Focus();
 
-                // Mage changes to form suitable to having a region selected
-                RegionsListComboBoxSearchForRegion(sender, e);
+                    // Must find the combobox textbox template by name in order to modify its caret position
+                    var regionComboTextBox = (TextBox)regionsListComboBox.Template.FindName("PART_EditableTextBox", regionsListComboBox);
+                    regionComboTextBox.CaretIndex = regionsListComboBox.Text.Length;
+
+                    // TODO: Display error
+                }
+                else
+                {
+                    // Add new region to gamelist and region combobox
+                    Region newRegion = new Region();
+                    newRegion.Name = newRegionName;
+                    gameList.Find(x => x.Name == gamesListComboBox.Text).Regions.Add(newRegion);
+                    Game regionsGame = gameList.Find(x => x.Name == gamesListComboBox.Text);
+
+                    var regions = regionsGame.Regions.OrderBy(x => x.Name);
+                    regionsListComboBox.Items.Clear();
+                    foreach (Region region in regions)
+                    {
+                        regionsListComboBox.Items.Add(region.Name);
+                    }
+
+                    // Mage changes to form suitable to having a region selected
+                    RegionsListComboBoxSearchForRegion(sender, e);
+                }
             }
         }
         private void AddRegionButton_MouseEnter(object sender, EventArgs e)
@@ -417,8 +449,8 @@ namespace Pingly
                         regionsListComboBox.Focus();
 
                         // Must find the combobox textbox template by name in order to modify its caret position
-                        var test = (TextBox)regionsListComboBox.Template.FindName("PART_EditableTextBox", regionsListComboBox);
-                        test.CaretIndex = regionsListComboBox.Text.Length;
+                        var regionComboTextBox = (TextBox)regionsListComboBox.Template.FindName("PART_EditableTextBox", regionsListComboBox);
+                        regionComboTextBox.CaretIndex = regionsListComboBox.Text.Length;
 
                         editingRegionName = true;
                         regionBeingEdited = regionsListComboBox.Text;
@@ -428,34 +460,49 @@ namespace Pingly
                 }
                 else
                 {
-                    // find existing region based on given game and region combobox text
-                    Game regionsGame = gameList.Find(x => x.Name == gamesListComboBox.Text);
-                    Region currentRegion = regionsGame.Regions.Find(x => x.Name == regionBeingEdited);
-
                     // store new region name for later use
                     string newRegionName = regionsListComboBox.Text;
 
-                    // remove existing region from the gameList
-                    gameList.Find(x => x == regionsGame).Regions.Remove(currentRegion);
-
-                    // Override the existing game name and re-enter into game list
-                    currentRegion.Name = newRegionName;
-                    gameList.Find(x => x == regionsGame).Regions.Add(currentRegion);
-
-                    // Order the new region list and populat the combobox
-                    var regions = regionsGame.Regions.OrderBy(x => x.Name);
-                    regionsListComboBox.Items.Clear();
-                    foreach (Region region in regions)
+                    if (newRegionName.Length > 3)
                     {
-                        regionsListComboBox.Items.Add(region.Name);
+                        regionsListComboBox.Focus();
+
+                        // Must find the combobox textbox template by name in order to modify its caret position
+                        var regionComboTextBox = (TextBox)regionsListComboBox.Template.FindName("PART_EditableTextBox", regionsListComboBox);
+                        regionComboTextBox.CaretIndex = regionsListComboBox.Text.Length;
+
+                        // TODO: Display error
+
                     }
+                    else
+                    {
+                        // find existing region based on given game and region combobox text
+                        Game regionsGame = gameList.Find(x => x.Name == gamesListComboBox.Text);
+                        Region currentRegion = regionsGame.Regions.Find(x => x.Name == regionBeingEdited);
 
-                    // set the combobox value to the new region name
-                    regionsListComboBox.SelectedValue = newRegionName;
 
-                    editingRegionName = false;
+                        // remove existing region from the gameList
+                        gameList.Find(x => x == regionsGame).Regions.Remove(currentRegion);
 
-                    EditRegionButtonImage.Source = buttonsImageList["EditButtons"].Images[2];
+                        // Override the existing game name and re-enter into game list
+                        currentRegion.Name = newRegionName;
+                        gameList.Find(x => x == regionsGame).Regions.Add(currentRegion);
+
+                        // Order the new region list and populat the combobox
+                        var regions = regionsGame.Regions.OrderBy(x => x.Name);
+                        regionsListComboBox.Items.Clear();
+                        foreach (Region region in regions)
+                        {
+                            regionsListComboBox.Items.Add(region.Name);
+                        }
+
+                        // set the combobox value to the new region name
+                        regionsListComboBox.SelectedValue = newRegionName;
+
+                        editingRegionName = false;
+
+                        EditRegionButtonImage.Source = buttonsImageList["EditButtons"].Images[2];
+                    }
                 }
             }
         }
@@ -483,6 +530,8 @@ namespace Pingly
             {
                 if (deleteItemWindow == null || !deleteItemWindow.IsLoaded)
                     deleteItemWindow = new DeleteItemWindow(regionsListComboBox.Text);
+
+                deleteItemWindow.Owner = this;
 
                 deleteItemWindow.Show();
                 deleteItemWindow.IsVisibleChanged += DeleteRegionWindowClosed;
@@ -597,6 +646,8 @@ namespace Pingly
                 deleteItemWindow = new DeleteItemWindow(server.Name);
             }
 
+            deleteItemWindow.Owner = this;
+
             deleteItemWindow.Show();
             deleteItemWindow.IsVisibleChanged += DeleteServerWindowClosed;
             deleteItemWindow.Focus();
@@ -646,7 +697,7 @@ namespace Pingly
             if (ServersDataGrid.SelectedItem != null)
             {
                 isCancelledByGridClick = true;
-                ServersDataGrid.CancelEdit();
+                ServersDataGrid.CommitEdit();
                 isCancelledByGridClick = false;
                 ServersDataGrid.UnselectAll();
             }
@@ -664,8 +715,14 @@ namespace Pingly
             // By handling the keydown event by default, this will prevent the datagrid tabbing to a new row
             if (e.Key == Key.Tab || e.Key == Key.Enter)
             {
-                e.Handled = true;
-                ServersDataGrid.CommitEdit();
+                DataGrid dg = sender as DataGrid;
+                if (dg.CurrentColumn.Header.ToString() == "Name")
+                    ServersDataGrid.CommitEdit();
+                else
+                {
+                    e.Handled = true;
+                    ServersDataGrid.CommitEdit();
+                }
             }
         }
     }

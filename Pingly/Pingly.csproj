@@ -208,5 +208,8 @@
     <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\1-EditButtonActiveWithPoint.png" />
     <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\0-EditButtonDisabledWithPoint.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ButtonImgs\PingWindow\SettingsButtons\1-EditButtonActiveWithPoint.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
