@@ -13,6 +13,23 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\New folder\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +49,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>A2E3F63E44F779D991B409DC82E9D0CF9E293F92</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Pingly_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationFramework.Aero2" />
@@ -66,6 +95,11 @@
     <Compile Include="PingWindow.xaml.cs">
       <DependentUpon>PingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Region.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="XMLManipulation.cs" />
@@ -95,11 +129,6 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -107,11 +136,12 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="Fonts\Orbitron-Regular.ttf" />
-    <Resource Include="Fonts\Quicksand-Regular.ttf" />
-    <Resource Include="Fonts\RobotoMono-Regular.ttf" />
+    <Content Include="Fonts\Orbitron-Regular.ttf" />
+    <Content Include="Fonts\Quicksand-Regular.ttf" />
+    <Content Include="Fonts\RobotoMono-Regular.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -121,95 +151,115 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\EditGameListWindow\AddButtons\0-AddButtonDisabled.png" />
+    <Content Include="ButtonImgs\EditGameListWindow\AddButtons\0-AddButtonDisabled.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\EditGameListWindow\AddButtons\1-AddButtonActive.png" />
+    <Content Include="ButtonImgs\EditGameListWindow\AddButtons\1-AddButtonActive.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\EditGameListWindow\AddButtons\2-AddButtonActiveHover.png" />
+    <Content Include="ButtonImgs\EditGameListWindow\AddButtons\2-AddButtonActiveHover.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\EditGameListWindow\AddServerButtons\1-ServerAddButtonActive.png" />
-    <Resource Include="ButtonImgs\EditGameListWindow\AddServerButtons\2-ServerAddButtonActiveHover.png" />
-    <Resource Include="ButtonImgs\EditGameListWindow\AddServerButtons\0-ServerAddButtonDisabled.png" />
+    <Content Include="ButtonImgs\EditGameListWindow\AddServerButtons\1-ServerAddButtonActive.png" />
+    <Content Include="ButtonImgs\EditGameListWindow\AddServerButtons\2-ServerAddButtonActiveHover.png" />
+    <Content Include="ButtonImgs\EditGameListWindow\AddServerButtons\0-ServerAddButtonDisabled.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\EditGameListWindow\DeleteButtons\1-DeleteButtonActive.png" />
-    <Resource Include="ButtonImgs\EditGameListWindow\DeleteButtons\2-DeleteButtonActiveHover.png" />
-    <Resource Include="ButtonImgs\EditGameListWindow\DeleteButtons\0-DeleteButtonDisabled.png" />
+    <Content Include="ButtonImgs\EditGameListWindow\DeleteButtons\1-DeleteButtonActive.png" />
+    <Content Include="ButtonImgs\EditGameListWindow\DeleteButtons\2-DeleteButtonActiveHover.png" />
+    <Content Include="ButtonImgs\EditGameListWindow\DeleteButtons\0-DeleteButtonDisabled.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\EditGameListWindow\DeleteServerButtons\0-ServerDeleteButtonActive.png" />
-    <Resource Include="ButtonImgs\EditGameListWindow\DeleteServerButtons\1-ServerDeleteButtonActiveHover.png" />
+    <Content Include="ButtonImgs\EditGameListWindow\DeleteServerButtons\0-ServerDeleteButtonActive.png" />
+    <Content Include="ButtonImgs\EditGameListWindow\DeleteServerButtons\1-ServerDeleteButtonActiveHover.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\EditButtonActive.png" />
-    <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\EditButtonActiveHover.png" />
-    <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\3-EditButtonEditingConfirm.png" />
+    <Content Include="ButtonImgs\EditGameListWindow\EditButtons\3-EditButtonEditingConfirm.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\EditGameListWindow\SaveButtons\0-SaveButtonActive.png" />
-    <Resource Include="ButtonImgs\EditGameListWindow\SaveButtons\1-SaveButtonHover.png" />
+    <Content Include="ButtonImgs\EditGameListWindow\SaveButtons\0-SaveButtonActive.png" />
+    <Content Include="ButtonImgs\EditGameListWindow\SaveButtons\1-SaveButtonHover.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\EditButtonDisabled.png" />
+    <Content Include="ButtonImgs\DeleteItemWindow\CancelDeleteButtons\1-CancelDeleteHover.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\DeleteItemWindow\CancelDeleteButtons\1-CancelDeleteHover.png" />
+    <Content Include="ButtonImgs\DeleteItemWindow\ConfirmDeleteButtons\0-ConfirmDelete.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\DeleteItemWindow\ConfirmDeleteButtons\0-ConfirmDelete.png" />
+    <Content Include="ButtonImgs\DeleteItemWindow\ConfirmDeleteButtons\1-ConfirmDeleteHover.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\DeleteItemWindow\ConfirmDeleteButtons\1-ConfirmDeleteHover.png" />
+    <Content Include="ButtonImgs\DeleteItemWindow\CancelDeleteButtons\0-CancelDelete.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\DeleteItemWindow\CancelDeleteButtons\0-CancelDelete.png" />
+    <Content Include="ButtonImgs\PingWindow\SelectFileButtons\1-SelectFileButtonActive.png" />
+    <Content Include="ButtonImgs\PingWindow\SelectFileButtons\0-SelectFileButtonDefault.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\PingWindow\SelectFileButtons\1-SelectFileButtonActive.png" />
-    <Resource Include="ButtonImgs\PingWindow\SelectFileButtons\0-SelectFileButtonDefault.png" />
+    <Content Include="ButtonImgs\PingWindow\RefreshButtons\0-RefreshButtonActive.png" />
+    <Content Include="ButtonImgs\PingWindow\RefreshButtons\1-RefreshButtonDisabled.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\PingWindow\RefreshButtons\0-RefreshButtonActive.png" />
-    <Resource Include="ButtonImgs\PingWindow\RefreshButtons\1-RefreshButtonDisabled.png" />
+    <Content Include="ButtonImgs\PingWindow\SaveButtons\0-SaveButtonActive.png" />
+    <Content Include="ButtonImgs\PingWindow\SaveButtons\1-SaveButtonHover.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\PingWindow\SaveButtons\0-SaveButtonActive.png" />
-    <Resource Include="ButtonImgs\PingWindow\SaveButtons\1-SaveButtonHover.png" />
+    <Content Include="ButtonImgs\PingWindow\CancelButtons\0-CancelButtonActive.png" />
+    <Content Include="ButtonImgs\PingWindow\CancelButtons\1-CancelButtonActiveHover.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\PingWindow\CancelButtons\0-CancelButtonActive.png" />
-    <Resource Include="ButtonImgs\PingWindow\CancelButtons\1-CancelButtonActiveHover.png" />
+    <Content Include="ButtonImgs\PingWindow\SaveButtons\2-SaveButtonDisabled.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\PingWindow\SaveButtons\2-SaveButtonDisabled.png" />
+    <Content Include="gamesList.xml" />
+    <Content Include="StatusButtonImgs\0-PingGreen.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="StatusButtonImgs\0-PingGreen.png" />
+    <Content Include="StatusButtonImgs\2-PingOrange.png" />
+    <Content Include="StatusButtonImgs\3-PingRed.png" />
+    <Content Include="StatusButtonImgs\1-PingYellow.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="StatusButtonImgs\2-PingOrange.png" />
-    <Resource Include="StatusButtonImgs\3-PingRed.png" />
-    <Resource Include="StatusButtonImgs\1-PingYellow.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="ButtonImgs\PingWindow\RefreshButtons\2-CancelPing.png" />
+    <Content Include="ButtonImgs\PingWindow\RefreshButtons\2-CancelPing.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\PingWindow\SettingsButtons\0-SettingsButtonWithPoint.png" />
+    <Content Include="ButtonImgs\PingWindow\SettingsButtons\0-SettingsButtonWithPoint.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\2-EditButtonActiveHoverWithPoint.png" />
-    <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\1-EditButtonActiveWithPoint.png" />
-    <Resource Include="ButtonImgs\EditGameListWindow\EditButtons\0-EditButtonDisabledWithPoint.png" />
+    <Content Include="ButtonImgs\EditGameListWindow\EditButtons\2-EditButtonActiveHoverWithPoint.png" />
+    <Content Include="ButtonImgs\EditGameListWindow\EditButtons\1-EditButtonActiveWithPoint.png" />
+    <Content Include="ButtonImgs\EditGameListWindow\EditButtons\0-EditButtonDisabledWithPoint.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ButtonImgs\PingWindow\SettingsButtons\1-EditButtonActiveWithPoint.png" />
+    <Content Include="ButtonImgs\PingWindow\SettingsButtons\1-EditButtonActiveWithPoint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="gamesList.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

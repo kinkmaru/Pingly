@@ -67,7 +67,7 @@ namespace Pingly
         private void LoadButtonImages()
         {
             // Load images into a dictionary of images for changing button appearance during events
-            string startingFolder = "../../ButtonImgs/EditGameListWindow/";
+            string startingFolder = "ButtonImgs/EditGameListWindow/";
             DirectoryInfo di = new DirectoryInfo(startingFolder);
             foreach (var directory in di.GetDirectories())
             {

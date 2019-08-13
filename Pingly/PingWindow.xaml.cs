@@ -24,7 +24,7 @@ namespace Pingly
     /// </summary>
     public partial class PingWindow : Window
     {
-        private string chosenGameList = "../../gamesList.xml";
+        private string chosenGameList = "gamesList.xml";
         List<Game> gameList = new List<Game>();
         private static FileEditWindow fileEditWindow;
         ObservableCollection<Server> pingingServerList = new ObservableCollection<Server>();
@@ -48,19 +48,21 @@ namespace Pingly
                 XML.CreateFreshGameList(chosenGameList);
             }
             LoadPingImages();
-            populateForm(chosenGameList, System.IO.Path.GetFileName(chosenGameList));
+            PopulateForm(chosenGameList, System.IO.Path.GetFileName(chosenGameList));
             SetPingSettings();
         }
 
         private void LoadPingImages()
         {
             // Load images into a dictionary of images for changing button appearance during events
-            string startingFolder = "../../ButtonImgs/PingWindow/";
+            string startingFolder = "ButtonImgs/PingWindow/";
             DirectoryInfo di = new DirectoryInfo(startingFolder);
             foreach (var directory in di.GetDirectories())
             {
-                ImageList il = new ImageList();
-                il.Name = directory.Name;
+                ImageList il = new ImageList
+                {
+                    Name = directory.Name
+                };
                 foreach (var file in directory.GetFiles())
                 {
                     BitmapImage bmpi = new BitmapImage(new Uri(startingFolder + directory.Name + "/" + file.Name, UriKind.RelativeOrAbsolute));
@@ -70,11 +72,13 @@ namespace Pingly
                 buttonsImageList.Add(directory.Name, il);
             }
 
-            startingFolder = "../../StatusButtonImgs/";
+            startingFolder = "StatusButtonImgs/";
             di = new DirectoryInfo(startingFolder);
 
-            ImageList bil = new ImageList();
-            bil.Name = di.Name;
+            ImageList bil = new ImageList
+            {
+                Name = di.Name
+            };
             foreach (var file in di.GetFiles())
             {
                 BitmapImage bmpi = new BitmapImage(new Uri(startingFolder + file.Name, UriKind.RelativeOrAbsolute));
@@ -105,7 +109,7 @@ namespace Pingly
             }
         }
 
-        private void populateForm(string gamesXMLFileLocation, string gamesXMLFileName)
+        private void PopulateForm(string gamesXMLFileLocation, string gamesXMLFileName)
         {
             ResetForm();
             XMLManipulation xmlRead = new XMLManipulation();
@@ -252,7 +256,7 @@ namespace Pingly
             if (fileEditWindow.isSavingFile)
             {
                 isUpdatingFile = true;
-                populateForm(chosenGameList, System.IO.Path.GetFileName(chosenGameList));
+                PopulateForm(chosenGameList, System.IO.Path.GetFileName(chosenGameList));
                 isUpdatingFile = false;
             }
             SetPingCapabilities(true);
@@ -317,7 +321,7 @@ namespace Pingly
             if (tryOpenFile == true)
             {
                 isUpdatingFile = true;
-                populateForm(ofd.FileName, ofd.SafeFileName);
+                PopulateForm(ofd.FileName, ofd.SafeFileName);
                 chosenGameList = ofd.FileName;
                 isUpdatingFile = false;
             }

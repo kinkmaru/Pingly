@@ -34,7 +34,7 @@ namespace Pingly
         private void LoadButtonImages()
         {
             // Load images into a dictionary of images for changing button appearance during events
-            string startingFolder = "../../ButtonImgs/DeleteItemWindow/";
+            string startingFolder = "ButtonImgs/DeleteItemWindow/";
             DirectoryInfo di = new DirectoryInfo(startingFolder);
             foreach (var directory in di.GetDirectories())
             {
