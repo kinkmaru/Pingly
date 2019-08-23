@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<games>
+  <game name="Diablo III">
+    <region name="BR">
+      <server name="Brazil(Americas)" ip="54.94.196.47" />
+    </region>
+    <region name="EU">
+      <server name="Europe 1" ip="185.60.112.157" />
+      <server name="Europe 2" ip="185.60.112.158" />
+    </region>
+    <region name="NA">
+      <server name="North America" ip="24.105.30.129" />
+    </region>
+  </game>
+  <game name="World of Warcraft">
+    <region name="EU">
+      <server name="Europe 1" ip="185.60.112.157" />
+      <server name="Europe 2" ip="185.60.112.158" />
+      <server name="Europe 3" ip="185.60.114.159" />
+    </region>
+    <region name="NA">
+      <server name="US West" ip="137.221.105.2" />
+      <server name="US Central" ip="24.105.62.129" />
+    </region>
+  </game>
+  <game name="League of Legends">
+    <region name="NA">
+      <server name="North America" ip="104.160.131.3" />
+    </region>
+    <region name="EUW">
+      <server name="Europe" ip="104.160.141.3" />
+    </region>
+    <region name="AUS">
+      <server name="Australia" ip="104.160.156.1" />
+    </region>
+    <region name="LAN">
+      <server name="Latin America" ip="104.160.136.3" />
+    </region>
+  </game>
+  <game name="Path of Exile">
+    <region name="NA">
+      <server name="Texas" ip="173.192.25.23" />
+      <server name="Washington DC" ip="158.85.40.111" />
+      <server name="California" ip="209.191.164.46" />
+    </region>
+    <region name="EU">
+      <server name="Amsterdam" ip="37.58.74.240" />
+      <server name="Frankfurt" ip="159.122.82.196" />
+      <server name="London" ip="109.169.19.133" />
+      <server name="Milan" ip="159.122.142.244" />
+      <server name="Paris" ip="159.8.113.7" />
+      <server name="Moscow" ip="109.95.212.141" />
+    </region>
+    <region name="OC">
+      <server name="Australia" ip="168.1.82.196" />
+      <server name="Singapore" ip="216.12.203.91" />
+      <server name="Japan" ip="161.202.101.39" />
+    </region>
+    <region name="BR">
+      <server name="Brazil" ip="169.57.132.54" />
+    </region>
+  </game>
+</games>
