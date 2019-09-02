@@ -1,16 +1,16 @@
-##Pingly
+## Pingly
 
 Pingly is a windows desktop application designed to help organize, and assess what servers a player should choose. The program will test your latency (m/s) to the given servers, and display them in a sortable list. The file containing the list of games can be modified within the program to allow for customization. 
 
-Installation:
+### Installation:
 1. Unzip "Pingly.7z" to any location.
 2. Open 'setup.exe' to install the application.
 3. A start menu shortcut will be made.
 4. The program will be opened on setup.
 
 
-How to use:
-Pinging a game:
+### How to use:
+#### Pinging a game:
 1. The program comes preloaded with the following games:
 	- Diablo 3
 	- League of Legends
@@ -23,14 +23,14 @@ Pinging a game:
 5. You can ping settings by clicking on the pencil icon.
 
 
-Settings:
+#### Settings:
 6. The settings tab displays what file is open, the ping precision (fast, moderate, or thorough), and the currently selected region.
 7. You can change the settings and click the checkmark icon to save. This will reping the game with the new settings.
 7-1. You can cancel a settings change by selected the red 'X' button with a circle around it.
 8. The yellow pencil icon with a circle around it opens the file editor.
 
 
-File Editing:
+### File Editing:
 1. Regions are loaded when a game is selected. Servers are loaded when a region is selected.
 2. To add a game, type into the game combobox and selected the green '+' icon.
 3. To edit a game, selected a game and click the yellow 'pencil' icon when it is available.
