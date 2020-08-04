@@ -5,3 +5,5 @@ Pingly is a windows desktop application designed to help organize, and assess a 
 /Deploy contains the Application installation files and running executable.
 
 /Pingly contains the source code.
+
+<img src="images/pingly.png"/>
